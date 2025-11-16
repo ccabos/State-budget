@@ -15,7 +15,7 @@ An interactive Sankey diagram visualization for exploring state government incom
 ### Prerequisites
 
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
-- Internet connection (for loading D3.js libraries from CDN)
+- No internet connection required - all D3.js libraries are included locally
 
 ### Running the Visualization
 
