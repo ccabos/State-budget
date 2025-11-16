@@ -1,0 +1,107 @@
+{
+  "state_name": {
+    "name": "State Display Name",
+    "nodes": [
+      {
+        "comment": "Income sources should be listed first",
+        "name": "Income Source 1",
+        "type": "income"
+      },
+      {
+        "name": "Income Source 2",
+        "type": "income"
+      },
+      {
+        "name": "Income Source 3",
+        "type": "income"
+      },
+      {
+        "comment": "Expenditure categories should be listed after income sources",
+        "name": "Expenditure Category 1",
+        "type": "expense"
+      },
+      {
+        "name": "Expenditure Category 2",
+        "type": "expense"
+      },
+      {
+        "name": "Expenditure Category 3",
+        "type": "expense"
+      }
+    ],
+    "links": [
+      {
+        "comment": "source and target are zero-based indices of nodes array",
+        "source": 0,
+        "target": 3,
+        "value": 10.5,
+        "note": "Value in billions of dollars"
+      },
+      {
+        "source": 0,
+        "target": 4,
+        "value": 5.2
+      },
+      {
+        "source": 1,
+        "target": 3,
+        "value": 8.0
+      },
+      {
+        "source": 1,
+        "target": 5,
+        "value": 12.3
+      },
+      {
+        "source": 2,
+        "target": 4,
+        "value": 6.7
+      },
+      {
+        "source": 2,
+        "target": 5,
+        "value": 4.1
+      }
+    ]
+  },
+  "example_state": {
+    "name": "Example State Budget",
+    "nodes": [
+      { "name": "Personal Income Tax", "type": "income" },
+      { "name": "Sales Tax", "type": "income" },
+      { "name": "Property Tax", "type": "income" },
+      { "name": "Federal Grants", "type": "income" },
+      { "name": "Education", "type": "expense" },
+      { "name": "Healthcare", "type": "expense" },
+      { "name": "Infrastructure", "type": "expense" },
+      { "name": "Public Safety", "type": "expense" },
+      { "name": "Administration", "type": "expense" }
+    ],
+    "links": [
+      { "source": 0, "target": 4, "value": 15.0 },
+      { "source": 0, "target": 5, "value": 12.0 },
+      { "source": 0, "target": 7, "value": 8.0 },
+      { "source": 1, "target": 4, "value": 10.0 },
+      { "source": 1, "target": 6, "value": 7.0 },
+      { "source": 1, "target": 8, "value": 5.0 },
+      { "source": 2, "target": 4, "value": 8.0 },
+      { "source": 2, "target": 6, "value": 6.0 },
+      { "source": 3, "target": 5, "value": 15.0 },
+      { "source": 3, "target": 4, "value": 10.0 },
+      { "source": 3, "target": 7, "value": 5.0 }
+    ]
+  },
+  "instructions": {
+    "note": "This is a template for creating new state budget data",
+    "steps": [
+      "1. Copy the structure above",
+      "2. Replace state_name with a unique identifier (lowercase, no spaces)",
+      "3. Update the 'name' field with the display name",
+      "4. List all income sources with type: 'income'",
+      "5. List all expenditure categories with type: 'expense'",
+      "6. Create links using node indices (0-based)",
+      "7. Values should be in billions of dollars",
+      "8. Add the data to the stateData object in index.html"
+    ]
+  }
+}
