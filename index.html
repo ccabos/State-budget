@@ -146,6 +146,15 @@
             width: 150px;
         }
 
+        .budget-info a {
+            color: #1976D3;
+            text-decoration: none;
+        }
+
+        .budget-info a:hover {
+            text-decoration: underline;
+        }
+
         .loading {
             text-align: center;
             padding: 40px;
@@ -312,7 +321,13 @@
             document.getElementById('info-deficit').textContent =
                 `${deficitLabel}: ${formatCurrency(Math.abs(deficit), metadata.currency_symbol, metadata.unit)}`;
 
-            document.getElementById('info-source').textContent = metadata.source;
+            // Update source with link if URL is available
+            const sourceElement = document.getElementById('info-source');
+            if (metadata.source_url) {
+                sourceElement.innerHTML = `<a href="${metadata.source_url}" target="_blank" rel="noopener noreferrer">${metadata.source}</a>`;
+            } else {
+                sourceElement.textContent = metadata.source;
+            }
 
             if (metadata.notes) {
                 document.getElementById('info-notes').textContent = metadata.notes;

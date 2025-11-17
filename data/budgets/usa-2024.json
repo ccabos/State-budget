@@ -9,6 +9,7 @@
     "total_expenditure": 6900.0,
     "deficit": 1800.0,
     "source": "Congressional Budget Office, U.S. Treasury, FY2024",
+    "source_url": "https://www.cbo.gov/publication/60843",
     "notes": "Federal budget for fiscal year 2024 (Oct 2023 - Sep 2024)"
   },
   "revenue": [

@@ -31,6 +31,7 @@ Contains information about the budget:
     "total_expenditure": 1100.0,
     "deficit": 100.0,
     "source": "Source of the data",
+    "source_url": "https://example.gov/budget-data",
     "notes": "Additional notes about the budget"
   }
 }
@@ -46,6 +47,7 @@ Contains information about the budget:
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)
 - `source`: Official source of the data
+- `source_url`: URL to the official data source (optional, but recommended)
 - `notes`: Any additional context or caveats
 
 ### 2. Revenue
