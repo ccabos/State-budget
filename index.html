@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>State Budget Sankey Diagram</title>
     <script src="lib/d3.min.js"></script>
-    <script src="lib/d3-sankey.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -169,13 +168,13 @@
             california: {
                 name: "California",
                 nodes: [
-                    // Income sources (0-5)
+                    // Income sources (0-4)
                     { name: "Personal Income Tax", type: "income" },
                     { name: "Sales Tax", type: "income" },
                     { name: "Corporate Tax", type: "income" },
                     { name: "Federal Funds", type: "income" },
                     { name: "Other Revenue", type: "income" },
-                    // Expenditure categories (6-12)
+                    // Expenditure categories (5-11)
                     { name: "K-12 Education", type: "expense" },
                     { name: "Higher Education", type: "expense" },
                     { name: "Health & Human Services", type: "expense" },
@@ -186,25 +185,25 @@
                 ],
                 links: [
                     // Personal Income Tax flows
-                    { source: 0, target: 6, value: 25 },
-                    { source: 0, target: 7, value: 15 },
-                    { source: 0, target: 8, value: 20 },
+                    { source: 0, target: 5, value: 25 },
+                    { source: 0, target: 6, value: 15 },
+                    { source: 0, target: 7, value: 20 },
                     // Sales Tax flows
-                    { source: 1, target: 6, value: 15 },
-                    { source: 1, target: 8, value: 10 },
-                    { source: 1, target: 9, value: 8 },
+                    { source: 1, target: 5, value: 15 },
+                    { source: 1, target: 7, value: 10 },
+                    { source: 1, target: 8, value: 8 },
                     // Corporate Tax flows
-                    { source: 2, target: 7, value: 8 },
-                    { source: 2, target: 10, value: 6 },
-                    { source: 2, target: 11, value: 5 },
+                    { source: 2, target: 6, value: 8 },
+                    { source: 2, target: 9, value: 6 },
+                    { source: 2, target: 10, value: 5 },
                     // Federal Funds flows
-                    { source: 3, target: 8, value: 18 },
-                    { source: 3, target: 6, value: 12 },
-                    { source: 3, target: 10, value: 8 },
+                    { source: 3, target: 7, value: 18 },
+                    { source: 3, target: 5, value: 12 },
+                    { source: 3, target: 9, value: 8 },
                     // Other Revenue flows
-                    { source: 4, target: 11, value: 7 },
-                    { source: 4, target: 12, value: 6 },
-                    { source: 4, target: 9, value: 5 }
+                    { source: 4, target: 10, value: 7 },
+                    { source: 4, target: 11, value: 6 },
+                    { source: 4, target: 8, value: 5 }
                 ]
             },
             texas: {
@@ -301,24 +300,21 @@
         };
 
         // Configuration
-        const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+        const margin = { top: 40, right: 200, bottom: 10, left: 200 };
         const width = 1300 - margin.left - margin.right;
         const height = 700 - margin.top - margin.bottom;
+        const nodeWidth = 20;
+        const nodePadding = 15;
 
         // Color schemes
-        const incomeColor = d3.scaleOrdinal()
-            .range(['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7', '#C8E6C9']);
-
-        const expenseColor = d3.scaleOrdinal()
-            .range(['#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB', '#E3F2FD', '#1976D2']);
+        const incomeColors = ['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7', '#C8E6C9'];
+        const expenseColors = ['#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB', '#E3F2FD', '#1976D2'];
 
         let svg, tooltip;
 
         function initialize() {
-            // Clear existing SVG
             d3.select("#sankey-container").selectAll("*").remove();
 
-            // Create SVG
             svg = d3.select("#sankey-container")
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -326,7 +322,6 @@
                 .append("g")
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
-            // Tooltip
             tooltip = d3.select("#tooltip");
         }
 
@@ -334,36 +329,113 @@
             return `$${value.toFixed(1)}B`;
         }
 
-        function drawSankey(stateKey) {
-            const data = stateData[stateKey];
+        // Simple Sankey layout function
+        function computeSankeyLayout(data) {
+            const nodes = data.nodes.map(d => ({...d}));
+            const links = data.links.map(d => ({...d}));
 
-            // Clear previous diagram
-            svg.selectAll("*").remove();
+            // Separate income and expense nodes
+            const incomeNodes = nodes.filter(d => d.type === 'income');
+            const expenseNodes = nodes.filter(d => d.type === 'expense');
 
-            // Create Sankey generator
-            const sankey = d3.sankey()
-                .nodeId(d => d.name)
-                .nodeWidth(20)
-                .nodePadding(15)
-                .extent([[1, 5], [width - 1, height - 5]]);
-
-            // Generate Sankey layout
-            const { nodes, links } = sankey({
-                nodes: data.nodes.map(d => Object.assign({}, d)),
-                links: data.links.map(d => Object.assign({}, d))
+            // Calculate node values
+            nodes.forEach((node, i) => {
+                const outgoing = d3.sum(links.filter(l => l.source === i), d => d.value);
+                const incoming = d3.sum(links.filter(l => l.target === i), d => d.value);
+                node.value = Math.max(outgoing, incoming);
+                node.index = i;
             });
 
+            // Calculate total values for scaling
+            const totalValue = d3.sum(incomeNodes, d => d.value);
+            const scale = (height - (Math.max(incomeNodes.length, expenseNodes.length) - 1) * nodePadding) / totalValue;
+
+            // Position income nodes on the left
+            let yPos = 0;
+            incomeNodes.forEach((node, i) => {
+                node.x0 = 0;
+                node.x1 = nodeWidth;
+                node.y0 = yPos;
+                node.y1 = yPos + node.value * scale;
+                node.height = node.value * scale;
+                yPos = node.y1 + nodePadding;
+            });
+
+            // Position expense nodes on the right
+            yPos = 0;
+            expenseNodes.forEach((node, i) => {
+                node.x0 = width - nodeWidth;
+                node.x1 = width;
+                node.y0 = yPos;
+                node.y1 = yPos + node.value * scale;
+                node.height = node.value * scale;
+                yPos = node.y1 + nodePadding;
+            });
+
+            // Calculate link positions
+            const sourceYOffset = {};
+            const targetYOffset = {};
+
+            nodes.forEach(n => {
+                sourceYOffset[n.index] = n.y0;
+                targetYOffset[n.index] = n.y0;
+            });
+
+            links.forEach(link => {
+                const sourceNode = nodes[link.source];
+                const targetNode = nodes[link.target];
+
+                link.width = link.value * scale;
+                link.y0 = sourceYOffset[link.source];
+                link.y1 = targetYOffset[link.target];
+
+                sourceYOffset[link.source] += link.width;
+                targetYOffset[link.target] += link.width;
+
+                link.source = sourceNode;
+                link.target = targetNode;
+            });
+
+            return { nodes, links };
+        }
+
+        // Create link path
+        function linkPath(d) {
+            const x0 = d.source.x1;
+            const x1 = d.target.x0;
+            const y0 = d.y0 + d.width / 2;
+            const y1 = d.y1 + d.width / 2;
+            const xi = d3.interpolateNumber(x0, x1);
+            const x2 = xi(0.5);
+            const x3 = xi(0.5);
+
+            return `M${x0},${y0}C${x2},${y0} ${x3},${y1} ${x1},${y1}`;
+        }
+
+        function drawSankey(stateKey) {
+            const data = stateData[stateKey];
+            svg.selectAll("*").remove();
+
+            const { nodes, links } = computeSankeyLayout(data);
+
+            // Draw title
+            const totalBudget = d3.sum(links, d => d.value);
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", -20)
+                .attr("text-anchor", "middle")
+                .style("font-size", "18px")
+                .style("font-weight", "bold")
+                .text(`${data.name} - Total Budget: ${formatCurrency(totalBudget)}`);
+
             // Draw links
-            const link = svg.append("g")
+            svg.append("g")
                 .selectAll(".link")
                 .data(links)
                 .join("path")
                 .attr("class", "link")
-                .attr("d", d3.sankeyLinkHorizontal())
-                .attr("stroke", d => {
-                    const sourceNode = nodes[d.source.index];
-                    return sourceNode.type === "income" ? "#4CAF50" : "#2196F3";
-                })
+                .attr("d", linkPath)
+                .attr("stroke", d => d.source.type === "income" ? "#4CAF50" : "#2196F3")
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .on("mouseover", function(event, d) {
                     d3.select(this).attr("stroke-opacity", 0.8);
@@ -393,23 +465,19 @@
                 .attr("y", d => d.y0)
                 .attr("height", d => d.y1 - d.y0)
                 .attr("width", d => d.x1 - d.x0)
-                .attr("fill", d => {
+                .attr("fill", (d, i) => {
                     if (d.type === "income") {
-                        return incomeColor(d.name);
+                        return incomeColors[i % incomeColors.length];
                     } else {
-                        return expenseColor(d.name);
+                        return expenseColors[i % expenseColors.length];
                     }
                 })
                 .on("mouseover", function(event, d) {
-                    const totalIn = d3.sum(d.targetLinks, l => l.value);
-                    const totalOut = d3.sum(d.sourceLinks, l => l.value);
-                    const total = totalIn || totalOut;
-
                     tooltip
                         .style("opacity", 1)
                         .html(`
                             <strong>${d.name}</strong><br>
-                            ${d.type === "income" ? "Revenue" : "Expenditure"}: ${formatCurrency(total)}
+                            ${d.type === "income" ? "Revenue" : "Expenditure"}: ${formatCurrency(d.value)}
                         `)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
@@ -420,22 +488,12 @@
 
             // Add node labels
             node.append("text")
-                .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
+                .attr("x", d => d.x0 < width / 2 ? d.x0 - 6 : d.x1 + 6)
                 .attr("y", d => (d.y1 + d.y0) / 2)
                 .attr("dy", "0.35em")
-                .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
+                .attr("text-anchor", d => d.x0 < width / 2 ? "end" : "start")
                 .text(d => d.name)
                 .style("fill", "#333");
-
-            // Add title with total budget
-            const totalBudget = d3.sum(links.filter(l => nodes[l.source.index].type === "income"), d => d.value);
-            svg.append("text")
-                .attr("x", width / 2)
-                .attr("y", -5)
-                .attr("text-anchor", "middle")
-                .style("font-size", "16px")
-                .style("font-weight", "bold")
-                .text(`${data.name} - Total Budget: ${formatCurrency(totalBudget)}`);
         }
 
         // Event listeners
