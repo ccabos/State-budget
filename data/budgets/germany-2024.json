@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "country": "Germany",
+    "year": 2024,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "total_revenue": 366.3,
+    "total_expenditure": 476.8,
+    "deficit": 50.5,
+    "source": "German Federal Ministry of Finance, 2024",
+    "notes": "Federal budget only, January-November 2024 data"
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 150.0,
+      "percentage": 40.9
+    },
+    {
+      "name": "Value Added Tax (VAT)",
+      "category": "Indirect Taxes",
+      "amount": 120.0,
+      "percentage": 32.8
+    },
+    {
+      "name": "Corporate Tax",
+      "category": "Direct Taxes",
+      "amount": 40.0,
+      "percentage": 10.9
+    },
+    {
+      "name": "Energy Tax",
+      "category": "Federal Taxes",
+      "amount": 35.1,
+      "percentage": 9.6
+    },
+    {
+      "name": "Other Revenue",
+      "category": "Other",
+      "amount": 21.2,
+      "percentage": 5.8
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Labor & Social Affairs",
+      "category": "Social Protection",
+      "amount": 172.0,
+      "percentage": 36.1
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 72.0,
+      "percentage": 15.1
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 40.0,
+      "percentage": 8.4
+    },
+    {
+      "name": "Education & Research",
+      "category": "Education",
+      "amount": 20.3,
+      "percentage": 4.3
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 16.8,
+      "percentage": 3.5
+    },
+    {
+      "name": "Development Aid",
+      "category": "Foreign Affairs",
+      "amount": 11.2,
+      "percentage": 2.3
+    },
+    {
+      "name": "Economy & Climate",
+      "category": "Economic Affairs",
+      "amount": 10.9,
+      "percentage": 2.3
+    },
+    {
+      "name": "Transport & Infrastructure",
+      "category": "Infrastructure",
+      "amount": 32.0,
+      "percentage": 6.7
+    },
+    {
+      "name": "Housing",
+      "category": "Housing",
+      "amount": 6.9,
+      "percentage": 1.4
+    },
+    {
+      "name": "Foreign Affairs",
+      "category": "Foreign Affairs",
+      "amount": 6.1,
+      "percentage": 1.3
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 2.4,
+      "percentage": 0.5
+    },
+    {
+      "name": "Other Ministries",
+      "category": "Other",
+      "amount": 87.2,
+      "percentage": 18.3
+    }
+  ]
+}

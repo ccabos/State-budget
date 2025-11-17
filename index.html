@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>State Budget Sankey Diagram</title>
+    <title>National Budget Sankey Diagram</title>
     <script src="lib/d3.min.js"></script>
     <style>
         body {
@@ -127,31 +127,94 @@
             vertical-align: middle;
             border: 1px solid #999;
         }
+
+        .budget-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .budget-info-row {
+            margin: 5px 0;
+        }
+
+        .budget-info-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>State Budget Flow Visualization</h1>
-        <p class="subtitle">Interactive Sankey Diagram showing Income Sources and Expenditure Categories</p>
+        <h1>National Budget Flow Visualization</h1>
+        <p class="subtitle">Interactive Sankey Diagram showing Government Revenue Sources and Expenditure Categories</p>
 
         <div class="controls">
-            <label for="state-select">Select State:</label>
-            <select id="state-select">
-                <option value="california">California</option>
-                <option value="texas">Texas</option>
-                <option value="newyork">New York</option>
-                <option value="florida">Florida</option>
+            <label for="budget-select">Select Budget:</label>
+            <select id="budget-select">
+                <option value="">Loading budgets...</option>
             </select>
-            <button id="reset-btn">Reset View</button>
+            <button id="reload-btn">Reload Data</button>
         </div>
 
+        <div id="loading" class="loading" style="display: none;">Loading budget data...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
         <div id="sankey-container"></div>
+
+        <div id="budget-info" class="budget-info" style="display: none;">
+            <div class="budget-info-row">
+                <span class="budget-info-label">Country:</span>
+                <span id="info-country"></span>
+            </div>
+            <div class="budget-info-row">
+                <span class="budget-info-label">Fiscal Year:</span>
+                <span id="info-year"></span>
+            </div>
+            <div class="budget-info-row">
+                <span class="budget-info-label">Total Revenue:</span>
+                <span id="info-revenue"></span>
+            </div>
+            <div class="budget-info-row">
+                <span class="budget-info-label">Total Expenditure:</span>
+                <span id="info-expenditure"></span>
+            </div>
+            <div class="budget-info-row">
+                <span class="budget-info-label">Budget Balance:</span>
+                <span id="info-deficit"></span>
+            </div>
+            <div class="budget-info-row">
+                <span class="budget-info-label">Source:</span>
+                <span id="info-source"></span>
+            </div>
+            <div class="budget-info-row" id="info-notes-row" style="display: none;">
+                <span class="budget-info-label">Notes:</span>
+                <span id="info-notes"></span>
+            </div>
+        </div>
 
         <div class="legend">
             <div class="legend-title">Color Legend:</div>
             <div class="legend-item">
                 <span class="legend-color" style="background-color: #4CAF50;"></span>
-                <span>Income Sources</span>
+                <span>Revenue Sources</span>
             </div>
             <div class="legend-item">
                 <span class="legend-color" style="background-color: #2196F3;"></span>
@@ -163,154 +226,26 @@
     <div class="tooltip" id="tooltip"></div>
 
     <script>
-        // Sample data for different states
-        const stateData = {
-            california: {
-                name: "California",
-                nodes: [
-                    // Income sources (0-4)
-                    { name: "Personal Income Tax", type: "income" },
-                    { name: "Sales Tax", type: "income" },
-                    { name: "Corporate Tax", type: "income" },
-                    { name: "Federal Funds", type: "income" },
-                    { name: "Other Revenue", type: "income" },
-                    // Expenditure categories (5-11)
-                    { name: "K-12 Education", type: "expense" },
-                    { name: "Higher Education", type: "expense" },
-                    { name: "Health & Human Services", type: "expense" },
-                    { name: "Corrections", type: "expense" },
-                    { name: "Transportation", type: "expense" },
-                    { name: "Environmental Protection", type: "expense" },
-                    { name: "Other Services", type: "expense" }
-                ],
-                links: [
-                    // Personal Income Tax flows
-                    { source: 0, target: 5, value: 25 },
-                    { source: 0, target: 6, value: 15 },
-                    { source: 0, target: 7, value: 20 },
-                    // Sales Tax flows
-                    { source: 1, target: 5, value: 15 },
-                    { source: 1, target: 7, value: 10 },
-                    { source: 1, target: 8, value: 8 },
-                    // Corporate Tax flows
-                    { source: 2, target: 6, value: 8 },
-                    { source: 2, target: 9, value: 6 },
-                    { source: 2, target: 10, value: 5 },
-                    // Federal Funds flows
-                    { source: 3, target: 7, value: 18 },
-                    { source: 3, target: 5, value: 12 },
-                    { source: 3, target: 9, value: 8 },
-                    // Other Revenue flows
-                    { source: 4, target: 10, value: 7 },
-                    { source: 4, target: 11, value: 6 },
-                    { source: 4, target: 8, value: 5 }
-                ]
-            },
-            texas: {
-                name: "Texas",
-                nodes: [
-                    { name: "Sales Tax", type: "income" },
-                    { name: "Oil & Gas Severance", type: "income" },
-                    { name: "Motor Vehicle Tax", type: "income" },
-                    { name: "Federal Funds", type: "income" },
-                    { name: "Other Revenue", type: "income" },
-                    { name: "K-12 Education", type: "expense" },
-                    { name: "Higher Education", type: "expense" },
-                    { name: "Health & Human Services", type: "expense" },
-                    { name: "Transportation", type: "expense" },
-                    { name: "Public Safety", type: "expense" },
-                    { name: "Other Services", type: "expense" }
-                ],
-                links: [
-                    { source: 0, target: 5, value: 20 },
-                    { source: 0, target: 7, value: 15 },
-                    { source: 0, target: 8, value: 10 },
-                    { source: 1, target: 5, value: 12 },
-                    { source: 1, target: 6, value: 10 },
-                    { source: 1, target: 8, value: 8 },
-                    { source: 2, target: 8, value: 15 },
-                    { source: 2, target: 9, value: 5 },
-                    { source: 3, target: 7, value: 20 },
-                    { source: 3, target: 5, value: 15 },
-                    { source: 4, target: 6, value: 8 },
-                    { source: 4, target: 10, value: 7 }
-                ]
-            },
-            newyork: {
-                name: "New York",
-                nodes: [
-                    { name: "Personal Income Tax", type: "income" },
-                    { name: "Sales Tax", type: "income" },
-                    { name: "Business Tax", type: "income" },
-                    { name: "Federal Funds", type: "income" },
-                    { name: "Other Revenue", type: "income" },
-                    { name: "Education", type: "expense" },
-                    { name: "Medicaid", type: "expense" },
-                    { name: "Public Assistance", type: "expense" },
-                    { name: "Transportation", type: "expense" },
-                    { name: "Mental Hygiene", type: "expense" },
-                    { name: "Public Safety", type: "expense" },
-                    { name: "Other Services", type: "expense" }
-                ],
-                links: [
-                    { source: 0, target: 5, value: 22 },
-                    { source: 0, target: 6, value: 18 },
-                    { source: 0, target: 7, value: 12 },
-                    { source: 1, target: 5, value: 10 },
-                    { source: 1, target: 8, value: 8 },
-                    { source: 1, target: 6, value: 7 },
-                    { source: 2, target: 9, value: 6 },
-                    { source: 2, target: 10, value: 5 },
-                    { source: 2, target: 8, value: 4 },
-                    { source: 3, target: 6, value: 15 },
-                    { source: 3, target: 7, value: 10 },
-                    { source: 4, target: 11, value: 8 },
-                    { source: 4, target: 10, value: 5 }
-                ]
-            },
-            florida: {
-                name: "Florida",
-                nodes: [
-                    { name: "Sales Tax", type: "income" },
-                    { name: "Documentary Stamp Tax", type: "income" },
-                    { name: "Corporate Income Tax", type: "income" },
-                    { name: "Federal Funds", type: "income" },
-                    { name: "Other Revenue", type: "income" },
-                    { name: "Education", type: "expense" },
-                    { name: "Health & Human Services", type: "expense" },
-                    { name: "Transportation", type: "expense" },
-                    { name: "Criminal Justice", type: "expense" },
-                    { name: "Environmental Protection", type: "expense" },
-                    { name: "Other Services", type: "expense" }
-                ],
-                links: [
-                    { source: 0, target: 5, value: 18 },
-                    { source: 0, target: 6, value: 15 },
-                    { source: 0, target: 7, value: 10 },
-                    { source: 1, target: 7, value: 8 },
-                    { source: 1, target: 9, value: 6 },
-                    { source: 2, target: 5, value: 7 },
-                    { source: 2, target: 6, value: 5 },
-                    { source: 3, target: 6, value: 20 },
-                    { source: 3, target: 5, value: 12 },
-                    { source: 4, target: 8, value: 6 },
-                    { source: 4, target: 10, value: 8 }
-                ]
-            }
-        };
-
         // Configuration
-        const margin = { top: 40, right: 200, bottom: 10, left: 200 };
+        const BUDGET_FILES = [
+            { value: 'data/budgets/germany-2024.json', label: 'Germany 2024' },
+            { value: 'data/budgets/usa-2024.json', label: 'United States 2024' },
+            { value: 'data/budgets/uk-2024.json', label: 'United Kingdom 2024-25' },
+            { value: 'data/budgets/denmark-2024.json', label: 'Denmark 2024' }
+        ];
+
+        const margin = { top: 40, right: 250, bottom: 10, left: 250 };
         const width = 1300 - margin.left - margin.right;
         const height = 700 - margin.top - margin.bottom;
         const nodeWidth = 20;
         const nodePadding = 15;
 
         // Color schemes
-        const incomeColors = ['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7', '#C8E6C9'];
-        const expenseColors = ['#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB', '#E3F2FD', '#1976D2'];
+        const revenueColors = ['#2E7D32', '#388E3C', '#43A047', '#4CAF50', '#66BB6A', '#81C784', '#A5D6A7'];
+        const expenditureColors = ['#1565C0', '#1976D3', '#1E88E5', '#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB'];
 
         let svg, tooltip;
+        let currentBudgetData = null;
 
         function initialize() {
             d3.select("#sankey-container").selectAll("*").remove();
@@ -323,52 +258,152 @@
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
             tooltip = d3.select("#tooltip");
+
+            // Populate budget selector
+            const select = d3.select("#budget-select");
+            select.selectAll("option").remove();
+
+            BUDGET_FILES.forEach(file => {
+                select.append("option")
+                    .attr("value", file.value)
+                    .text(file.label);
+            });
+
+            // Load first budget by default
+            if (BUDGET_FILES.length > 0) {
+                loadBudget(BUDGET_FILES[0].value);
+            }
         }
 
-        function formatCurrency(value) {
-            return `$${value.toFixed(1)}B`;
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('sankey-container').style.display = 'none';
+            document.getElementById('budget-info').style.display = 'none';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('sankey-container').style.display = 'block';
+            document.getElementById('budget-info').style.display = 'block';
+        }
+
+        function showError(message) {
+            document.getElementById('error').textContent = message;
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function formatCurrency(value, symbol, unit) {
+            const absValue = Math.abs(value);
+            return `${value < 0 ? '-' : ''}${symbol}${absValue.toFixed(1)} ${unit}`;
+        }
+
+        function updateBudgetInfo(metadata) {
+            document.getElementById('info-country').textContent = metadata.country;
+            document.getElementById('info-year').textContent = metadata.year;
+            document.getElementById('info-revenue').textContent =
+                formatCurrency(metadata.total_revenue, metadata.currency_symbol, metadata.unit);
+            document.getElementById('info-expenditure').textContent =
+                formatCurrency(metadata.total_expenditure, metadata.currency_symbol, metadata.unit);
+
+            const deficit = metadata.deficit;
+            const deficitLabel = deficit > 0 ? 'Deficit' : 'Surplus';
+            document.getElementById('info-deficit').textContent =
+                `${deficitLabel}: ${formatCurrency(Math.abs(deficit), metadata.currency_symbol, metadata.unit)}`;
+
+            document.getElementById('info-source').textContent = metadata.source;
+
+            if (metadata.notes) {
+                document.getElementById('info-notes').textContent = metadata.notes;
+                document.getElementById('info-notes-row').style.display = 'block';
+            } else {
+                document.getElementById('info-notes-row').style.display = 'none';
+            }
+        }
+
+        async function loadBudget(filepath) {
+            showLoading();
+
+            try {
+                const response = await fetch(filepath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load budget: ${response.statusText}`);
+                }
+
+                const budgetData = await response.json();
+                currentBudgetData = budgetData;
+
+                updateBudgetInfo(budgetData.metadata);
+                drawSankey(budgetData);
+                hideLoading();
+
+            } catch (error) {
+                console.error('Error loading budget:', error);
+                showError(`Error loading budget data: ${error.message}`);
+            }
         }
 
         // Simple Sankey layout function
-        function computeSankeyLayout(data) {
-            const nodes = data.nodes.map(d => ({...d}));
-            const links = data.links.map(d => ({...d}));
+        function computeSankeyLayout(budgetData) {
+            const revenue = budgetData.revenue.map((d, i) => ({
+                ...d,
+                type: 'revenue',
+                index: i,
+                originalIndex: i
+            }));
 
-            // Separate income and expense nodes
-            const incomeNodes = nodes.filter(d => d.type === 'income');
-            const expenseNodes = nodes.filter(d => d.type === 'expense');
+            const expenditure = budgetData.expenditure.map((d, i) => ({
+                ...d,
+                type: 'expenditure',
+                index: revenue.length + i,
+                originalIndex: i
+            }));
 
-            // Calculate node values
-            nodes.forEach((node, i) => {
-                const outgoing = d3.sum(links.filter(l => l.source === i), d => d.value);
-                const incoming = d3.sum(links.filter(l => l.target === i), d => d.value);
-                node.value = Math.max(outgoing, incoming);
-                node.index = i;
+            const nodes = [...revenue, ...expenditure];
+            const links = [];
+
+            // Create links proportionally from each revenue to each expenditure
+            const totalRevenue = d3.sum(revenue, d => d.amount);
+            const totalExpenditure = d3.sum(expenditure, d => d.amount);
+
+            revenue.forEach(rev => {
+                expenditure.forEach(exp => {
+                    // Proportional distribution
+                    const linkValue = (rev.amount / totalRevenue) * exp.amount;
+                    if (linkValue > 0.01) { // Only create links for significant flows
+                        links.push({
+                            source: rev.index,
+                            target: exp.index,
+                            value: linkValue
+                        });
+                    }
+                });
             });
 
-            // Calculate total values for scaling
-            const totalValue = d3.sum(incomeNodes, d => d.value);
-            const scale = (height - (Math.max(incomeNodes.length, expenseNodes.length) - 1) * nodePadding) / totalValue;
+            // Calculate total values
+            const maxTotal = Math.max(totalRevenue, totalExpenditure);
+            const scale = (height - (Math.max(revenue.length, expenditure.length) - 1) * nodePadding) / maxTotal;
 
-            // Position income nodes on the left
+            // Position revenue nodes on the left
             let yPos = 0;
-            incomeNodes.forEach((node, i) => {
+            revenue.forEach((node) => {
                 node.x0 = 0;
                 node.x1 = nodeWidth;
                 node.y0 = yPos;
-                node.y1 = yPos + node.value * scale;
-                node.height = node.value * scale;
+                node.y1 = yPos + node.amount * scale;
+                node.height = node.amount * scale;
                 yPos = node.y1 + nodePadding;
             });
 
-            // Position expense nodes on the right
+            // Position expenditure nodes on the right
             yPos = 0;
-            expenseNodes.forEach((node, i) => {
+            expenditure.forEach((node) => {
                 node.x0 = width - nodeWidth;
                 node.x1 = width;
                 node.y0 = yPos;
-                node.y1 = yPos + node.value * scale;
-                node.height = node.value * scale;
+                node.y1 = yPos + node.amount * scale;
+                node.height = node.amount * scale;
                 yPos = node.y1 + nodePadding;
             });
 
@@ -412,21 +447,20 @@
             return `M${x0},${y0}C${x2},${y0} ${x3},${y1} ${x1},${y1}`;
         }
 
-        function drawSankey(stateKey) {
-            const data = stateData[stateKey];
+        function drawSankey(budgetData) {
             svg.selectAll("*").remove();
 
-            const { nodes, links } = computeSankeyLayout(data);
+            const { nodes, links } = computeSankeyLayout(budgetData);
+            const metadata = budgetData.metadata;
 
             // Draw title
-            const totalBudget = d3.sum(links, d => d.value);
             svg.append("text")
                 .attr("x", width / 2)
                 .attr("y", -20)
                 .attr("text-anchor", "middle")
                 .style("font-size", "18px")
                 .style("font-weight", "bold")
-                .text(`${data.name} - Total Budget: ${formatCurrency(totalBudget)}`);
+                .text(`${metadata.country} ${metadata.year} Budget`);
 
             // Draw links
             svg.append("g")
@@ -435,7 +469,7 @@
                 .join("path")
                 .attr("class", "link")
                 .attr("d", linkPath)
-                .attr("stroke", d => d.source.type === "income" ? "#4CAF50" : "#2196F3")
+                .attr("stroke", d => d.source.type === "revenue" ? "#4CAF50" : "#2196F3")
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .on("mouseover", function(event, d) {
                     d3.select(this).attr("stroke-opacity", 0.8);
@@ -443,7 +477,7 @@
                         .style("opacity", 1)
                         .html(`
                             <strong>${d.source.name}</strong> → <strong>${d.target.name}</strong><br>
-                            Amount: ${formatCurrency(d.value)}
+                            Flow: ${formatCurrency(d.value, metadata.currency_symbol, metadata.unit)}
                         `)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
@@ -465,11 +499,11 @@
                 .attr("y", d => d.y0)
                 .attr("height", d => d.y1 - d.y0)
                 .attr("width", d => d.x1 - d.x0)
-                .attr("fill", (d, i) => {
-                    if (d.type === "income") {
-                        return incomeColors[i % incomeColors.length];
+                .attr("fill", (d) => {
+                    if (d.type === "revenue") {
+                        return revenueColors[d.originalIndex % revenueColors.length];
                     } else {
-                        return expenseColors[i % expenseColors.length];
+                        return expenditureColors[d.originalIndex % expenditureColors.length];
                     }
                 })
                 .on("mouseover", function(event, d) {
@@ -477,7 +511,8 @@
                         .style("opacity", 1)
                         .html(`
                             <strong>${d.name}</strong><br>
-                            ${d.type === "income" ? "Revenue" : "Expenditure"}: ${formatCurrency(d.value)}
+                            Amount: ${formatCurrency(d.amount, metadata.currency_symbol, metadata.unit)}<br>
+                            ${d.percentage.toFixed(1)}% of total ${d.type}
                         `)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
@@ -493,22 +528,26 @@
                 .attr("dy", "0.35em")
                 .attr("text-anchor", d => d.x0 < width / 2 ? "end" : "start")
                 .text(d => d.name)
-                .style("fill", "#333");
+                .style("fill", "#333")
+                .style("font-size", "11px");
         }
 
         // Event listeners
-        document.getElementById("state-select").addEventListener("change", function() {
-            drawSankey(this.value);
+        document.getElementById("budget-select").addEventListener("change", function() {
+            if (this.value) {
+                loadBudget(this.value);
+            }
         });
 
-        document.getElementById("reset-btn").addEventListener("click", function() {
-            document.getElementById("state-select").value = "california";
-            drawSankey("california");
+        document.getElementById("reload-btn").addEventListener("click", function() {
+            const select = document.getElementById("budget-select");
+            if (select.value) {
+                loadBudget(select.value);
+            }
         });
 
-        // Initialize and draw
+        // Initialize
         initialize();
-        drawSankey("california");
     </script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "country": "United States",
+    "year": 2024,
+    "currency": "USD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "total_revenue": 4900.0,
+    "total_expenditure": 6900.0,
+    "deficit": 1800.0,
+    "source": "Congressional Budget Office, U.S. Treasury, FY2024",
+    "notes": "Federal budget for fiscal year 2024 (Oct 2023 - Sep 2024)"
+  },
+  "revenue": [
+    {
+      "name": "Individual Income Taxes",
+      "category": "Direct Taxes",
+      "amount": 2430.0,
+      "percentage": 49.6
+    },
+    {
+      "name": "Payroll Taxes (Social Security & Medicare)",
+      "category": "Social Insurance",
+      "amount": 1650.0,
+      "percentage": 33.7
+    },
+    {
+      "name": "Corporate Income Taxes",
+      "category": "Direct Taxes",
+      "amount": 530.0,
+      "percentage": 10.8
+    },
+    {
+      "name": "Customs Duties & Excise Taxes",
+      "category": "Indirect Taxes",
+      "amount": 180.0,
+      "percentage": 3.7
+    },
+    {
+      "name": "Other Revenue",
+      "category": "Other",
+      "amount": 110.0,
+      "percentage": 2.2
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Security",
+      "category": "Social Protection",
+      "amount": 1500.0,
+      "percentage": 21.7
+    },
+    {
+      "name": "Medicare",
+      "category": "Health",
+      "amount": 900.0,
+      "percentage": 13.0
+    },
+    {
+      "name": "Medicaid & CHIP",
+      "category": "Health",
+      "amount": 600.0,
+      "percentage": 8.7
+    },
+    {
+      "name": "Interest on National Debt",
+      "category": "Debt Service",
+      "amount": 892.0,
+      "percentage": 12.9
+    },
+    {
+      "name": "National Defense",
+      "category": "Defense",
+      "amount": 872.0,
+      "percentage": 12.6
+    },
+    {
+      "name": "Veterans Benefits",
+      "category": "Social Protection",
+      "amount": 320.0,
+      "percentage": 4.6
+    },
+    {
+      "name": "Income Security (SNAP, SSI, etc.)",
+      "category": "Social Protection",
+      "amount": 450.0,
+      "percentage": 6.5
+    },
+    {
+      "name": "Education & Training",
+      "category": "Education",
+      "amount": 305.0,
+      "percentage": 4.4
+    },
+    {
+      "name": "Transportation",
+      "category": "Infrastructure",
+      "amount": 140.0,
+      "percentage": 2.0
+    },
+    {
+      "name": "Health Research & Public Health",
+      "category": "Health",
+      "amount": 100.0,
+      "percentage": 1.4
+    },
+    {
+      "name": "International Affairs",
+      "category": "Foreign Affairs",
+      "amount": 70.0,
+      "percentage": 1.0
+    },
+    {
+      "name": "Science & Technology",
+      "category": "Research",
+      "amount": 50.0,
+      "percentage": 0.7
+    },
+    {
+      "name": "Energy & Environment",
+      "category": "Environment",
+      "amount": 80.0,
+      "percentage": 1.2
+    },
+    {
+      "name": "Agriculture",
+      "category": "Economic Affairs",
+      "amount": 55.0,
+      "percentage": 0.8
+    },
+    {
+      "name": "Justice & Law Enforcement",
+      "category": "Public Safety",
+      "amount": 75.0,
+      "percentage": 1.1
+    },
+    {
+      "name": "Other Federal Programs",
+      "category": "Other",
+      "amount": 491.0,
+      "percentage": 7.1
+    }
+  ]
+}

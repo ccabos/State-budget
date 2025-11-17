@@ -1,48 +1,36 @@
-# State Budget Sankey Diagram Visualization
+# National Budget Sankey Diagram Visualization
 
-An interactive Sankey diagram visualization for exploring state government income and expenditure flows using D3.js.
+An interactive Sankey diagram visualization for exploring national government budgets, showing revenue sources and expenditure flows using D3.js. Compare budgets across different countries with real data from official government sources.
 
 ## Features
 
+- **Real Budget Data**: Actual government budget data for Germany, USA, UK, and Denmark (2024)
 - **Interactive Visualization**: Hover over nodes and links to see detailed budget information
-- **Multiple States**: Compare budget flows across different states (California, Texas, New York, Florida)
-- **Color-Coded**: Income sources in green, expenditure categories in blue
-- **Responsive Design**: Clean, professional layout with intuitive controls
-- **Real-time Updates**: Switch between states to see different budget allocations
+- **Multiple Countries**: Compare budget structures across different nations
+- **Color-Coded**: Revenue sources in green, expenditure categories in blue
+- **Detailed Metadata**: View total revenue, expenditure, deficit/surplus, and data sources
+- **No Internet Required**: All D3.js libraries and data included locally
+- **Extensible Format**: Easy-to-use JSON format for adding new budgets
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
-- No internet connection required - all D3.js libraries are included locally
+- No internet connection required - all libraries and data are included locally
 
 ### Running the Visualization
 
+**Option 1: Direct File Access**
 1. Clone this repository or download the files
 2. Open `index.html` in your web browser
-3. Use the dropdown menu to select different states
-4. Hover over nodes and links to see detailed information
+3. Use the dropdown menu to select different country budgets
 
-### Local Development
-
-No build process required! Simply open the HTML file directly:
-
-```bash
-# Open in your default browser
-open index.html  # macOS
-start index.html  # Windows
-xdg-open index.html  # Linux
-```
-
-Or use a local web server:
+**Option 2: Local Web Server (Recommended)**
 
 ```bash
 # Using Python 3
 python -m http.server 8000
-
-# Using Python 2
-python -m SimpleHTTPServer 8000
 
 # Using Node.js http-server
 npx http-server
@@ -56,161 +44,223 @@ Then navigate to `http://localhost:8000`
 
 A Sankey diagram shows flows between sources and destinations. The width of the arrows/links is proportional to the flow amount.
 
-- **Left side**: Income sources (where the money comes from)
-- **Right side**: Expenditure categories (where the money goes)
-- **Links**: Show how much money flows from each source to each category
+- **Left side**: Revenue sources (where government money comes from)
+- **Right side**: Expenditure categories (where government money is spent)
+- **Links**: Proportional flows showing how revenue is distributed to expenditures
 
 ### Interactivity
 
-- **Hover over links**: See the flow amount between specific income and expenditure
-- **Hover over nodes**: See total revenue or expenditure for that category
-- **Select state**: Use dropdown to switch between different state budgets
-- **Reset View**: Return to default view (California)
+- **Hover over links**: See the flow amount between specific revenue and expenditure
+- **Hover over nodes**: See the amount and percentage for that revenue source or expenditure category
+- **Select budget**: Use dropdown to switch between different country budgets
+- **Reload Data**: Refresh the current budget data
 
-## Data Structure
+## Available Budget Data
 
-The budget data is structured as follows:
+Currently includes budget data for:
 
-```javascript
+- **Germany 2024** - Federal budget (€366.3B revenue, €476.8B expenditure)
+- **United States 2024** - Federal fiscal year budget ($4.9T revenue, $6.9T expenditure)
+- **United Kingdom 2024-25** - Government budget (£1,141B revenue, £1,279B expenditure)
+- **Denmark 2024** - National budget (902B DKK revenue, 888B DKK expenditure - surplus)
+
+All data sourced from official government publications and statistical offices.
+
+## Budget Information Display
+
+Each budget includes detailed metadata:
+
+- Country and fiscal year
+- Total revenue and expenditure
+- Budget deficit or surplus
+- Official data source
+- Additional notes and context
+
+## Adding Your Own Budget Data
+
+Budget data is stored in JSON files in the `data/budgets/` directory. Each file follows a standardized format.
+
+### Quick Example
+
+Create a file named `data/budgets/yourcontry-2024.json`:
+
+```json
 {
-    nodes: [
-        { name: "Personal Income Tax", type: "income" },
-        { name: "Education", type: "expense" }
-    ],
-    links: [
-        { source: 0, target: 5, value: 25 }  // $25B from source 0 to target 5
-    ]
+  "metadata": {
+    "country": "Your Country",
+    "year": 2024,
+    "currency": "USD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "total_revenue": 1000.0,
+    "total_expenditure": 1100.0,
+    "deficit": 100.0,
+    "source": "Official Source",
+    "notes": "Optional notes"
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 500.0,
+      "percentage": 50.0
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Healthcare",
+      "category": "Health",
+      "amount": 300.0,
+      "percentage": 27.3
+    }
+  ]
 }
 ```
 
-### Adding Your Own Data
+### Adding to the Visualization
 
-To add data for a new state:
-
-1. Open `index.html`
-2. Find the `stateData` object in the `<script>` section
-3. Add a new entry following this structure:
+Update the `BUDGET_FILES` array in `index.html`:
 
 ```javascript
-newstate: {
-    name: "New State Name",
-    nodes: [
-        // Income sources (type: "income")
-        { name: "Income Source 1", type: "income" },
-        { name: "Income Source 2", type: "income" },
-        // Expenditure categories (type: "expense")
-        { name: "Expenditure Category 1", type: "expense" },
-        { name: "Expenditure Category 2", type: "expense" }
-    ],
-    links: [
-        // Connect sources to targets with values (in billions)
-        { source: 0, target: 2, value: 10 },  // $10B from source 0 to target 2
-        { source: 1, target: 3, value: 15 }   // $15B from source 1 to target 3
-    ]
-}
+const BUDGET_FILES = [
+    // existing budgets...
+    { value: 'data/budgets/yourcountry-2024.json', label: 'Your Country 2024' }
+];
 ```
 
-4. Add the new state to the dropdown:
+For detailed format specifications, see [`data/budgets/README.md`](data/budgets/README.md)
 
-```html
-<select id="state-select">
-    <!-- existing options -->
-    <option value="newstate">New State Name</option>
-</select>
-```
+## Data Format
 
-## Sample States Included
+The budget data format includes:
 
-### California
-- **Income Sources**: Personal Income Tax, Sales Tax, Corporate Tax, Federal Funds, Other Revenue
-- **Expenditures**: K-12 Education, Higher Education, Health & Human Services, Corrections, Transportation, Environmental Protection, Other Services
+1. **Metadata**: Country, year, currency, totals, source attribution
+2. **Revenue Array**: List of revenue sources with amounts and categories
+3. **Expenditure Array**: List of spending categories with amounts and categories
 
-### Texas
-- **Income Sources**: Sales Tax, Oil & Gas Severance, Motor Vehicle Tax, Federal Funds, Other Revenue
-- **Expenditures**: K-12 Education, Higher Education, Health & Human Services, Transportation, Public Safety, Other Services
+All amounts should be in the same unit (billions or millions) as specified in metadata.
 
-### New York
-- **Income Sources**: Personal Income Tax, Sales Tax, Business Tax, Federal Funds, Other Revenue
-- **Expenditures**: Education, Medicaid, Public Assistance, Transportation, Mental Hygiene, Public Safety, Other Services
+### Data Categories
 
-### Florida
-- **Income Sources**: Sales Tax, Documentary Stamp Tax, Corporate Income Tax, Federal Funds, Other Revenue
-- **Expenditures**: Education, Health & Human Services, Transportation, Criminal Justice, Environmental Protection, Other Services
+**Revenue Categories:**
+- Direct Taxes (Income Tax, Corporate Tax)
+- Indirect Taxes (VAT, Sales Tax, Excise)
+- Social Insurance (Payroll Taxes, Contributions)
+- Business Taxes
+- Local Taxes
+- Other Revenue
 
-## Customization
+**Expenditure Categories:**
+- Health
+- Education
+- Social Protection
+- Defense
+- Debt Service
+- Infrastructure
+- Public Safety
+- Environment
+- Economic Affairs
+- Foreign Affairs
+- Housing
+- Research
+- General Services
 
-### Colors
+## Technical Details
 
-Edit the color schemes in the JavaScript:
+### Technologies Used
 
-```javascript
-const incomeColor = d3.scaleOrdinal()
-    .range(['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7', '#C8E6C9']);
-
-const expenseColor = d3.scaleOrdinal()
-    .range(['#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB']);
-```
-
-### Dimensions
-
-Adjust the diagram size:
-
-```javascript
-const width = 1300;  // Total width
-const height = 700;  // Total height
-```
-
-### Node Spacing
-
-Modify the Sankey layout parameters:
-
-```javascript
-const sankey = d3.sankey()
-    .nodeWidth(20)      // Width of node bars
-    .nodePadding(15)    // Spacing between nodes
-    .extent([[1, 5], [width - 1, height - 5]]);
-```
-
-## Technologies Used
-
-- **D3.js v7**: Data visualization library
-- **d3-sankey**: Sankey diagram plugin for D3
+- **D3.js v7**: Data visualization library (included locally)
 - **HTML5/CSS3**: Structure and styling
-- **Vanilla JavaScript**: Interactivity
+- **Vanilla JavaScript**: Interactivity and data loading
 
-## Browser Compatibility
+### Custom Sankey Implementation
+
+This visualization uses a custom Sankey layout algorithm designed specifically for government budgets:
+
+- Proportional flow distribution from revenue to expenditure
+- Automatic scaling based on data values
+- Support for multiple currencies and units
+- Handles budget deficits and surpluses
+
+### Browser Compatibility
 
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
 - Edge 90+
 
-## Notes on Data
+## Project Structure
 
-The sample data in this visualization is for demonstration purposes. The values are simplified and may not reflect actual state budgets. For accurate budget information, please consult official state budget documents.
+```
+State-budget/
+├── index.html              # Main visualization page
+├── README.md               # This file
+├── data/
+│   └── budgets/
+│       ├── README.md       # Data format documentation
+│       ├── germany-2024.json
+│       ├── usa-2024.json
+│       ├── uk-2024.json
+│       └── denmark-2024.json
+├── lib/
+│   └── d3.min.js          # D3.js library (local copy)
+└── data-template.json     # Legacy template file
 
-## Future Enhancements
+```
 
-Potential improvements:
+## Data Sources
 
-- [ ] Load data from external JSON files
-- [ ] Add year-over-year comparisons
-- [ ] Export visualization as PNG/SVG
-- [ ] Add filtering by expenditure type
-- [ ] Include per-capita calculations
-- [ ] Add historical trend analysis
-- [ ] Implement drill-down for detailed subcategories
+All budget data is sourced from official government publications:
+
+- **Germany**: Federal Ministry of Finance (Bundesfinanzministerium)
+- **USA**: Congressional Budget Office (CBO), U.S. Treasury
+- **UK**: Office for Budget Responsibility (OBR), HM Treasury
+- **Denmark**: Danish Ministry of Finance (Finansministeriet)
+
+Data is accurate as of fiscal year 2024. Please refer to the metadata in each budget file for specific source citations.
+
+## Contributing
+
+Contributions are welcome! To add new budget data:
+
+1. Research official government budget documents
+2. Create a JSON file following the format in `data/budgets/README.md`
+3. Add the file to `data/budgets/`
+4. Update `index.html` to include the new budget in the dropdown
+5. Submit a pull request
+
+Please ensure:
+- Data is from official government sources
+- All required metadata fields are included
+- Amounts are accurate and properly attributed
+- Currency and units are consistent
 
 ## License
 
 This project is open source and available under the MIT License.
 
-## Contributing
+## Future Enhancements
 
-Contributions are welcome! Feel free to submit issues or pull requests.
+Potential improvements:
 
-## Resources
+- [ ] Automatic detection of budget files (no manual HTML update needed)
+- [ ] Multi-year comparisons for the same country
+- [ ] Budget category drill-down for detailed subcategories
+- [ ] Export visualization as PNG/SVG
+- [ ] Per-capita calculations
+- [ ] Historical trend analysis
+- [ ] Currency conversion for direct comparisons
+- [ ] Sub-national budgets (states, provinces, municipalities)
 
-- [D3.js Documentation](https://d3js.org/)
-- [D3 Sankey Plugin](https://github.com/d3/d3-sankey)
-- [Sankey Diagram Examples](https://observablehq.com/@d3/sankey)
+## Acknowledgments
+
+- D3.js team for the excellent visualization library
+- Government statistical offices for publishing open budget data
+- Contributors to the project
+
+## Support
+
+For issues, questions, or suggestions:
+- Open an issue on GitHub
+- Refer to the data format documentation in `data/budgets/README.md`
+- Check existing budget files for examples

@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "country": "Denmark",
+    "year": 2024,
+    "currency": "DKK",
+    "currency_symbol": "kr",
+    "unit": "billions",
+    "total_revenue": 902.25,
+    "total_expenditure": 887.75,
+    "deficit": -14.5,
+    "source": "Danish Ministry of Finance, Finansloven 2024",
+    "notes": "Budget surplus of 14.5 billion DKK (0.5% of GDP)"
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 350.0,
+      "percentage": 38.8
+    },
+    {
+      "name": "Value Added Tax (VAT)",
+      "category": "Indirect Taxes",
+      "amount": 220.0,
+      "percentage": 24.4
+    },
+    {
+      "name": "Labor Market Contributions",
+      "category": "Social Insurance",
+      "amount": 120.0,
+      "percentage": 13.3
+    },
+    {
+      "name": "Corporate Tax",
+      "category": "Direct Taxes",
+      "amount": 80.0,
+      "percentage": 8.9
+    },
+    {
+      "name": "Excise Duties",
+      "category": "Indirect Taxes",
+      "amount": 65.0,
+      "percentage": 7.2
+    },
+    {
+      "name": "Property & Wealth Taxes",
+      "category": "Direct Taxes",
+      "amount": 35.0,
+      "percentage": 3.9
+    },
+    {
+      "name": "Other Revenue",
+      "category": "Other",
+      "amount": 32.25,
+      "percentage": 3.6
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection & Transfers",
+      "category": "Social Protection",
+      "amount": 311.5,
+      "percentage": 35.1
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 180.0,
+      "percentage": 20.3
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 95.0,
+      "percentage": 10.7
+    },
+    {
+      "name": "Operating Expenses (General Government)",
+      "category": "General Services",
+      "amount": 254.5,
+      "percentage": 28.7
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 36.2,
+      "percentage": 4.1
+    },
+    {
+      "name": "Transport & Infrastructure",
+      "category": "Infrastructure",
+      "amount": 28.0,
+      "percentage": 3.2
+    },
+    {
+      "name": "Environment & Climate",
+      "category": "Environment",
+      "amount": 18.0,
+      "percentage": 2.0
+    },
+    {
+      "name": "Culture & Recreation",
+      "category": "Recreation",
+      "amount": 12.0,
+      "percentage": 1.4
+    },
+    {
+      "name": "Public Safety",
+      "category": "Public Safety",
+      "amount": 15.0,
+      "percentage": 1.7
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": -8.0,
+      "percentage": -0.9
+    },
+    {
+      "name": "Other Services",
+      "category": "Other",
+      "amount": -54.45,
+      "percentage": -6.1
+    }
+  ]
+}

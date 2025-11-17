@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "country": "United Kingdom",
+    "year": 2024,
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "unit": "billions",
+    "total_revenue": 1141.2,
+    "total_expenditure": 1278.6,
+    "deficit": 137.3,
+    "source": "UK Office for Budget Responsibility, Autumn Budget 2024",
+    "notes": "Fiscal year 2024-25"
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 302.0,
+      "percentage": 26.5
+    },
+    {
+      "name": "National Insurance",
+      "category": "Social Insurance",
+      "amount": 179.0,
+      "percentage": 15.7
+    },
+    {
+      "name": "Value Added Tax (VAT)",
+      "category": "Indirect Taxes",
+      "amount": 181.0,
+      "percentage": 15.9
+    },
+    {
+      "name": "Corporation Tax",
+      "category": "Direct Taxes",
+      "amount": 106.0,
+      "percentage": 9.3
+    },
+    {
+      "name": "Excise Duties",
+      "category": "Indirect Taxes",
+      "amount": 85.0,
+      "percentage": 7.5
+    },
+    {
+      "name": "Council Tax",
+      "category": "Local Taxes",
+      "amount": 45.0,
+      "percentage": 3.9
+    },
+    {
+      "name": "Business Rates",
+      "category": "Business Taxes",
+      "amount": 37.0,
+      "percentage": 3.2
+    },
+    {
+      "name": "Other Taxes & Revenue",
+      "category": "Other",
+      "amount": 206.2,
+      "percentage": 18.1
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Health (NHS)",
+      "category": "Health",
+      "amount": 193.3,
+      "percentage": 15.1
+    },
+    {
+      "name": "Pensions",
+      "category": "Social Protection",
+      "amount": 124.0,
+      "percentage": 9.7
+    },
+    {
+      "name": "Welfare Benefits",
+      "category": "Social Protection",
+      "amount": 189.0,
+      "percentage": 14.8
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 89.2,
+      "percentage": 7.0
+    },
+    {
+      "name": "Interest on National Debt",
+      "category": "Debt Service",
+      "amount": 105.2,
+      "percentage": 8.2
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 37.6,
+      "percentage": 2.9
+    },
+    {
+      "name": "Transport",
+      "category": "Infrastructure",
+      "amount": 50.0,
+      "percentage": 3.9
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 45.0,
+      "percentage": 3.5
+    },
+    {
+      "name": "Housing & Community",
+      "category": "Housing",
+      "amount": 38.0,
+      "percentage": 3.0
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 28.0,
+      "percentage": 2.2
+    },
+    {
+      "name": "Culture, Media & Sport",
+      "category": "Recreation",
+      "amount": 18.0,
+      "percentage": 1.4
+    },
+    {
+      "name": "International Development",
+      "category": "Foreign Affairs",
+      "amount": 15.0,
+      "percentage": 1.2
+    },
+    {
+      "name": "Business & Industry",
+      "category": "Economic Affairs",
+      "amount": 25.0,
+      "percentage": 2.0
+    },
+    {
+      "name": "Capital Investment",
+      "category": "Infrastructure",
+      "amount": 96.1,
+      "percentage": 7.5
+    },
+    {
+      "name": "Other Public Services",
+      "category": "Other",
+      "amount": 225.2,
+      "percentage": 17.6
+    }
+  ]
+}
