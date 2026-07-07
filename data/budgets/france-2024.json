@@ -5,6 +5,7 @@
     "currency": "EUR",
     "currency_symbol": "€",
     "unit": "billions",
+    "population_millions": 68.4,
     "total_revenue": 299.9,
     "total_expenditure": 446.4,
     "deficit": 146.5,

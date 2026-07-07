@@ -5,6 +5,7 @@
     "currency": "JPY",
     "currency_symbol": "¥",
     "unit": "trillions",
+    "population_millions": 123.9,
     "total_revenue": 77.1,
     "total_expenditure": 112.6,
     "deficit": 35.5,

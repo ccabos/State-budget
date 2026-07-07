@@ -23,6 +23,13 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2023.json",
+      "label": "Germany 2023",
+      "country": "Germany",
+      "year": 2023,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/japan-2024.json",
       "label": "Japan 2024",
       "country": "Japan",
@@ -41,6 +48,13 @@
       "label": "United States 2024",
       "country": "United States",
       "year": 2024,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2023.json",
+      "label": "United States 2023",
+      "country": "United States",
+      "year": 2023,
       "currency": "USD"
     }
   ]

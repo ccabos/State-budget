@@ -185,6 +185,50 @@
             font-size: 12px;
             margin-top: 5px;
         }
+
+        .toggle-label {
+            margin: 0 10px;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .comparison {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f3f9f3;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .comparison h3 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .comparison table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .comparison th, .comparison td {
+            text-align: left;
+            padding: 4px 10px 4px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison th {
+            color: #555;
+            font-weight: 600;
+        }
+
+        .comparison td.num, .comparison th.num {
+            text-align: right;
+        }
+
+        .delta-up { color: #c62828; }
+        .delta-down { color: #2e7d32; }
     </style>
 </head>
 <body>
@@ -198,6 +242,11 @@
                 <option value="">Loading budgets...</option>
             </select>
             <button id="reload-btn">Reload Data</button>
+            <label class="toggle-label">
+                <input type="checkbox" id="percapita-toggle"> Per-capita view
+            </label>
+            <button id="export-svg-btn">Export SVG</button>
+            <button id="export-png-btn">Export PNG</button>
         </div>
 
         <div class="data-status" id="data-status"></div>
@@ -238,6 +287,8 @@
                 <span id="info-notes"></span>
             </div>
         </div>
+
+        <div id="comparison" class="comparison" style="display: none;"></div>
 
         <div class="legend">
             <div class="legend-title">Color Legend:</div>
@@ -382,18 +433,45 @@
             return `${value < 0 ? '-' : ''}${symbol}${absValue.toFixed(1)} ${unit}`;
         }
 
+        // Multiplier that converts an amount in the metadata unit to base
+        // currency units (e.g. 1.5 "billions" -> 1,500,000,000).
+        function unitFactor(unit) {
+            switch (unit) {
+                case 'millions': return 1e6;
+                case 'billions': return 1e9;
+                case 'trillions': return 1e12;
+                default: return 1;
+            }
+        }
+
+        let perCapita = false;
+
+        // Formats an amount either in the budget's native unit or, when the
+        // per-capita view is active, per inhabitant in base currency units.
+        function formatAmount(value, metadata) {
+            if (perCapita && typeof metadata.population_millions === 'number' && metadata.population_millions > 0) {
+                const pc = (value * unitFactor(metadata.unit)) / (metadata.population_millions * 1e6);
+                const abs = Math.abs(pc);
+                const formatted = abs >= 100
+                    ? Math.round(abs).toLocaleString('en-US')
+                    : abs.toFixed(2);
+                return `${pc < 0 ? '-' : ''}${metadata.currency_symbol}${formatted} per capita`;
+            }
+            return formatCurrency(value, metadata.currency_symbol, metadata.unit);
+        }
+
         function updateBudgetInfo(metadata) {
             document.getElementById('info-country').textContent = metadata.country;
             document.getElementById('info-year').textContent = metadata.year;
             document.getElementById('info-revenue').textContent =
-                formatCurrency(metadata.total_revenue, metadata.currency_symbol, metadata.unit);
+                formatAmount(metadata.total_revenue, metadata);
             document.getElementById('info-expenditure').textContent =
-                formatCurrency(metadata.total_expenditure, metadata.currency_symbol, metadata.unit);
+                formatAmount(metadata.total_expenditure, metadata);
 
             const deficit = metadata.deficit;
             const deficitLabel = deficit > 0 ? 'Deficit' : 'Surplus';
             document.getElementById('info-deficit').textContent =
-                `${deficitLabel}: ${formatCurrency(Math.abs(deficit), metadata.currency_symbol, metadata.unit)}`;
+                `${deficitLabel}: ${formatAmount(Math.abs(deficit), metadata)}`;
 
             // Update source with link if URL is available
             const sourceElement = document.getElementById('info-source');
@@ -467,33 +545,31 @@
             return budgetData;
         }
 
+        // Fetches a budget file, falling back to the embedded copy when
+        // fetch is unavailable (e.g. page opened via file://).
+        async function fetchBudgetFile(filepath) {
+            try {
+                const response = await fetch(filepath);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} ${response.statusText}`);
+                }
+                return { data: await response.json(), fromEmbedded: false };
+            } catch (fetchError) {
+                const embedded = embeddedData();
+                if (embedded && embedded.budgets && embedded.budgets[filepath]) {
+                    return { data: embedded.budgets[filepath], fromEmbedded: true };
+                }
+                throw fetchError;
+            }
+        }
+
         async function loadBudget(filepath) {
             showLoading();
             clearWarning();
 
             try {
-                let budgetData = null;
-                let fromEmbedded = false;
-
-                try {
-                    const response = await fetch(filepath);
-                    if (!response.ok) {
-                        throw new Error(`HTTP ${response.status} ${response.statusText}`);
-                    }
-                    budgetData = await response.json();
-                } catch (fetchError) {
-                    // fetch failed (e.g. page opened via file://) - fall back
-                    // to the embedded copy of the data if available.
-                    const embedded = embeddedData();
-                    if (embedded && embedded.budgets && embedded.budgets[filepath]) {
-                        budgetData = embedded.budgets[filepath];
-                        fromEmbedded = true;
-                    } else {
-                        throw fetchError;
-                    }
-                }
-
-                budgetData = normalizeBudgetData(budgetData, filepath);
+                const { data, fromEmbedded } = await fetchBudgetFile(filepath);
+                const budgetData = normalizeBudgetData(data, filepath);
                 currentBudgetData = budgetData;
 
                 setDataStatus(fromEmbedded
@@ -504,10 +580,102 @@
                 drawSankey(budgetData);
                 hideLoading();
 
+                await loadComparison(filepath, budgetData);
+
             } catch (error) {
                 console.error('Error loading budget:', error);
                 showError(`Error loading budget data: ${error.message}`);
             }
+        }
+
+        // ---- Year-over-year comparison -------------------------------------
+
+        let comparisonBudgetData = null;
+
+        // Finds the closest earlier year for the same country in the manifest.
+        function findPreviousYearEntry(filepath, metadata) {
+            const candidates = budgetFiles.filter(f =>
+                f.value !== filepath &&
+                f.country === metadata.country &&
+                typeof f.year === 'number' &&
+                f.year < metadata.year
+            );
+            if (candidates.length === 0) return null;
+            return candidates.reduce((a, b) => (a.year > b.year ? a : b));
+        }
+
+        async function loadComparison(filepath, budgetData) {
+            comparisonBudgetData = null;
+            const previousEntry = findPreviousYearEntry(filepath, budgetData.metadata);
+            if (!previousEntry) {
+                document.getElementById('comparison').style.display = 'none';
+                return;
+            }
+
+            try {
+                const { data } = await fetchBudgetFile(previousEntry.value);
+                comparisonBudgetData = normalizeBudgetData(data, previousEntry.value);
+                renderComparison(budgetData, comparisonBudgetData);
+            } catch (e) {
+                console.warn('Could not load comparison budget:', e);
+                document.getElementById('comparison').style.display = 'none';
+            }
+        }
+
+        function deltaCell(current, previous) {
+            if (!(typeof previous === 'number') || previous === 0) return '<td class="num">–</td>';
+            const pct = ((current - previous) / Math.abs(previous)) * 100;
+            const cls = pct > 0 ? 'delta-up' : pct < 0 ? 'delta-down' : '';
+            const sign = pct > 0 ? '+' : '';
+            return `<td class="num ${cls}">${sign}${pct.toFixed(1)}%</td>`;
+        }
+
+        function renderComparison(current, previous) {
+            const el = document.getElementById('comparison');
+            if (!previous) {
+                el.style.display = 'none';
+                return;
+            }
+
+            const cm = current.metadata;
+            const pm = previous.metadata;
+
+            const rows = [];
+            rows.push(['Total Revenue', pm.total_revenue, cm.total_revenue]);
+            rows.push(['Total Expenditure', pm.total_expenditure, cm.total_expenditure]);
+            rows.push(['Deficit / Surplus', pm.deficit, cm.deficit]);
+
+            // Match expenditure items by name across the two years
+            const prevByName = new Map(previous.expenditure.map(d => [d.name, d]));
+            current.expenditure.forEach(item => {
+                const prevItem = prevByName.get(item.name);
+                if (prevItem) {
+                    rows.push([item.name, prevItem.amount, item.amount]);
+                }
+            });
+
+            const body = rows.map(([name, prevVal, currVal], i) => `
+                <tr${i < 3 ? ' style="font-weight:600;"' : ''}>
+                    <td>${name}</td>
+                    <td class="num">${formatAmount(prevVal, pm)}</td>
+                    <td class="num">${formatAmount(currVal, cm)}</td>
+                    ${deltaCell(currVal, prevVal)}
+                </tr>`).join('');
+
+            el.innerHTML = `
+                <h3>Year-over-year comparison: ${cm.country} ${pm.year} → ${cm.year}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="num">${pm.year}</th>
+                            <th class="num">${cm.year}</th>
+                            <th class="num">Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>${body}</tbody>
+                </table>`;
+            el.style.display = 'block';
         }
 
         // Simple Sankey layout function
@@ -635,6 +803,8 @@
                 .join("path")
                 .attr("class", "link")
                 .attr("d", linkPath)
+                .attr("fill", "none")
+                .attr("stroke-opacity", 0.3)
                 .attr("stroke", d => d.source.type === "revenue" ? "#4CAF50" : "#2196F3")
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .on("mouseover", function(event, d) {
@@ -643,7 +813,7 @@
                         .style("opacity", 1)
                         .html(`
                             <strong>${d.source.name}</strong> → <strong>${d.target.name}</strong><br>
-                            Flow: ${formatCurrency(d.value, metadata.currency_symbol, metadata.unit)}
+                            Flow: ${formatAmount(d.value, metadata)}
                         `)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
@@ -665,6 +835,8 @@
                 .attr("y", d => d.y0)
                 .attr("height", d => d.y1 - d.y0)
                 .attr("width", d => d.x1 - d.x0)
+                .attr("stroke", "#000")
+                .attr("stroke-width", 1)
                 .attr("fill", (d) => {
                     if (d.type === "revenue") {
                         return revenueColors[d.originalIndex % revenueColors.length];
@@ -677,7 +849,7 @@
                         .style("opacity", 1)
                         .html(`
                             <strong>${d.name}</strong><br>
-                            Amount: ${formatCurrency(d.amount, metadata.currency_symbol, metadata.unit)}<br>
+                            Amount: ${formatAmount(d.amount, metadata)}<br>
                             ${d.percentage.toFixed(1)}% of total ${d.type}
                         `)
                         .style("left", (event.pageX + 10) + "px")
@@ -698,6 +870,80 @@
                 .style("font-size", "11px");
         }
 
+        // ---- Export ---------------------------------------------------------
+
+        function exportFilename(extension) {
+            if (currentBudgetData && currentBudgetData.metadata) {
+                const m = currentBudgetData.metadata;
+                const slug = String(m.country).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                return `${slug}-${m.year}-budget.${extension}`;
+            }
+            return `budget.${extension}`;
+        }
+
+        // Returns a standalone SVG string of the current diagram, with a
+        // white background and explicit font so it renders outside the page.
+        function serializeSvg() {
+            const svgEl = document.querySelector('#sankey-container svg');
+            if (!svgEl) return null;
+
+            const clone = svgEl.cloneNode(true);
+            clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            clone.setAttribute('font-family', "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif");
+
+            const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            bg.setAttribute('width', '100%');
+            bg.setAttribute('height', '100%');
+            bg.setAttribute('fill', '#ffffff');
+            clone.insertBefore(bg, clone.firstChild);
+
+            return new XMLSerializer().serializeToString(clone);
+        }
+
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function exportSvg() {
+            const svgString = serializeSvg();
+            if (!svgString) return;
+            downloadBlob(
+                new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' }),
+                exportFilename('svg')
+            );
+        }
+
+        function exportPng() {
+            const svgString = serializeSvg();
+            if (!svgString) return;
+
+            const svgEl = document.querySelector('#sankey-container svg');
+            const exportScale = 2; // 2x for crisp output
+            const canvas = document.createElement('canvas');
+            canvas.width = svgEl.width.baseVal.value * exportScale;
+            canvas.height = svgEl.height.baseVal.value * exportScale;
+
+            const img = new Image();
+            img.onload = function() {
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                canvas.toBlob(blob => {
+                    if (blob) downloadBlob(blob, exportFilename('png'));
+                }, 'image/png');
+            };
+            img.onerror = () => showError('PNG export failed: could not rasterize the SVG.');
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
+        }
+
         // Event listeners
         document.getElementById("budget-select").addEventListener("change", function() {
             if (this.value) {
@@ -711,6 +957,17 @@
                 loadBudget(select.value);
             }
         });
+
+        document.getElementById("percapita-toggle").addEventListener("change", function() {
+            perCapita = this.checked;
+            if (currentBudgetData) {
+                updateBudgetInfo(currentBudgetData.metadata);
+                renderComparison(currentBudgetData, comparisonBudgetData);
+            }
+        });
+
+        document.getElementById("export-svg-btn").addEventListener("click", exportSvg);
+        document.getElementById("export-png-btn").addEventListener("click", exportPng);
 
         // Initialize
         initialize();

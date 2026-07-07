@@ -27,6 +27,7 @@ Contains information about the budget:
     "currency": "USD|EUR|GBP|DKK",
     "currency_symbol": "$|€|£|kr",
     "unit": "billions|millions",
+    "population_millions": 84.7,
     "total_revenue": 1000.0,
     "total_expenditure": 1100.0,
     "deficit": 100.0,
@@ -43,6 +44,7 @@ Contains information about the budget:
 - `currency`: Three-letter ISO currency code
 - `currency_symbol`: Symbol for display
 - `unit`: Scale of numbers (millions, billions, or trillions)
+- `population_millions`: Country population in millions (optional; enables the per-capita view)
 - `total_revenue`: Total government revenue
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)

@@ -5,6 +5,7 @@
     "currency": "DKK",
     "currency_symbol": "kr",
     "unit": "billions",
+    "population_millions": 5.96,
     "total_revenue": 902.25,
     "total_expenditure": 887.75,
     "deficit": -14.5,

@@ -1,146 +1,146 @@
 {
   "metadata": {
     "country": "United States",
-    "year": 2024,
+    "year": 2023,
     "currency": "USD",
     "currency_symbol": "$",
     "unit": "billions",
-    "population_millions": 335.9,
-    "total_revenue": 4919.0,
-    "total_expenditure": 6752.0,
-    "deficit": 1833.0,
-    "source": "Congressional Budget Office, U.S. Treasury, FY2024",
-    "source_url": "https://www.cbo.gov/publication/60843",
-    "notes": "Federal budget for fiscal year 2024 (Oct 2023 - Sep 2024), actual results"
+    "population_millions": 334.9,
+    "total_revenue": 4439.0,
+    "total_expenditure": 6134.0,
+    "deficit": 1695.0,
+    "source": "Congressional Budget Office, U.S. Treasury, FY2023",
+    "source_url": "https://www.cbo.gov/publication/59544",
+    "notes": "Federal budget for fiscal year 2023 (Oct 2022 - Sep 2023), actual results"
   },
   "revenue": [
     {
       "name": "Individual Income Taxes",
       "category": "Direct Taxes",
-      "amount": 2426.0,
-      "percentage": 49.3
+      "amount": 2176.0,
+      "percentage": 49.0
     },
     {
       "name": "Payroll Taxes (Social Security & Medicare)",
       "category": "Social Insurance",
-      "amount": 1709.0,
-      "percentage": 34.7
+      "amount": 1614.0,
+      "percentage": 36.4
     },
     {
       "name": "Corporate Income Taxes",
       "category": "Direct Taxes",
-      "amount": 530.0,
-      "percentage": 10.8
+      "amount": 420.0,
+      "percentage": 9.5
     },
     {
       "name": "Customs Duties & Excise Taxes",
       "category": "Indirect Taxes",
-      "amount": 178.0,
-      "percentage": 3.6
+      "amount": 156.0,
+      "percentage": 3.5
     },
     {
       "name": "Other Revenue",
       "category": "Other",
-      "amount": 76.0,
-      "percentage": 1.5
+      "amount": 73.0,
+      "percentage": 1.6
     }
   ],
   "expenditure": [
     {
       "name": "Social Security",
       "category": "Social Protection",
-      "amount": 1461.0,
-      "percentage": 21.6
+      "amount": 1348.0,
+      "percentage": 22.0
     },
     {
       "name": "Medicare",
       "category": "Health",
-      "amount": 874.0,
-      "percentage": 12.9
+      "amount": 848.0,
+      "percentage": 13.8
     },
     {
       "name": "Medicaid & CHIP",
       "category": "Health",
-      "amount": 618.0,
-      "percentage": 9.2
+      "amount": 616.0,
+      "percentage": 10.0
     },
     {
       "name": "Interest on National Debt",
       "category": "Debt Service",
-      "amount": 882.0,
-      "percentage": 13.1
+      "amount": 658.0,
+      "percentage": 10.7
     },
     {
       "name": "National Defense",
       "category": "Defense",
-      "amount": 874.0,
-      "percentage": 12.9
+      "amount": 820.0,
+      "percentage": 13.4
     },
     {
       "name": "Veterans Benefits",
       "category": "Social Protection",
-      "amount": 325.0,
-      "percentage": 4.8
+      "amount": 302.0,
+      "percentage": 4.9
     },
     {
       "name": "Income Security (SNAP, SSI, etc.)",
       "category": "Social Protection",
-      "amount": 371.0,
-      "percentage": 5.5
+      "amount": 448.0,
+      "percentage": 7.3
     },
     {
       "name": "Education & Training",
       "category": "Education",
-      "amount": 268.0,
-      "percentage": 4.0
+      "amount": 240.0,
+      "percentage": 3.9
     },
     {
       "name": "Transportation",
       "category": "Infrastructure",
-      "amount": 137.0,
-      "percentage": 2.0
+      "amount": 126.0,
+      "percentage": 2.1
     },
     {
       "name": "Health Research & Public Health",
       "category": "Health",
-      "amount": 105.0,
-      "percentage": 1.6
+      "amount": 107.0,
+      "percentage": 1.7
     },
     {
       "name": "International Affairs",
       "category": "Foreign Affairs",
-      "amount": 72.0,
-      "percentage": 1.1
+      "amount": 71.0,
+      "percentage": 1.2
     },
     {
       "name": "Science & Technology",
       "category": "Research",
-      "amount": 41.0,
-      "percentage": 0.6
+      "amount": 40.0,
+      "percentage": 0.7
     },
     {
       "name": "Energy & Environment",
       "category": "Environment",
-      "amount": 68.0,
+      "amount": 63.0,
       "percentage": 1.0
     },
     {
       "name": "Agriculture",
       "category": "Economic Affairs",
-      "amount": 41.0,
-      "percentage": 0.6
+      "amount": 55.0,
+      "percentage": 0.9
     },
     {
       "name": "Justice & Law Enforcement",
       "category": "Public Safety",
-      "amount": 78.0,
+      "amount": 72.0,
       "percentage": 1.2
     },
     {
       "name": "Other Federal Programs",
       "category": "Other",
-      "amount": 537.0,
-      "percentage": 8.0
+      "amount": 320.0,
+      "percentage": 5.2
     }
   ]
 }

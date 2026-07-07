@@ -27,6 +27,13 @@ window.EMBEDDED_BUDGETS = {
         "currency": "EUR"
       },
       {
+        "value": "data/budgets/germany-2023.json",
+        "label": "Germany 2023",
+        "country": "Germany",
+        "year": 2023,
+        "currency": "EUR"
+      },
+      {
         "value": "data/budgets/japan-2024.json",
         "label": "Japan 2024",
         "country": "Japan",
@@ -46,6 +53,13 @@ window.EMBEDDED_BUDGETS = {
         "country": "United States",
         "year": 2024,
         "currency": "USD"
+      },
+      {
+        "value": "data/budgets/usa-2023.json",
+        "label": "United States 2023",
+        "country": "United States",
+        "year": 2023,
+        "currency": "USD"
       }
     ]
   },
@@ -57,6 +71,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "DKK",
         "currency_symbol": "kr",
         "unit": "billions",
+        "population_millions": 5.96,
         "total_revenue": 902.25,
         "total_expenditure": 887.75,
         "deficit": -14.5,
@@ -184,6 +199,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "EUR",
         "currency_symbol": "€",
         "unit": "billions",
+        "population_millions": 68.4,
         "total_revenue": 299.9,
         "total_expenditure": 446.4,
         "deficit": 146.5,
@@ -316,6 +332,134 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/germany-2023.json": {
+      "metadata": {
+        "country": "Germany",
+        "year": 2023,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 84.7,
+        "total_revenue": 411.5,
+        "total_expenditure": 457.1,
+        "deficit": 45.6,
+        "source": "German Federal Ministry of Finance, 2023",
+        "source_url": "https://www.bundesfinanzministerium.de/Web/EN/Issues/Federal-budget/federal-budget.html",
+        "notes": "Federal budget, provisional 2023 results. Revenue excludes net borrowing of about €45.6B, which finances the deficit."
+      },
+      "revenue": [
+        {
+          "name": "Income & Wage Taxes (federal share)",
+          "category": "Direct Taxes",
+          "amount": 115,
+          "percentage": 27.9
+        },
+        {
+          "name": "Value Added Tax (federal share)",
+          "category": "Indirect Taxes",
+          "amount": 125,
+          "percentage": 30.4
+        },
+        {
+          "name": "Energy & Electricity Taxes",
+          "category": "Indirect Taxes",
+          "amount": 38.5,
+          "percentage": 9.4
+        },
+        {
+          "name": "Corporate & Capital Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 33,
+          "percentage": 8
+        },
+        {
+          "name": "Other Taxes",
+          "category": "Other",
+          "amount": 44.6,
+          "percentage": 10.8
+        },
+        {
+          "name": "Non-Tax Revenue",
+          "category": "Other",
+          "amount": 55.4,
+          "percentage": 13.5
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Labor & Social Affairs",
+          "category": "Social Protection",
+          "amount": 171,
+          "percentage": 37.4
+        },
+        {
+          "name": "Defense (incl. special fund)",
+          "category": "Defense",
+          "amount": 66.8,
+          "percentage": 14.6
+        },
+        {
+          "name": "Transport & Infrastructure",
+          "category": "Infrastructure",
+          "amount": 38.7,
+          "percentage": 8.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 37.3,
+          "percentage": 8.2
+        },
+        {
+          "name": "Education & Research",
+          "category": "Education",
+          "amount": 21.5,
+          "percentage": 4.7
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 24.5,
+          "percentage": 5.4
+        },
+        {
+          "name": "Development Aid",
+          "category": "Foreign Affairs",
+          "amount": 12.2,
+          "percentage": 2.7
+        },
+        {
+          "name": "Economy & Climate",
+          "category": "Economic Affairs",
+          "amount": 14.6,
+          "percentage": 3.2
+        },
+        {
+          "name": "Housing",
+          "category": "Housing",
+          "amount": 7.3,
+          "percentage": 1.6
+        },
+        {
+          "name": "Foreign Affairs",
+          "category": "Foreign Affairs",
+          "amount": 7.5,
+          "percentage": 1.6
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 2.5,
+          "percentage": 0.5
+        },
+        {
+          "name": "Other Ministries",
+          "category": "Other",
+          "amount": 53.2,
+          "percentage": 11.6
+        }
+      ]
+    },
     "data/budgets/germany-2024.json": {
       "metadata": {
         "country": "Germany",
@@ -323,6 +467,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "EUR",
         "currency_symbol": "€",
         "unit": "billions",
+        "population_millions": 84.7,
         "total_revenue": 416.2,
         "total_expenditure": 466.7,
         "deficit": 50.5,
@@ -450,6 +595,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "JPY",
         "currency_symbol": "¥",
         "unit": "trillions",
+        "population_millions": 123.9,
         "total_revenue": 77.1,
         "total_expenditure": 112.6,
         "deficit": 35.5,
@@ -541,6 +687,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "GBP",
         "currency_symbol": "£",
         "unit": "billions",
+        "population_millions": 68.3,
         "total_revenue": 1141.2,
         "total_expenditure": 1278.6,
         "deficit": 137.3,
@@ -691,6 +838,152 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/usa-2023.json": {
+      "metadata": {
+        "country": "United States",
+        "year": 2023,
+        "currency": "USD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "population_millions": 334.9,
+        "total_revenue": 4439,
+        "total_expenditure": 6134,
+        "deficit": 1695,
+        "source": "Congressional Budget Office, U.S. Treasury, FY2023",
+        "source_url": "https://www.cbo.gov/publication/59544",
+        "notes": "Federal budget for fiscal year 2023 (Oct 2022 - Sep 2023), actual results"
+      },
+      "revenue": [
+        {
+          "name": "Individual Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 2176,
+          "percentage": 49
+        },
+        {
+          "name": "Payroll Taxes (Social Security & Medicare)",
+          "category": "Social Insurance",
+          "amount": 1614,
+          "percentage": 36.4
+        },
+        {
+          "name": "Corporate Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 420,
+          "percentage": 9.5
+        },
+        {
+          "name": "Customs Duties & Excise Taxes",
+          "category": "Indirect Taxes",
+          "amount": 156,
+          "percentage": 3.5
+        },
+        {
+          "name": "Other Revenue",
+          "category": "Other",
+          "amount": 73,
+          "percentage": 1.6
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Security",
+          "category": "Social Protection",
+          "amount": 1348,
+          "percentage": 22
+        },
+        {
+          "name": "Medicare",
+          "category": "Health",
+          "amount": 848,
+          "percentage": 13.8
+        },
+        {
+          "name": "Medicaid & CHIP",
+          "category": "Health",
+          "amount": 616,
+          "percentage": 10
+        },
+        {
+          "name": "Interest on National Debt",
+          "category": "Debt Service",
+          "amount": 658,
+          "percentage": 10.7
+        },
+        {
+          "name": "National Defense",
+          "category": "Defense",
+          "amount": 820,
+          "percentage": 13.4
+        },
+        {
+          "name": "Veterans Benefits",
+          "category": "Social Protection",
+          "amount": 302,
+          "percentage": 4.9
+        },
+        {
+          "name": "Income Security (SNAP, SSI, etc.)",
+          "category": "Social Protection",
+          "amount": 448,
+          "percentage": 7.3
+        },
+        {
+          "name": "Education & Training",
+          "category": "Education",
+          "amount": 240,
+          "percentage": 3.9
+        },
+        {
+          "name": "Transportation",
+          "category": "Infrastructure",
+          "amount": 126,
+          "percentage": 2.1
+        },
+        {
+          "name": "Health Research & Public Health",
+          "category": "Health",
+          "amount": 107,
+          "percentage": 1.7
+        },
+        {
+          "name": "International Affairs",
+          "category": "Foreign Affairs",
+          "amount": 71,
+          "percentage": 1.2
+        },
+        {
+          "name": "Science & Technology",
+          "category": "Research",
+          "amount": 40,
+          "percentage": 0.7
+        },
+        {
+          "name": "Energy & Environment",
+          "category": "Environment",
+          "amount": 63,
+          "percentage": 1
+        },
+        {
+          "name": "Agriculture",
+          "category": "Economic Affairs",
+          "amount": 55,
+          "percentage": 0.9
+        },
+        {
+          "name": "Justice & Law Enforcement",
+          "category": "Public Safety",
+          "amount": 72,
+          "percentage": 1.2
+        },
+        {
+          "name": "Other Federal Programs",
+          "category": "Other",
+          "amount": 320,
+          "percentage": 5.2
+        }
+      ]
+    },
     "data/budgets/usa-2024.json": {
       "metadata": {
         "country": "United States",
@@ -698,6 +991,7 @@ window.EMBEDDED_BUDGETS = {
         "currency": "USD",
         "currency_symbol": "$",
         "unit": "billions",
+        "population_millions": 335.9,
         "total_revenue": 4919,
         "total_expenditure": 6752,
         "deficit": 1833,

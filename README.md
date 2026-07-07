@@ -4,8 +4,11 @@ An interactive Sankey diagram visualization for exploring national government bu
 
 ## Features
 
-- **Real Budget Data**: Actual government budget data for Germany, USA, UK, France, Japan, and Denmark (2024)
+- **Real Budget Data**: Actual government budget data for Germany, USA, UK, France, Japan, and Denmark
 - **Automatic Budget Discovery**: The budget selector is populated from a generated manifest — no manual HTML edits needed to add a budget
+- **Year-over-Year Comparison**: When multiple years exist for a country (currently Germany and USA), a comparison table shows changes in totals and matching expenditure categories
+- **Per-Capita View**: Toggle to display all amounts per inhabitant instead of national totals
+- **Export**: Download the current diagram as SVG or PNG
 - **Works Offline and from Disk**: All D3.js libraries and data are local; an embedded data fallback makes the page work even when opened directly via `file://`
 - **Data Validation**: `npm run validate` checks every budget file for consistency (sums, percentages, deficit)
 - **Interactive Visualization**: Hover over nodes and links to see detailed budget information
@@ -56,13 +59,18 @@ A Sankey diagram shows flows between sources and destinations. The width of the 
 - **Hover over nodes**: See the amount and percentage for that revenue source or expenditure category
 - **Select budget**: Use dropdown to switch between different country budgets
 - **Reload Data**: Refresh the current budget data
+- **Per-capita view**: Toggle the checkbox to show all amounts per inhabitant (requires `population_millions` in the data file)
+- **Export SVG / Export PNG**: Download the current diagram as an image
+- **Year-over-year comparison**: Selecting a budget automatically shows a comparison table against the previous available year for that country
 
 ## Available Budget Data
 
 Currently includes budget data for:
 
 - **Germany 2024** - Federal budget (€416.2B revenue, €466.7B expenditure)
+- **Germany 2023** - Federal budget (€411.5B revenue, €457.1B expenditure)
 - **United States 2024** - Federal fiscal year budget ($4,919B revenue, $6,752B expenditure)
+- **United States 2023** - Federal fiscal year budget ($4,439B revenue, $6,134B expenditure)
 - **United Kingdom 2024-25** - Government budget (£1,141B revenue, £1,279B expenditure)
 - **France 2024** - State budget (€299.9B revenue, €446.4B expenditure)
 - **Japan 2024** - General account budget (¥77.1T revenue, ¥112.6T expenditure)
@@ -264,10 +272,10 @@ This project is open source and available under the MIT License.
 Potential improvements:
 
 - [x] Automatic detection of budget files (no manual HTML update needed)
-- [ ] Multi-year comparisons for the same country
+- [x] Multi-year comparisons for the same country
 - [ ] Budget category drill-down for detailed subcategories
-- [ ] Export visualization as PNG/SVG
-- [ ] Per-capita calculations
+- [x] Export visualization as PNG/SVG
+- [x] Per-capita calculations
 - [ ] Historical trend analysis
 - [ ] Currency conversion for direct comparisons
 - [ ] Sub-national budgets (states, provinces, municipalities)

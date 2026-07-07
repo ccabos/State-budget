@@ -116,6 +116,12 @@ function validateFile(filepath) {
     warnings.push(`metadata.source_url does not look like a URL: ${meta.source_url}`);
   }
 
+  if (meta.population_millions === undefined) {
+    warnings.push('metadata.population_millions missing (per-capita view unavailable)');
+  } else if (typeof meta.population_millions !== 'number' || meta.population_millions <= 0) {
+    errors.push(`metadata.population_millions must be a positive number, got ${meta.population_millions}`);
+  }
+
   validateItems(data.revenue, 'revenue', meta.total_revenue, errors, warnings);
   validateItems(data.expenditure, 'expenditure', meta.total_expenditure, errors, warnings);
 
