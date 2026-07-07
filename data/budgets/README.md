@@ -107,6 +107,20 @@ An array of spending categories:
 - `category`: High-level category for grouping
 - `amount`: Amount in the unit specified in metadata
 - `percentage`: Percentage of total expenditure
+- `children` (optional): Array of `{ "name", "amount" }` subcategories for drill-down. When present, the Sankey renders an extra level splitting the category into its components. Children amounts must sum to approximately the parent's `amount`. See `germany-2024-detailed.json` for a full example:
+
+```json
+{
+  "name": "General Services",
+  "category": "General Services",
+  "amount": 109.9,
+  "percentage": 21.1,
+  "children": [
+    { "name": "Defense", "amount": 54.8 },
+    { "name": "Political Leadership & Central Administration", "amount": 23.2 }
+  ]
+}
+```
 
 **Common Categories:**
 - Health

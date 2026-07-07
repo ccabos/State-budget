@@ -339,7 +339,7 @@
         const revenueColors = ['#2E7D32', '#388E3C', '#43A047', '#4CAF50', '#66BB6A', '#81C784', '#A5D6A7'];
         const expenditureColors = ['#1565C0', '#1976D3', '#1E88E5', '#2196F3', '#42A5F5', '#64B5F6', '#90CAF9', '#BBDEFB'];
 
-        let svg, tooltip;
+        let svg, svgRoot, tooltip;
         let currentBudgetData = null;
         let budgetFiles = [];
 
@@ -381,10 +381,11 @@
         async function initialize() {
             d3.select("#sankey-container").selectAll("*").remove();
 
-            svg = d3.select("#sankey-container")
+            svgRoot = d3.select("#sankey-container")
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
+                .attr("height", height + margin.top + margin.bottom);
+            svg = svgRoot
                 .append("g")
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -718,94 +719,108 @@
             el.style.display = 'block';
         }
 
-        // Simple Sankey layout function
+        // Multi-level Sankey layout, modeled on classic budget-flow posters
+        // (e.g. "Der Bundeshaushalt"): individual revenue sources flow into a
+        // single total, the total fans out into expenditure functions, and
+        // functions with a "children" breakdown split into subcategories.
+        // Every link is a real flow - no synthetic revenue-x-expenditure mesh.
         function computeSankeyLayout(budgetData) {
-            const revenue = budgetData.revenue.map((d, i) => ({
-                ...d,
-                type: 'revenue',
-                index: i,
-                originalIndex: i
-            }));
-
-            const expenditure = budgetData.expenditure.map((d, i) => ({
-                ...d,
-                type: 'expenditure',
-                index: revenue.length + i,
-                originalIndex: i
-            }));
-
-            const nodes = [...revenue, ...expenditure];
-            const links = [];
-
-            // Create links proportionally from each revenue to each expenditure
+            const revenue = budgetData.revenue;
+            const expenditure = budgetData.expenditure;
             const totalRevenue = d3.sum(revenue, d => d.amount);
             const totalExpenditure = d3.sum(expenditure, d => d.amount);
+            const hasDetail = expenditure.some(d => Array.isArray(d.children) && d.children.length > 0);
+            const numCols = hasDetail ? 4 : 3;
 
-            revenue.forEach(rev => {
-                expenditure.forEach(exp => {
-                    // Proportional distribution
-                    const linkValue = (rev.amount / totalRevenue) * exp.amount;
-                    if (linkValue > 0.01) { // Only create links for significant flows
-                        links.push({
-                            source: rev.index,
-                            target: exp.index,
-                            value: linkValue
-                        });
-                    }
+            const nodes = [];
+            const links = [];
+
+            const revNodes = revenue.map((d, i) => {
+                const n = { name: d.name, amount: d.amount, percentage: d.percentage,
+                    type: 'revenue', col: 0, colorIndex: i };
+                nodes.push(n);
+                return n;
+            });
+
+            const totalNode = { name: 'Total Budget',
+                amount: Math.max(totalRevenue, totalExpenditure),
+                revenueTotal: totalRevenue, expenditureTotal: totalExpenditure,
+                type: 'total', col: 1, colorIndex: 0 };
+            nodes.push(totalNode);
+
+            const expNodes = expenditure.map((d, i) => {
+                const n = { name: d.name, amount: d.amount, percentage: d.percentage,
+                    type: 'expenditure', col: 2, colorIndex: i,
+                    hasChildren: !!(d.children && d.children.length) };
+                nodes.push(n);
+                return n;
+            });
+
+            if (hasDetail) {
+                expenditure.forEach((d, i) => {
+                    (d.children || []).forEach(c => {
+                        if (typeof c.amount !== 'number' || c.amount <= 0) return;
+                        const n = { name: c.name, amount: c.amount,
+                            percentage: totalExpenditure > 0 ? (c.amount / totalExpenditure) * 100 : 0,
+                            type: 'expenditure', col: 3, colorIndex: i };
+                        nodes.push(n);
+                        links.push({ source: expNodes[i], target: n, value: c.amount, kind: 'detail' });
+                    });
+                });
+            }
+
+            revNodes.forEach(n => {
+                if (n.amount > 0) links.push({ source: n, target: totalNode, value: n.amount, kind: 'revenue' });
+            });
+            expNodes.forEach(n => {
+                if (n.amount > 0) links.push({ source: totalNode, target: n, value: n.amount, kind: 'expenditure' });
+            });
+
+            // Vertical layout: one shared scale so heights are comparable,
+            // sized so the densest column still fits its rows.
+            const cols = d3.range(numCols).map(c => nodes.filter(n => n.col === c));
+            const rows = d3.max(cols, c => c.length);
+            const pad = rows > 16 ? 8 : nodePadding;
+            const chartHeight = Math.max(620, rows * 30);
+            const scale = d3.min(cols, colNodes => {
+                const sum = d3.sum(colNodes, n => n.amount);
+                return sum > 0 ? (chartHeight - (colNodes.length - 1) * pad) / sum : Infinity;
+            });
+
+            cols.forEach((colNodes, c) => {
+                const x0 = c * (width - nodeWidth) / (numCols - 1);
+                const used = d3.sum(colNodes, n => n.amount) * scale + (colNodes.length - 1) * pad;
+                let yPos = Math.max(0, (chartHeight - used) / 2);
+                colNodes.forEach(n => {
+                    n.x0 = x0;
+                    n.x1 = x0 + nodeWidth;
+                    n.y0 = yPos;
+                    n.y1 = yPos + n.amount * scale;
+                    yPos = n.y1 + pad;
                 });
             });
 
-            // Calculate total values
-            const maxTotal = Math.max(totalRevenue, totalExpenditure);
-            const scale = (height - (Math.max(revenue.length, expenditure.length) - 1) * nodePadding) / maxTotal;
-
-            // Position revenue nodes on the left
-            let yPos = 0;
-            revenue.forEach((node) => {
-                node.x0 = 0;
-                node.x1 = nodeWidth;
-                node.y0 = yPos;
-                node.y1 = yPos + node.amount * scale;
-                node.height = node.amount * scale;
-                yPos = node.y1 + nodePadding;
-            });
-
-            // Position expenditure nodes on the right
-            yPos = 0;
-            expenditure.forEach((node) => {
-                node.x0 = width - nodeWidth;
-                node.x1 = width;
-                node.y0 = yPos;
-                node.y1 = yPos + node.amount * scale;
-                node.height = node.amount * scale;
-                yPos = node.y1 + nodePadding;
-            });
-
-            // Calculate link positions
-            const sourceYOffset = {};
-            const targetYOffset = {};
-
+            // Stack link endpoints on each node in top-to-bottom order of the
+            // opposite end, so flows leave and arrive without crossing locally.
+            const sourceOffset = new Map();
+            const targetOffset = new Map();
             nodes.forEach(n => {
-                sourceYOffset[n.index] = n.y0;
-                targetYOffset[n.index] = n.y0;
+                sourceOffset.set(n, n.y0);
+                targetOffset.set(n, n.y0);
             });
-
+            links.sort((a, b) =>
+                (a.source.col - b.source.col) ||
+                (a.source.y0 - b.source.y0) ||
+                (a.target.y0 - b.target.y0));
             links.forEach(link => {
-                const sourceNode = nodes[link.source];
-                const targetNode = nodes[link.target];
-
-                link.width = link.value * scale;
-                link.y0 = sourceYOffset[link.source];
-                link.y1 = targetYOffset[link.target];
-
-                sourceYOffset[link.source] += link.width;
-                targetYOffset[link.target] += link.width;
-
-                link.source = sourceNode;
-                link.target = targetNode;
+                link.width = Math.max(link.value * scale, 0.5);
+                link.y0 = sourceOffset.get(link.source);
+                sourceOffset.set(link.source, link.y0 + link.width);
+                link.y1 = targetOffset.get(link.target);
+                targetOffset.set(link.target, link.y1 + link.width);
             });
 
-            return { nodes, links };
+            return { nodes, links, chartHeight, numCols };
         }
 
         // Create link path
@@ -821,11 +836,26 @@
             return `M${x0},${y0}C${x2},${y0} ${x3},${y1} ${x1},${y1}`;
         }
 
+        function formatValueShort(amount) {
+            return Number.isInteger(amount) ? amount.toLocaleString('en-US') : amount.toFixed(1);
+        }
+
         function drawSankey(budgetData) {
             svg.selectAll("*").remove();
 
-            const { nodes, links } = computeSankeyLayout(budgetData);
+            const { nodes, links, chartHeight, numCols } = computeSankeyLayout(budgetData);
             const metadata = budgetData.metadata;
+
+            // Grow the SVG to fit dense, high-granularity budgets and scale
+            // it responsively to the container width
+            const fullWidth = width + margin.left + margin.right;
+            const fullHeight = chartHeight + margin.top + margin.bottom;
+            svgRoot
+                .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`)
+                .attr("width", fullWidth)
+                .attr("height", fullHeight)
+                .style("width", "100%")
+                .style("height", "auto");
 
             // Draw title
             svg.append("text")
@@ -836,6 +866,8 @@
                 .style("font-weight", "bold")
                 .text(`${metadata.country} ${metadata.year} Budget`);
 
+            const linkColor = { revenue: '#4CAF50', expenditure: '#2196F3', detail: '#64B5F6' };
+
             // Draw links
             svg.append("g")
                 .selectAll(".link")
@@ -845,7 +877,7 @@
                 .attr("d", linkPath)
                 .attr("fill", "none")
                 .attr("stroke-opacity", 0.3)
-                .attr("stroke", d => d.source.type === "revenue" ? "#4CAF50" : "#2196F3")
+                .attr("stroke", d => linkColor[d.kind] || '#2196F3')
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .on("mouseover", function(event, d) {
                     d3.select(this).attr("stroke-opacity", 0.8);
@@ -873,25 +905,26 @@
             node.append("rect")
                 .attr("x", d => d.x0)
                 .attr("y", d => d.y0)
-                .attr("height", d => d.y1 - d.y0)
+                .attr("height", d => Math.max(d.y1 - d.y0, 1.5))
                 .attr("width", d => d.x1 - d.x0)
                 .attr("stroke", "#000")
                 .attr("stroke-width", 1)
                 .attr("fill", (d) => {
+                    if (d.type === "total") return "#37474F";
                     if (d.type === "revenue") {
-                        return revenueColors[d.originalIndex % revenueColors.length];
-                    } else {
-                        return expenditureColors[d.originalIndex % expenditureColors.length];
+                        return revenueColors[d.colorIndex % revenueColors.length];
                     }
+                    return expenditureColors[d.colorIndex % expenditureColors.length];
                 })
                 .on("mouseover", function(event, d) {
+                    const body = d.type === 'total'
+                        ? `Revenue: ${formatAmount(d.revenueTotal, metadata)}<br>
+                           Expenditure: ${formatAmount(d.expenditureTotal, metadata)}`
+                        : `Amount: ${formatAmount(d.amount, metadata)}<br>
+                           ${typeof d.percentage === 'number' ? d.percentage.toFixed(1) : '?'}% of total ${d.type}`;
                     tooltip
                         .style("opacity", 1)
-                        .html(`
-                            <strong>${d.name}</strong><br>
-                            Amount: ${formatAmount(d.amount, metadata)}<br>
-                            ${d.percentage.toFixed(1)}% of total ${d.type}
-                        `)
+                        .html(`<strong>${d.name}</strong><br>${body}`)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
                 })
@@ -899,15 +932,40 @@
                     tooltip.style("opacity", 0);
                 });
 
-            // Add node labels
-            node.append("text")
-                .attr("x", d => d.x0 < width / 2 ? d.x0 - 6 : d.x1 + 6)
+            // Node labels: outer columns sit outside the chart, interior
+            // columns get a white halo so they stay readable over the links.
+            const lastCol = numCols - 1;
+            const denseCols = new Set();
+            d3.range(numCols).forEach(c => {
+                if (nodes.filter(n => n.col === c).length > 16) denseCols.add(c);
+            });
+
+            node.filter(d => d.type !== 'total').append("text")
+                .attr("x", d => d.col === lastCol ? d.x1 + 6 : d.x0 - 6)
                 .attr("y", d => (d.y1 + d.y0) / 2)
                 .attr("dy", "0.35em")
-                .attr("text-anchor", d => d.x0 < width / 2 ? "end" : "start")
-                .text(d => d.name)
+                .attr("text-anchor", d => d.col === lastCol ? "start" : "end")
+                .text(d => `${d.name}  ${formatValueShort(d.amount)}`)
                 .style("fill", "#333")
-                .style("font-size", "11px");
+                .style("font-size", d => denseCols.has(d.col) ? "10px" : "11px")
+                .style("paint-order", "stroke")
+                .style("stroke", "#fff")
+                .style("stroke-width", "3px")
+                .style("stroke-linejoin", "round");
+
+            // Total node label sits above the bar, poster-style
+            node.filter(d => d.type === 'total').append("text")
+                .attr("x", d => (d.x0 + d.x1) / 2)
+                .attr("y", d => d.y0 - 8)
+                .attr("text-anchor", "middle")
+                .text(d => `Total ${formatValueShort(d.amount)}`)
+                .style("fill", "#333")
+                .style("font-size", "12px")
+                .style("font-weight", "bold")
+                .style("paint-order", "stroke")
+                .style("stroke", "#fff")
+                .style("stroke-width", "3px")
+                .style("stroke-linejoin", "round");
         }
 
         // ---- Historical trend ------------------------------------------------

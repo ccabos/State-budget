@@ -5,6 +5,7 @@ An interactive Sankey diagram visualization for exploring national government bu
 ## Features
 
 - **Real Budget Data**: Actual government budget data for Germany, USA, UK, France, Japan, and Denmark
+- **Category Drill-Down**: Expenditure items can carry `children` subcategories, rendered as an extra Sankey level (see the high-granularity "Germany (Detailed) 2024" budget with 19 individual tax types and 28 spending subcategories)
 - **Automatic Budget Discovery**: The budget selector is populated from a generated manifest — no manual HTML edits needed to add a budget
 - **Year-over-Year Comparison**: When multiple years exist for a country (currently Germany and USA), a comparison table shows changes in totals and matching expenditure categories
 - **Historical Trend Chart**: A revenue-vs-expenditure bar chart across all available years for the selected country
@@ -50,11 +51,14 @@ Then navigate to `http://localhost:8000`
 
 ### Sankey Diagram Basics
 
-A Sankey diagram shows flows between sources and destinations. The width of the arrows/links is proportional to the flow amount.
+A Sankey diagram shows flows between sources and destinations. The width of the arrows/links is proportional to the flow amount. The layout follows classic budget-flow infographics (such as "Der Bundeshaushalt"):
 
-- **Left side**: Revenue sources (where government money comes from)
-- **Right side**: Expenditure categories (where government money is spent)
-- **Links**: Proportional flows showing how revenue is distributed to expenditures
+- **Left**: Individual revenue sources (where government money comes from)
+- **Center**: A single total-budget node that all revenue flows into
+- **Right**: Expenditure categories the total fans out into
+- **Far right** (when the data provides it): Subcategory drill-down — expenditure functions split into their detailed components
+
+Every link is a real flow (source → total → category → subcategory); link widths are proportional to actual amounts.
 
 ### Interactivity
 
@@ -73,6 +77,7 @@ A Sankey diagram shows flows between sources and destinations. The width of the 
 Currently includes budget data for:
 
 - **Germany 2022-2024** - Federal budget (2024: €416.2B revenue, €466.7B expenditure)
+- **Germany (Detailed) 2024** - Draft budget by function with full granularity: 19 individual tax types and expenditure subcategory drill-down
 - **United States 2022-2024** - Federal fiscal year budget (FY2024: $4,919B revenue, $6,752B expenditure)
 - **United Kingdom 2024-25** - Government budget (£1,141B revenue, £1,279B expenditure)
 - **France 2024** - State budget (€299.9B revenue, €446.4B expenditure)
@@ -277,7 +282,7 @@ Potential improvements:
 
 - [x] Automatic detection of budget files (no manual HTML update needed)
 - [x] Multi-year comparisons for the same country
-- [ ] Budget category drill-down for detailed subcategories
+- [x] Budget category drill-down for detailed subcategories
 - [x] Export visualization as PNG/SVG
 - [x] Per-capita calculations
 - [x] Historical trend analysis

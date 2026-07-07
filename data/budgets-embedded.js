@@ -48,6 +48,13 @@ window.EMBEDDED_BUDGETS = {
         "currency": "EUR"
       },
       {
+        "value": "data/budgets/germany-2024-detailed.json",
+        "label": "Germany (Detailed) 2024",
+        "country": "Germany (Detailed)",
+        "year": 2024,
+        "currency": "EUR"
+      },
+      {
         "value": "data/budgets/japan-2024.json",
         "label": "Japan 2024",
         "country": "Japan",
@@ -697,6 +704,321 @@ window.EMBEDDED_BUDGETS = {
           "category": "Other",
           "amount": 53.2,
           "percentage": 11.6
+        }
+      ]
+    },
+    "data/budgets/germany-2024-detailed.json": {
+      "metadata": {
+        "country": "Germany (Detailed)",
+        "year": 2024,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 84.7,
+        "exchange_rate_per_usd": 0.924,
+        "total_revenue": 505.1,
+        "total_expenditure": 521.9,
+        "deficit": 16.8,
+        "source": "German Federal Ministry of Finance, 2024 draft budget (Regierungsentwurf), functional classification",
+        "source_url": "https://www.bundeshaushalt.de/",
+        "notes": "High-granularity view based on the 2024 federal budget draft by function (Haushaltsplan 2024 nach Funktionen). Tax revenue is shown gross by individual tax type; transfers to the EU and the Laender are shown as expenditure. Planned global spending cuts (-4.7B) are omitted. Figures differ from the final enacted budget."
+      },
+      "revenue": [
+        {
+          "name": "Wage Tax (Lohnsteuer)",
+          "category": "Direct Taxes",
+          "amount": 109.5,
+          "percentage": 21.7
+        },
+        {
+          "name": "VAT (Umsatzsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 106.8,
+          "percentage": 21.1
+        },
+        {
+          "name": "Import VAT (Einfuhrumsatzsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 46.6,
+          "percentage": 9.2
+        },
+        {
+          "name": "Energy Tax (Energiesteuer)",
+          "category": "Indirect Taxes",
+          "amount": 35.9,
+          "percentage": 7.1
+        },
+        {
+          "name": "Assessed Income Tax (Einkommensteuer)",
+          "category": "Direct Taxes",
+          "amount": 33.3,
+          "percentage": 6.6
+        },
+        {
+          "name": "Corporation Tax (Körperschaftsteuer)",
+          "category": "Direct Taxes",
+          "amount": 23.9,
+          "percentage": 4.7
+        },
+        {
+          "name": "Insurance Tax (Versicherungsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 17.4,
+          "percentage": 3.4
+        },
+        {
+          "name": "Non-assessed Taxes on Earnings",
+          "category": "Direct Taxes",
+          "amount": 17.2,
+          "percentage": 3.4
+        },
+        {
+          "name": "Tobacco Tax (Tabaksteuer)",
+          "category": "Indirect Taxes",
+          "amount": 16,
+          "percentage": 3.2
+        },
+        {
+          "name": "Solidarity Surcharge (Solidaritätszuschlag)",
+          "category": "Direct Taxes",
+          "amount": 12.4,
+          "percentage": 2.5
+        },
+        {
+          "name": "Motor Vehicle Tax (Kfz-Steuer)",
+          "category": "Indirect Taxes",
+          "amount": 9.4,
+          "percentage": 1.9
+        },
+        {
+          "name": "Electricity Tax (Stromsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 6.8,
+          "percentage": 1.3
+        },
+        {
+          "name": "Special Fund Digital Infrastructure",
+          "category": "Other",
+          "amount": 4.2,
+          "percentage": 0.8
+        },
+        {
+          "name": "Withholding Tax (Abgeltungsteuer)",
+          "category": "Direct Taxes",
+          "amount": 2.8,
+          "percentage": 0.6
+        },
+        {
+          "name": "Trade Tax Share (Gewerbesteuerumlage)",
+          "category": "Other",
+          "amount": 2.7,
+          "percentage": 0.5
+        },
+        {
+          "name": "Alcohol Tax (Alkoholsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 2.2,
+          "percentage": 0.4
+        },
+        {
+          "name": "Air Transport Tax (Luftverkehrsteuer)",
+          "category": "Indirect Taxes",
+          "amount": 1.6,
+          "percentage": 0.3
+        },
+        {
+          "name": "Other Taxes (Sonstige Steuern)",
+          "category": "Other",
+          "amount": 2.6,
+          "percentage": 0.5
+        },
+        {
+          "name": "Other Revenue (Sonstige Einnahmen)",
+          "category": "Other",
+          "amount": 53.8,
+          "percentage": 10.7
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Labor & Social Affairs (Arbeit und Soziales)",
+          "category": "Social Protection",
+          "amount": 213.5,
+          "percentage": 40.9,
+          "children": [
+            {
+              "name": "General Pension Insurance",
+              "amount": 108.4
+            },
+            {
+              "name": "Unemployment Benefit II (Bürgergeld)",
+              "amount": 24.3
+            },
+            {
+              "name": "Health Insurance Subsidies",
+              "amount": 16
+            },
+            {
+              "name": "Family Support & Welfare",
+              "amount": 14.5
+            },
+            {
+              "name": "Housing & Heating Benefits",
+              "amount": 9.7
+            },
+            {
+              "name": "Basic Old-Age & Disability Support",
+              "amount": 9.5
+            },
+            {
+              "name": "Other Social Insurance",
+              "amount": 6.4
+            },
+            {
+              "name": "Miners' Pension Insurance",
+              "amount": 5.2
+            },
+            {
+              "name": "Other Basic Support for Jobseekers",
+              "amount": 5.1
+            },
+            {
+              "name": "Labor Market Integration",
+              "amount": 4.2
+            },
+            {
+              "name": "Social Administration",
+              "amount": 2.7
+            },
+            {
+              "name": "Farmers' Pension Insurance",
+              "amount": 2.4
+            },
+            {
+              "name": "War & Political Event Compensation",
+              "amount": 2.3
+            },
+            {
+              "name": "Other Social Areas",
+              "amount": 1.6
+            },
+            {
+              "name": "Other Labor Market Policy",
+              "amount": 0.5
+            },
+            {
+              "name": "Child & Youth Welfare",
+              "amount": 0.4
+            },
+            {
+              "name": "Accident Insurance",
+              "amount": 0.3
+            }
+          ]
+        },
+        {
+          "name": "General Services (Allgemeine Dienste)",
+          "category": "General Services",
+          "amount": 109.9,
+          "percentage": 21.1,
+          "children": [
+            {
+              "name": "Defense (Verteidigung)",
+              "amount": 54.8
+            },
+            {
+              "name": "Political Leadership & Central Administration",
+              "amount": 23.2
+            },
+            {
+              "name": "Foreign Affairs incl. Development Aid",
+              "amount": 17
+            },
+            {
+              "name": "Public Safety & Order",
+              "amount": 7.4
+            },
+            {
+              "name": "Financial Administration",
+              "amount": 6.8
+            },
+            {
+              "name": "Legal Protection (Rechtsschutz)",
+              "amount": 0.7
+            }
+          ]
+        },
+        {
+          "name": "Transfers to EU & Länder",
+          "category": "Other",
+          "amount": 71.6,
+          "percentage": 13.7,
+          "children": [
+            {
+              "name": "EU Contribution",
+              "amount": 35.3
+            },
+            {
+              "name": "Transfers to the Länder",
+              "amount": 33.5
+            },
+            {
+              "name": "Other Transfers",
+              "amount": 2.8
+            }
+          ]
+        },
+        {
+          "name": "Financial Management (Finanzwirtschaft)",
+          "category": "Debt Service",
+          "amount": 44.6,
+          "percentage": 8.5,
+          "children": [
+            {
+              "name": "Debt Service (Schulden)",
+              "amount": 36.8
+            },
+            {
+              "name": "Other Financial Management",
+              "amount": 7.8
+            }
+          ]
+        },
+        {
+          "name": "Transport & Communications",
+          "category": "Infrastructure",
+          "amount": 31.5,
+          "percentage": 6
+        },
+        {
+          "name": "Education, Science, Research, Culture",
+          "category": "Education",
+          "amount": 29,
+          "percentage": 5.6
+        },
+        {
+          "name": "Energy & Water, Trade, Services",
+          "category": "Economic Affairs",
+          "amount": 11,
+          "percentage": 2.1
+        },
+        {
+          "name": "Health, Environment, Sport & Recreation",
+          "category": "Health",
+          "amount": 5.1,
+          "percentage": 1
+        },
+        {
+          "name": "Housing, Urban Development, Spatial Planning",
+          "category": "Housing",
+          "amount": 4,
+          "percentage": 0.8
+        },
+        {
+          "name": "Food, Agriculture & Forestry",
+          "category": "Economic Affairs",
+          "amount": 1.7,
+          "percentage": 0.3
         }
       ]
     },

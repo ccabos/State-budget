@@ -60,6 +60,31 @@ function validateItems(items, sectionName, declaredTotal, errors, warnings) {
       warnings.push(`${label}: negative amount (${item.amount})`);
     }
     sum += item.amount;
+
+    // Optional subcategory breakdown
+    if (item.children !== undefined) {
+      if (!Array.isArray(item.children) || item.children.length === 0) {
+        errors.push(`${label}: "children" must be a non-empty array when present`);
+      } else {
+        let childSum = 0;
+        item.children.forEach((child, j) => {
+          const childLabel = `${label}.children[${j}]${child && child.name ? ` (${child.name})` : ''}`;
+          if (!child || typeof child.name !== 'string' || !child.name.trim()) {
+            errors.push(`${childLabel}: missing "name"`);
+          }
+          if (!child || typeof child.amount !== 'number' || !isFinite(child.amount)) {
+            errors.push(`${childLabel}: "amount" must be a number`);
+          } else {
+            childSum += child.amount;
+          }
+        });
+        if (item.amount > 0 && Math.abs(childSum - item.amount) / item.amount > SUM_TOLERANCE) {
+          errors.push(
+            `${label}: children sum to ${childSum.toFixed(2)} but parent amount is ${item.amount.toFixed(2)}`
+          );
+        }
+      }
+    }
   });
 
   if (typeof declaredTotal === 'number' && sum > 0) {

@@ -44,6 +44,13 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2024-detailed.json",
+      "label": "Germany (Detailed) 2024",
+      "country": "Germany (Detailed)",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/japan-2024.json",
       "label": "Japan 2024",
       "country": "Japan",
