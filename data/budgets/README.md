@@ -28,6 +28,7 @@ Contains information about the budget:
     "currency_symbol": "$|€|£|kr",
     "unit": "billions|millions",
     "population_millions": 84.7,
+    "exchange_rate_per_usd": 0.924,
     "total_revenue": 1000.0,
     "total_expenditure": 1100.0,
     "deficit": 100.0,
@@ -45,6 +46,7 @@ Contains information about the budget:
 - `currency_symbol`: Symbol for display
 - `unit`: Scale of numbers (millions, billions, or trillions)
 - `population_millions`: Country population in millions (optional; enables the per-capita view)
+- `exchange_rate_per_usd`: Units of local currency per 1 USD, annual average for the budget year (optional; enables USD conversion; use `1.0` for USD budgets)
 - `total_revenue`: Total government revenue
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)
@@ -154,6 +156,11 @@ An array of spending categories:
 - **Source:** Danish Ministry of Finance (Finansministeriet)
 - **URL:** https://fm.dk
 - **Format:** Finansloven for 2024
+
+### California (US State)
+- **Source:** California Department of Finance
+- **URL:** https://ebudget.ca.gov
+- **Format:** General Fund, fiscal year 2024-25 — a sub-national budget example. For sub-national budgets, set `country` to a name that identifies the jurisdiction, e.g. "California (US State)".
 
 ## Adding New Budget Data
 

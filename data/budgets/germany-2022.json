@@ -1,129 +1,129 @@
 {
   "metadata": {
     "country": "Germany",
-    "year": 2023,
+    "year": 2022,
     "currency": "EUR",
     "currency_symbol": "€",
     "unit": "billions",
-    "population_millions": 84.7,
-    "exchange_rate_per_usd": 0.925,
-    "total_revenue": 411.5,
-    "total_expenditure": 457.1,
-    "deficit": 45.6,
-    "source": "German Federal Ministry of Finance, 2023",
+    "population_millions": 84.4,
+    "exchange_rate_per_usd": 0.951,
+    "total_revenue": 365.9,
+    "total_expenditure": 481.3,
+    "deficit": 115.4,
+    "source": "German Federal Ministry of Finance, 2022",
     "source_url": "https://www.bundesfinanzministerium.de/Web/EN/Issues/Federal-budget/federal-budget.html",
-    "notes": "Federal budget, provisional 2023 results. Revenue excludes net borrowing of about €45.6B, which finances the deficit."
+    "notes": "Federal budget, 2022 results. Elevated spending and borrowing due to COVID-19 response and energy crisis measures. Revenue excludes net borrowing of about €115.4B."
   },
   "revenue": [
     {
       "name": "Income & Wage Taxes (federal share)",
       "category": "Direct Taxes",
-      "amount": 115.0,
-      "percentage": 27.9
+      "amount": 105.0,
+      "percentage": 28.7
     },
     {
       "name": "Value Added Tax (federal share)",
       "category": "Indirect Taxes",
-      "amount": 125.0,
-      "percentage": 30.4
+      "amount": 115.0,
+      "percentage": 31.4
     },
     {
       "name": "Energy & Electricity Taxes",
       "category": "Indirect Taxes",
-      "amount": 38.5,
-      "percentage": 9.4
+      "amount": 33.7,
+      "percentage": 9.2
     },
     {
       "name": "Corporate & Capital Income Taxes",
       "category": "Direct Taxes",
-      "amount": 33.0,
-      "percentage": 8.0
+      "amount": 30.0,
+      "percentage": 8.2
     },
     {
       "name": "Other Taxes",
       "category": "Other",
-      "amount": 44.6,
-      "percentage": 10.8
+      "amount": 44.9,
+      "percentage": 12.3
     },
     {
       "name": "Non-Tax Revenue",
       "category": "Other",
-      "amount": 55.4,
-      "percentage": 13.5
+      "amount": 37.3,
+      "percentage": 10.2
     }
   ],
   "expenditure": [
     {
       "name": "Labor & Social Affairs",
       "category": "Social Protection",
-      "amount": 171.0,
-      "percentage": 37.4
+      "amount": 160.6,
+      "percentage": 33.4
     },
     {
       "name": "Defense (incl. special fund)",
       "category": "Defense",
-      "amount": 66.8,
-      "percentage": 14.6
+      "amount": 50.1,
+      "percentage": 10.4
     },
     {
       "name": "Transport & Infrastructure",
       "category": "Infrastructure",
-      "amount": 38.7,
-      "percentage": 8.5
+      "amount": 35.9,
+      "percentage": 7.5
     },
     {
       "name": "Interest on Debt",
       "category": "Debt Service",
-      "amount": 37.3,
-      "percentage": 8.2
+      "amount": 16.2,
+      "percentage": 3.4
     },
     {
       "name": "Education & Research",
       "category": "Education",
-      "amount": 21.5,
-      "percentage": 4.7
+      "amount": 20.5,
+      "percentage": 4.3
     },
     {
       "name": "Health",
       "category": "Health",
-      "amount": 24.5,
-      "percentage": 5.4
+      "amount": 64.4,
+      "percentage": 13.4
     },
     {
       "name": "Development Aid",
       "category": "Foreign Affairs",
-      "amount": 12.2,
-      "percentage": 2.7
+      "amount": 12.4,
+      "percentage": 2.6
     },
     {
       "name": "Economy & Climate",
       "category": "Economic Affairs",
-      "amount": 14.6,
-      "percentage": 3.2
+      "amount": 25.0,
+      "percentage": 5.2
     },
     {
       "name": "Housing",
       "category": "Housing",
-      "amount": 7.3,
-      "percentage": 1.6
+      "amount": 5.5,
+      "percentage": 1.1
     },
     {
       "name": "Foreign Affairs",
       "category": "Foreign Affairs",
-      "amount": 7.5,
-      "percentage": 1.6
+      "amount": 7.4,
+      "percentage": 1.5
     },
     {
       "name": "Environment",
       "category": "Environment",
-      "amount": 2.5,
+      "amount": 2.3,
       "percentage": 0.5
     },
     {
       "name": "Other Ministries",
       "category": "Other",
-      "amount": 53.2,
-      "percentage": 11.6
+      "amount": 81.0,
+      "percentage": 16.8
     }
   ]
 }

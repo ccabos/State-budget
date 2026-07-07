@@ -6,6 +6,7 @@
     "currency_symbol": "€",
     "unit": "billions",
     "population_millions": 68.4,
+    "exchange_rate_per_usd": 0.924,
     "total_revenue": 299.9,
     "total_expenditure": 446.4,
     "deficit": 146.5,

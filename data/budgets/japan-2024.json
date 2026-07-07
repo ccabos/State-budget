@@ -6,6 +6,7 @@
     "currency_symbol": "¥",
     "unit": "trillions",
     "population_millions": 123.9,
+    "exchange_rate_per_usd": 151.4,
     "total_revenue": 77.1,
     "total_expenditure": 112.6,
     "deficit": 35.5,

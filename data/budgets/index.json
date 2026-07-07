@@ -2,6 +2,13 @@
   "generated": "2026-07-07",
   "budgets": [
     {
+      "value": "data/budgets/california-2024.json",
+      "label": "California (US State) 2024",
+      "country": "California (US State)",
+      "year": 2024,
+      "currency": "USD"
+    },
+    {
       "value": "data/budgets/denmark-2024.json",
       "label": "Denmark 2024",
       "country": "Denmark",
@@ -30,6 +37,13 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2022.json",
+      "label": "Germany 2022",
+      "country": "Germany",
+      "year": 2022,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/japan-2024.json",
       "label": "Japan 2024",
       "country": "Japan",
@@ -55,6 +69,13 @@
       "label": "United States 2023",
       "country": "United States",
       "year": 2023,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2022.json",
+      "label": "United States 2022",
+      "country": "United States",
+      "year": 2022,
       "currency": "USD"
     }
   ]

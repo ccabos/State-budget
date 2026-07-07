@@ -6,6 +6,13 @@ window.EMBEDDED_BUDGETS = {
     "generated": "2026-07-07",
     "budgets": [
       {
+        "value": "data/budgets/california-2024.json",
+        "label": "California (US State) 2024",
+        "country": "California (US State)",
+        "year": 2024,
+        "currency": "USD"
+      },
+      {
         "value": "data/budgets/denmark-2024.json",
         "label": "Denmark 2024",
         "country": "Denmark",
@@ -31,6 +38,13 @@ window.EMBEDDED_BUDGETS = {
         "label": "Germany 2023",
         "country": "Germany",
         "year": 2023,
+        "currency": "EUR"
+      },
+      {
+        "value": "data/budgets/germany-2022.json",
+        "label": "Germany 2022",
+        "country": "Germany",
+        "year": 2022,
         "currency": "EUR"
       },
       {
@@ -60,10 +74,104 @@ window.EMBEDDED_BUDGETS = {
         "country": "United States",
         "year": 2023,
         "currency": "USD"
+      },
+      {
+        "value": "data/budgets/usa-2022.json",
+        "label": "United States 2022",
+        "country": "United States",
+        "year": 2022,
+        "currency": "USD"
       }
     ]
   },
   "budgets": {
+    "data/budgets/california-2024.json": {
+      "metadata": {
+        "country": "California (US State)",
+        "year": 2024,
+        "currency": "USD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "population_millions": 39.1,
+        "exchange_rate_per_usd": 1,
+        "total_revenue": 212.1,
+        "total_expenditure": 211.5,
+        "deficit": -0.6,
+        "source": "California Department of Finance, 2024-25 Enacted Budget",
+        "source_url": "https://ebudget.ca.gov/",
+        "notes": "General Fund only, fiscal year 2024-25 (Jul 2024 - Jun 2025). Sub-national (state-level) budget example."
+      },
+      "revenue": [
+        {
+          "name": "Personal Income Tax",
+          "category": "Direct Taxes",
+          "amount": 128.8,
+          "percentage": 60.7
+        },
+        {
+          "name": "Corporation Tax",
+          "category": "Direct Taxes",
+          "amount": 37,
+          "percentage": 17.4
+        },
+        {
+          "name": "Sales & Use Tax",
+          "category": "Indirect Taxes",
+          "amount": 33.4,
+          "percentage": 15.7
+        },
+        {
+          "name": "Other Revenue & Transfers",
+          "category": "Other",
+          "amount": 12.9,
+          "percentage": 6.1
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "K-12 Education",
+          "category": "Education",
+          "amount": 76.5,
+          "percentage": 36.2
+        },
+        {
+          "name": "Health & Human Services",
+          "category": "Health",
+          "amount": 71.5,
+          "percentage": 33.8
+        },
+        {
+          "name": "Higher Education",
+          "category": "Education",
+          "amount": 21,
+          "percentage": 9.9
+        },
+        {
+          "name": "Corrections & Rehabilitation",
+          "category": "Public Safety",
+          "amount": 13.5,
+          "percentage": 6.4
+        },
+        {
+          "name": "Courts & Justice",
+          "category": "Public Safety",
+          "amount": 5.5,
+          "percentage": 2.6
+        },
+        {
+          "name": "Natural Resources & Environment",
+          "category": "Environment",
+          "amount": 4,
+          "percentage": 1.9
+        },
+        {
+          "name": "General Government & Other",
+          "category": "General Services",
+          "amount": 19.5,
+          "percentage": 9.2
+        }
+      ]
+    },
     "data/budgets/denmark-2024.json": {
       "metadata": {
         "country": "Denmark",
@@ -72,6 +180,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "kr",
         "unit": "billions",
         "population_millions": 5.96,
+        "exchange_rate_per_usd": 6.89,
         "total_revenue": 902.25,
         "total_expenditure": 887.75,
         "deficit": -14.5,
@@ -200,6 +309,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "€",
         "unit": "billions",
         "population_millions": 68.4,
+        "exchange_rate_per_usd": 0.924,
         "total_revenue": 299.9,
         "total_expenditure": 446.4,
         "deficit": 146.5,
@@ -332,6 +442,135 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/germany-2022.json": {
+      "metadata": {
+        "country": "Germany",
+        "year": 2022,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 84.4,
+        "exchange_rate_per_usd": 0.951,
+        "total_revenue": 365.9,
+        "total_expenditure": 481.3,
+        "deficit": 115.4,
+        "source": "German Federal Ministry of Finance, 2022",
+        "source_url": "https://www.bundesfinanzministerium.de/Web/EN/Issues/Federal-budget/federal-budget.html",
+        "notes": "Federal budget, 2022 results. Elevated spending and borrowing due to COVID-19 response and energy crisis measures. Revenue excludes net borrowing of about €115.4B."
+      },
+      "revenue": [
+        {
+          "name": "Income & Wage Taxes (federal share)",
+          "category": "Direct Taxes",
+          "amount": 105,
+          "percentage": 28.7
+        },
+        {
+          "name": "Value Added Tax (federal share)",
+          "category": "Indirect Taxes",
+          "amount": 115,
+          "percentage": 31.4
+        },
+        {
+          "name": "Energy & Electricity Taxes",
+          "category": "Indirect Taxes",
+          "amount": 33.7,
+          "percentage": 9.2
+        },
+        {
+          "name": "Corporate & Capital Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 30,
+          "percentage": 8.2
+        },
+        {
+          "name": "Other Taxes",
+          "category": "Other",
+          "amount": 44.9,
+          "percentage": 12.3
+        },
+        {
+          "name": "Non-Tax Revenue",
+          "category": "Other",
+          "amount": 37.3,
+          "percentage": 10.2
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Labor & Social Affairs",
+          "category": "Social Protection",
+          "amount": 160.6,
+          "percentage": 33.4
+        },
+        {
+          "name": "Defense (incl. special fund)",
+          "category": "Defense",
+          "amount": 50.1,
+          "percentage": 10.4
+        },
+        {
+          "name": "Transport & Infrastructure",
+          "category": "Infrastructure",
+          "amount": 35.9,
+          "percentage": 7.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 16.2,
+          "percentage": 3.4
+        },
+        {
+          "name": "Education & Research",
+          "category": "Education",
+          "amount": 20.5,
+          "percentage": 4.3
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 64.4,
+          "percentage": 13.4
+        },
+        {
+          "name": "Development Aid",
+          "category": "Foreign Affairs",
+          "amount": 12.4,
+          "percentage": 2.6
+        },
+        {
+          "name": "Economy & Climate",
+          "category": "Economic Affairs",
+          "amount": 25,
+          "percentage": 5.2
+        },
+        {
+          "name": "Housing",
+          "category": "Housing",
+          "amount": 5.5,
+          "percentage": 1.1
+        },
+        {
+          "name": "Foreign Affairs",
+          "category": "Foreign Affairs",
+          "amount": 7.4,
+          "percentage": 1.5
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 2.3,
+          "percentage": 0.5
+        },
+        {
+          "name": "Other Ministries",
+          "category": "Other",
+          "amount": 81,
+          "percentage": 16.8
+        }
+      ]
+    },
     "data/budgets/germany-2023.json": {
       "metadata": {
         "country": "Germany",
@@ -340,6 +579,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "€",
         "unit": "billions",
         "population_millions": 84.7,
+        "exchange_rate_per_usd": 0.925,
         "total_revenue": 411.5,
         "total_expenditure": 457.1,
         "deficit": 45.6,
@@ -468,6 +708,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "€",
         "unit": "billions",
         "population_millions": 84.7,
+        "exchange_rate_per_usd": 0.924,
         "total_revenue": 416.2,
         "total_expenditure": 466.7,
         "deficit": 50.5,
@@ -596,6 +837,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "¥",
         "unit": "trillions",
         "population_millions": 123.9,
+        "exchange_rate_per_usd": 151.4,
         "total_revenue": 77.1,
         "total_expenditure": 112.6,
         "deficit": 35.5,
@@ -688,6 +930,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "£",
         "unit": "billions",
         "population_millions": 68.3,
+        "exchange_rate_per_usd": 0.783,
         "total_revenue": 1141.2,
         "total_expenditure": 1278.6,
         "deficit": 137.3,
@@ -838,6 +1081,153 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/usa-2022.json": {
+      "metadata": {
+        "country": "United States",
+        "year": 2022,
+        "currency": "USD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "population_millions": 333.3,
+        "exchange_rate_per_usd": 1,
+        "total_revenue": 4896,
+        "total_expenditure": 6272,
+        "deficit": 1376,
+        "source": "Congressional Budget Office, U.S. Treasury, FY2022",
+        "source_url": "https://www.cbo.gov/publication/58888",
+        "notes": "Federal budget for fiscal year 2022 (Oct 2021 - Sep 2022), actual results"
+      },
+      "revenue": [
+        {
+          "name": "Individual Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 2632,
+          "percentage": 53.8
+        },
+        {
+          "name": "Payroll Taxes (Social Security & Medicare)",
+          "category": "Social Insurance",
+          "amount": 1484,
+          "percentage": 30.3
+        },
+        {
+          "name": "Corporate Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 425,
+          "percentage": 8.7
+        },
+        {
+          "name": "Customs Duties & Excise Taxes",
+          "category": "Indirect Taxes",
+          "amount": 188,
+          "percentage": 3.8
+        },
+        {
+          "name": "Other Revenue",
+          "category": "Other",
+          "amount": 167,
+          "percentage": 3.4
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Security",
+          "category": "Social Protection",
+          "amount": 1213,
+          "percentage": 19.3
+        },
+        {
+          "name": "Medicare",
+          "category": "Health",
+          "amount": 747,
+          "percentage": 11.9
+        },
+        {
+          "name": "Medicaid & CHIP",
+          "category": "Health",
+          "amount": 592,
+          "percentage": 9.4
+        },
+        {
+          "name": "Interest on National Debt",
+          "category": "Debt Service",
+          "amount": 475,
+          "percentage": 7.6
+        },
+        {
+          "name": "National Defense",
+          "category": "Defense",
+          "amount": 751,
+          "percentage": 12
+        },
+        {
+          "name": "Veterans Benefits",
+          "category": "Social Protection",
+          "amount": 274,
+          "percentage": 4.4
+        },
+        {
+          "name": "Income Security (SNAP, SSI, etc.)",
+          "category": "Social Protection",
+          "amount": 865,
+          "percentage": 13.8
+        },
+        {
+          "name": "Education & Training",
+          "category": "Education",
+          "amount": 300,
+          "percentage": 4.8
+        },
+        {
+          "name": "Transportation",
+          "category": "Infrastructure",
+          "amount": 121,
+          "percentage": 1.9
+        },
+        {
+          "name": "Health Research & Public Health",
+          "category": "Health",
+          "amount": 122,
+          "percentage": 1.9
+        },
+        {
+          "name": "International Affairs",
+          "category": "Foreign Affairs",
+          "amount": 67,
+          "percentage": 1.1
+        },
+        {
+          "name": "Science & Technology",
+          "category": "Research",
+          "amount": 38,
+          "percentage": 0.6
+        },
+        {
+          "name": "Energy & Environment",
+          "category": "Environment",
+          "amount": 48,
+          "percentage": 0.8
+        },
+        {
+          "name": "Agriculture",
+          "category": "Economic Affairs",
+          "amount": 32,
+          "percentage": 0.5
+        },
+        {
+          "name": "Justice & Law Enforcement",
+          "category": "Public Safety",
+          "amount": 68,
+          "percentage": 1.1
+        },
+        {
+          "name": "Other Federal Programs",
+          "category": "Other",
+          "amount": 559,
+          "percentage": 8.9
+        }
+      ]
+    },
     "data/budgets/usa-2023.json": {
       "metadata": {
         "country": "United States",
@@ -846,6 +1236,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "$",
         "unit": "billions",
         "population_millions": 334.9,
+        "exchange_rate_per_usd": 1,
         "total_revenue": 4439,
         "total_expenditure": 6134,
         "deficit": 1695,
@@ -992,6 +1383,7 @@ window.EMBEDDED_BUDGETS = {
         "currency_symbol": "$",
         "unit": "billions",
         "population_millions": 335.9,
+        "exchange_rate_per_usd": 1,
         "total_revenue": 4919,
         "total_expenditure": 6752,
         "deficit": 1833,

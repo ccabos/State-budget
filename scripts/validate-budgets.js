@@ -122,6 +122,12 @@ function validateFile(filepath) {
     errors.push(`metadata.population_millions must be a positive number, got ${meta.population_millions}`);
   }
 
+  if (meta.exchange_rate_per_usd === undefined) {
+    warnings.push('metadata.exchange_rate_per_usd missing (USD conversion unavailable)');
+  } else if (typeof meta.exchange_rate_per_usd !== 'number' || meta.exchange_rate_per_usd <= 0) {
+    errors.push(`metadata.exchange_rate_per_usd must be a positive number, got ${meta.exchange_rate_per_usd}`);
+  }
+
   validateItems(data.revenue, 'revenue', meta.total_revenue, errors, warnings);
   validateItems(data.expenditure, 'expenditure', meta.total_expenditure, errors, warnings);
 

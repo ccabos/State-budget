@@ -229,6 +229,12 @@
 
         .delta-up { color: #c62828; }
         .delta-down { color: #2e7d32; }
+
+        .trend-caption {
+            color: #888;
+            font-size: 11px;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -244,6 +250,9 @@
             <button id="reload-btn">Reload Data</button>
             <label class="toggle-label">
                 <input type="checkbox" id="percapita-toggle"> Per-capita view
+            </label>
+            <label class="toggle-label">
+                <input type="checkbox" id="usd-toggle"> Convert to USD
             </label>
             <button id="export-svg-btn">Export SVG</button>
             <button id="export-png-btn">Export PNG</button>
@@ -289,6 +298,8 @@
         </div>
 
         <div id="comparison" class="comparison" style="display: none;"></div>
+
+        <div id="trend" class="comparison" style="display: none;"></div>
 
         <div class="legend">
             <div class="legend-title">Color Legend:</div>
@@ -445,18 +456,46 @@
         }
 
         let perCapita = false;
+        let usdMode = false;
 
-        // Formats an amount either in the budget's native unit or, when the
-        // per-capita view is active, per inhabitant in base currency units.
+        function canConvertToUsd(metadata) {
+            return metadata.currency !== 'USD' &&
+                typeof metadata.exchange_rate_per_usd === 'number' &&
+                metadata.exchange_rate_per_usd > 0;
+        }
+
+        // Formats an amount in the budget's native unit, optionally converted
+        // to USD (using the year's average exchange rate) and/or shown per
+        // inhabitant. Both toggles compose: e.g. "$ per capita (USD)".
         function formatAmount(value, metadata) {
+            let base = value * unitFactor(metadata.unit); // base local currency units
+            let symbol = metadata.currency_symbol;
+            let suffix = '';
+
+            if (usdMode && canConvertToUsd(metadata)) {
+                base = base / metadata.exchange_rate_per_usd;
+                symbol = '$';
+                suffix = ' (USD)';
+            }
+
             if (perCapita && typeof metadata.population_millions === 'number' && metadata.population_millions > 0) {
-                const pc = (value * unitFactor(metadata.unit)) / (metadata.population_millions * 1e6);
+                const pc = base / (metadata.population_millions * 1e6);
                 const abs = Math.abs(pc);
                 const formatted = abs >= 100
                     ? Math.round(abs).toLocaleString('en-US')
                     : abs.toFixed(2);
-                return `${pc < 0 ? '-' : ''}${metadata.currency_symbol}${formatted} per capita`;
+                return `${pc < 0 ? '-' : ''}${symbol}${formatted} per capita${suffix}`;
             }
+
+            if (suffix) {
+                const billions = base / 1e9;
+                const abs = Math.abs(billions);
+                const formatted = abs >= 1000
+                    ? Math.round(abs).toLocaleString('en-US')
+                    : abs.toFixed(1);
+                return `${billions < 0 ? '-' : ''}$${formatted} billions${suffix}`;
+            }
+
             return formatCurrency(value, metadata.currency_symbol, metadata.unit);
         }
 
@@ -581,6 +620,7 @@
                 hideLoading();
 
                 await loadComparison(filepath, budgetData);
+                await loadTrend(budgetData);
 
             } catch (error) {
                 console.error('Error loading budget:', error);
@@ -870,6 +910,146 @@
                 .style("font-size", "11px");
         }
 
+        // ---- Historical trend ------------------------------------------------
+
+        // Loads every available year for the current country and, when at
+        // least two exist, draws a grouped bar chart of revenue vs expenditure.
+        // The chart always shows native-currency totals so bar heights stay
+        // comparable across years regardless of the display toggles.
+        async function loadTrend(budgetData) {
+            const el = document.getElementById('trend');
+            const entries = budgetFiles.filter(f =>
+                f.country === budgetData.metadata.country && typeof f.year === 'number');
+
+            if (entries.length < 2) {
+                el.style.display = 'none';
+                return;
+            }
+
+            const series = [];
+            for (const entry of entries) {
+                try {
+                    const { data } = await fetchBudgetFile(entry.value);
+                    const m = data && data.metadata;
+                    if (m && typeof m.total_revenue === 'number' && typeof m.total_expenditure === 'number') {
+                        series.push({
+                            year: m.year,
+                            revenue: m.total_revenue,
+                            expenditure: m.total_expenditure,
+                            deficit: typeof m.deficit === 'number'
+                                ? m.deficit
+                                : m.total_expenditure - m.total_revenue,
+                            metadata: m
+                        });
+                    }
+                } catch (e) {
+                    console.warn(`Could not load ${entry.value} for trend:`, e);
+                }
+            }
+
+            series.sort((a, b) => a.year - b.year);
+            if (series.length < 2) {
+                el.style.display = 'none';
+                return;
+            }
+            drawTrend(series, budgetData.metadata);
+        }
+
+        function drawTrend(series, metadata) {
+            const el = document.getElementById('trend');
+            el.innerHTML = `
+                <h3>Historical trend: ${metadata.country}</h3>
+                <div>
+                    <span class="legend-item"><span class="legend-color" style="background-color: #4CAF50;"></span><span>Revenue</span></span>
+                    <span class="legend-item"><span class="legend-color" style="background-color: #2196F3;"></span><span>Expenditure</span></span>
+                </div>
+                <div id="trend-chart"></div>
+                <div class="trend-caption">Amounts in ${metadata.currency_symbol} ${metadata.unit} (${metadata.currency})</div>`;
+            el.style.display = 'block';
+
+            const tMargin = { top: 20, right: 20, bottom: 30, left: 60 };
+            const tWidth = 640 - tMargin.left - tMargin.right;
+            const tHeight = 260 - tMargin.top - tMargin.bottom;
+
+            const tsvg = d3.select('#trend-chart').append('svg')
+                .attr('width', tWidth + tMargin.left + tMargin.right)
+                .attr('height', tHeight + tMargin.top + tMargin.bottom)
+                .append('g')
+                .attr('transform', `translate(${tMargin.left},${tMargin.top})`);
+
+            const x0 = d3.scaleBand()
+                .domain(series.map(d => d.year))
+                .range([0, tWidth])
+                .paddingInner(0.35)
+                .paddingOuter(0.15);
+            const keys = ['revenue', 'expenditure'];
+            const x1 = d3.scaleBand()
+                .domain(keys)
+                .range([0, x0.bandwidth()])
+                .paddingInner(0.06);
+            const yMax = d3.max(series, d => Math.max(d.revenue, d.expenditure));
+            const y = d3.scaleLinear().domain([0, yMax * 1.12]).range([tHeight, 0]);
+
+            // Recessive grid + muted axis labels
+            tsvg.append('g').selectAll('line').data(y.ticks(4)).join('line')
+                .attr('x1', 0).attr('x2', tWidth)
+                .attr('y1', d => y(d)).attr('y2', d => y(d))
+                .attr('stroke', '#e8e8e8');
+            tsvg.append('g').selectAll('text').data(y.ticks(4)).join('text')
+                .attr('x', -8).attr('y', d => y(d))
+                .attr('dy', '0.32em').attr('text-anchor', 'end')
+                .text(d => d.toLocaleString('en-US'))
+                .style('font-size', '10px').style('fill', '#888');
+            tsvg.append('g').selectAll('text').data(series).join('text')
+                .attr('x', d => x0(d.year) + x0.bandwidth() / 2)
+                .attr('y', tHeight + 18).attr('text-anchor', 'middle')
+                .text(d => d.year)
+                .style('font-size', '11px').style('fill', '#555');
+            tsvg.append('line')
+                .attr('x1', 0).attr('x2', tWidth)
+                .attr('y1', tHeight).attr('y2', tHeight)
+                .attr('stroke', '#ccc');
+
+            const seriesColor = { revenue: '#4CAF50', expenditure: '#2196F3' };
+            const seriesLabel = { revenue: 'Revenue', expenditure: 'Expenditure' };
+
+            // Bar with a 4px rounded data-end and a square baseline
+            function barPath(x, yTop, w, h, r) {
+                r = Math.min(r, w / 2, h);
+                return `M${x},${yTop + h} L${x},${yTop + r} Q${x},${yTop} ${x + r},${yTop} ` +
+                    `L${x + w - r},${yTop} Q${x + w},${yTop} ${x + w},${yTop + r} ` +
+                    `L${x + w},${yTop + h} Z`;
+            }
+
+            const groups = tsvg.selectAll('.trend-group').data(series).join('g')
+                .attr('transform', d => `translate(${x0(d.year)},0)`);
+
+            keys.forEach(key => {
+                groups.append('path')
+                    .attr('d', d => barPath(x1(key), y(d[key]), x1.bandwidth(), tHeight - y(d[key]), 4))
+                    .attr('fill', seriesColor[key])
+                    .on('mouseover', function(event, d) {
+                        tooltip.style('opacity', 1)
+                            .html(`
+                                <strong>${seriesLabel[key]} ${d.year}</strong><br>
+                                ${formatCurrency(d[key], d.metadata.currency_symbol, d.metadata.unit)}<br>
+                                ${d.deficit > 0 ? 'Deficit' : 'Surplus'}: ${formatCurrency(Math.abs(d.deficit), d.metadata.currency_symbol, d.metadata.unit)}
+                            `)
+                            .style('left', (event.pageX + 10) + 'px')
+                            .style('top', (event.pageY - 10) + 'px');
+                    })
+                    .on('mouseout', () => tooltip.style('opacity', 0));
+
+                groups.append('text')
+                    .attr('x', x1(key) + x1.bandwidth() / 2)
+                    .attr('y', d => y(d[key]) - 5)
+                    .attr('text-anchor', 'middle')
+                    .text(d => d[key].toLocaleString('en-US'))
+                    .style('font-size', '10px')
+                    .style('fill', '#333');
+            });
+        }
+
         // ---- Export ---------------------------------------------------------
 
         function exportFilename(extension) {
@@ -960,11 +1140,20 @@
 
         document.getElementById("percapita-toggle").addEventListener("change", function() {
             perCapita = this.checked;
+            refreshFormattedViews();
+        });
+
+        document.getElementById("usd-toggle").addEventListener("change", function() {
+            usdMode = this.checked;
+            refreshFormattedViews();
+        });
+
+        function refreshFormattedViews() {
             if (currentBudgetData) {
                 updateBudgetInfo(currentBudgetData.metadata);
                 renderComparison(currentBudgetData, comparisonBudgetData);
             }
-        });
+        }
 
         document.getElementById("export-svg-btn").addEventListener("click", exportSvg);
         document.getElementById("export-png-btn").addEventListener("click", exportPng);
