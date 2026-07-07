@@ -4,12 +4,14 @@ An interactive Sankey diagram visualization for exploring national government bu
 
 ## Features
 
-- **Real Budget Data**: Actual government budget data for Germany, USA, UK, and Denmark (2024)
+- **Real Budget Data**: Actual government budget data for Germany, USA, UK, France, Japan, and Denmark (2024)
+- **Automatic Budget Discovery**: The budget selector is populated from a generated manifest — no manual HTML edits needed to add a budget
+- **Works Offline and from Disk**: All D3.js libraries and data are local; an embedded data fallback makes the page work even when opened directly via `file://`
+- **Data Validation**: `npm run validate` checks every budget file for consistency (sums, percentages, deficit)
 - **Interactive Visualization**: Hover over nodes and links to see detailed budget information
 - **Multiple Countries**: Compare budget structures across different nations
 - **Color-Coded**: Revenue sources in green, expenditure categories in blue
 - **Detailed Metadata**: View total revenue, expenditure, deficit/surplus, and data sources
-- **No Internet Required**: All D3.js libraries and data included locally
 - **Extensible Format**: Easy-to-use JSON format for adding new budgets
 
 ## Quick Start
@@ -59,9 +61,11 @@ A Sankey diagram shows flows between sources and destinations. The width of the 
 
 Currently includes budget data for:
 
-- **Germany 2024** - Federal budget (€366.3B revenue, €476.8B expenditure)
-- **United States 2024** - Federal fiscal year budget ($4.9T revenue, $6.9T expenditure)
+- **Germany 2024** - Federal budget (€416.2B revenue, €466.7B expenditure)
+- **United States 2024** - Federal fiscal year budget ($4,919B revenue, $6,752B expenditure)
 - **United Kingdom 2024-25** - Government budget (£1,141B revenue, £1,279B expenditure)
+- **France 2024** - State budget (€299.9B revenue, €446.4B expenditure)
+- **Japan 2024** - General account budget (¥77.1T revenue, ¥112.6T expenditure)
 - **Denmark 2024** - National budget (902B DKK revenue, 888B DKK expenditure - surplus)
 
 All data sourced from official government publications and statistical offices.
@@ -119,13 +123,20 @@ Create a file named `data/budgets/yourcontry-2024.json`:
 
 ### Adding to the Visualization
 
-Update the `BUDGET_FILES` array in `index.html`:
+Regenerate the manifest and embedded data (this also validates all files):
 
-```javascript
-const BUDGET_FILES = [
-    // existing budgets...
-    { value: 'data/budgets/yourcountry-2024.json', label: 'Your Country 2024' }
-];
+```bash
+npm run build-data
+```
+
+This updates `data/budgets/index.json` (used to populate the dropdown) and
+`data/budgets-embedded.js` (the offline/`file://` fallback). No HTML changes
+are needed — the new budget appears in the selector automatically.
+
+To only check the data files without regenerating anything:
+
+```bash
+npm run validate
 ```
 
 For detailed format specifications, see [`data/budgets/README.md`](data/budgets/README.md)
@@ -193,19 +204,26 @@ This visualization uses a custom Sankey layout algorithm designed specifically f
 
 ```
 State-budget/
-├── index.html              # Main visualization page
-├── README.md               # This file
+├── index.html                  # Main visualization page
+├── README.md                   # This file
+├── package.json                # npm scripts (validate, build-data, serve)
 ├── data/
+│   ├── budgets-embedded.js     # Generated: embedded data for file:// fallback
 │   └── budgets/
-│       ├── README.md       # Data format documentation
+│       ├── README.md           # Data format documentation
+│       ├── index.json          # Generated: manifest of available budgets
 │       ├── germany-2024.json
 │       ├── usa-2024.json
 │       ├── uk-2024.json
+│       ├── france-2024.json
+│       ├── japan-2024.json
 │       └── denmark-2024.json
+├── scripts/
+│   ├── validate-budgets.js     # Data consistency checker
+│   └── build-data.js           # Regenerates manifest + embedded data
 ├── lib/
-│   └── d3.min.js          # D3.js library (local copy)
-└── data-template.json     # Legacy template file
-
+│   └── d3.min.js               # D3.js library (local copy)
+└── data-template.json          # Legacy template file
 ```
 
 ## Data Sources
@@ -215,6 +233,8 @@ All budget data is sourced from official government publications:
 - **Germany**: Federal Ministry of Finance (Bundesfinanzministerium)
 - **USA**: Congressional Budget Office (CBO), U.S. Treasury
 - **UK**: Office for Budget Responsibility (OBR), HM Treasury
+- **France**: Ministry of Economy and Finance (budget.gouv.fr)
+- **Japan**: Ministry of Finance (MOF)
 - **Denmark**: Danish Ministry of Finance (Finansministeriet)
 
 Data is accurate as of fiscal year 2024. Please refer to the metadata in each budget file for specific source citations.
@@ -226,7 +246,7 @@ Contributions are welcome! To add new budget data:
 1. Research official government budget documents
 2. Create a JSON file following the format in `data/budgets/README.md`
 3. Add the file to `data/budgets/`
-4. Update `index.html` to include the new budget in the dropdown
+4. Run `npm run build-data` to validate the data and regenerate the manifest and embedded fallback
 5. Submit a pull request
 
 Please ensure:
@@ -243,7 +263,7 @@ This project is open source and available under the MIT License.
 
 Potential improvements:
 
-- [ ] Automatic detection of budget files (no manual HTML update needed)
+- [x] Automatic detection of budget files (no manual HTML update needed)
 - [ ] Multi-year comparisons for the same country
 - [ ] Budget category drill-down for detailed subcategories
 - [ ] Export visualization as PNG/SVG

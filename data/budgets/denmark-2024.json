@@ -10,7 +10,7 @@
     "deficit": -14.5,
     "source": "Danish Ministry of Finance, Finansloven 2024",
     "source_url": "https://fm.dk/udgivelser/2024/februar/finansloven-for-2024/",
-    "notes": "Budget surplus of 14.5 billion DKK (0.5% of GDP)"
+    "notes": "Budget surplus of 14.5 billion DKK (0.5% of GDP). Approximate breakdown of the central government budget."
   },
   "revenue": [
     {
@@ -78,8 +78,8 @@
     {
       "name": "Operating Expenses (General Government)",
       "category": "General Services",
-      "amount": 254.5,
-      "percentage": 28.7
+      "amount": 150.0,
+      "percentage": 16.9
     },
     {
       "name": "Defense",
@@ -100,28 +100,28 @@
       "percentage": 2.0
     },
     {
-      "name": "Culture & Recreation",
-      "category": "Recreation",
-      "amount": 12.0,
-      "percentage": 1.4
-    },
-    {
       "name": "Public Safety",
       "category": "Public Safety",
       "amount": 15.0,
       "percentage": 1.7
     },
     {
+      "name": "Culture & Recreation",
+      "category": "Recreation",
+      "amount": 12.0,
+      "percentage": 1.4
+    },
+    {
       "name": "Interest on Debt",
       "category": "Debt Service",
-      "amount": -8.0,
-      "percentage": -0.9
+      "amount": 12.0,
+      "percentage": 1.4
     },
     {
       "name": "Other Services",
       "category": "Other",
-      "amount": -54.45,
-      "percentage": -6.1
+      "amount": 30.05,
+      "percentage": 3.4
     }
   ]
 }

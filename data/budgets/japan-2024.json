@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "country": "Japan",
+    "year": 2024,
+    "currency": "JPY",
+    "currency_symbol": "¥",
+    "unit": "trillions",
+    "total_revenue": 77.1,
+    "total_expenditure": 112.6,
+    "deficit": 35.5,
+    "source": "Japan Ministry of Finance, FY2024 Budget",
+    "source_url": "https://www.mof.go.jp/english/policy/budget/budget/fy2024/index.html",
+    "notes": "General account initial budget for fiscal year 2024 (Apr 2024 - Mar 2025). Deficit financed by government bond issuance of about ¥35 trillion."
+  },
+  "revenue": [
+    {
+      "name": "Consumption Tax",
+      "category": "Indirect Taxes",
+      "amount": 23.8,
+      "percentage": 30.9
+    },
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 17.9,
+      "percentage": 23.2
+    },
+    {
+      "name": "Corporate Tax",
+      "category": "Direct Taxes",
+      "amount": 17.0,
+      "percentage": 22.0
+    },
+    {
+      "name": "Other Taxes & Stamp Revenue",
+      "category": "Other",
+      "amount": 10.9,
+      "percentage": 14.1
+    },
+    {
+      "name": "Other Revenue",
+      "category": "Other",
+      "amount": 7.5,
+      "percentage": 9.7
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Security",
+      "category": "Social Protection",
+      "amount": 37.7,
+      "percentage": 33.5
+    },
+    {
+      "name": "National Debt Service",
+      "category": "Debt Service",
+      "amount": 27.0,
+      "percentage": 24.0
+    },
+    {
+      "name": "Local Allocation Tax Grants",
+      "category": "General Services",
+      "amount": 17.8,
+      "percentage": 15.8
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 7.9,
+      "percentage": 7.0
+    },
+    {
+      "name": "Public Works",
+      "category": "Infrastructure",
+      "amount": 6.1,
+      "percentage": 5.4
+    },
+    {
+      "name": "Education & Science",
+      "category": "Education",
+      "amount": 5.5,
+      "percentage": 4.9
+    },
+    {
+      "name": "Other Programs",
+      "category": "Other",
+      "amount": 10.6,
+      "percentage": 9.4
+    }
+  ]
+}

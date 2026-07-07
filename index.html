@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Budget Sankey Diagram</title>
     <script src="lib/d3.min.js"></script>
+    <script src="data/budgets-embedded.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -168,6 +169,22 @@
             border-radius: 5px;
             margin: 20px 0;
         }
+
+        .warning {
+            color: #8d6e00;
+            background-color: #fff8e1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .data-status {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -183,8 +200,11 @@
             <button id="reload-btn">Reload Data</button>
         </div>
 
+        <div class="data-status" id="data-status"></div>
+
         <div id="loading" class="loading" style="display: none;">Loading budget data...</div>
         <div id="error" class="error" style="display: none;"></div>
+        <div id="warning" class="warning" style="display: none;"></div>
 
         <div id="sankey-container"></div>
 
@@ -236,7 +256,11 @@
 
     <script>
         // Configuration
-        const BUDGET_FILES = [
+        const MANIFEST_PATH = 'data/budgets/index.json';
+
+        // Fallback list used only if both the manifest and embedded data
+        // are unavailable (e.g. manifest deleted and build script not run).
+        const DEFAULT_BUDGET_FILES = [
             { value: 'data/budgets/germany-2024.json', label: 'Germany 2024' },
             { value: 'data/budgets/usa-2024.json', label: 'United States 2024' },
             { value: 'data/budgets/uk-2024.json', label: 'United Kingdom 2024-25' },
@@ -255,8 +279,44 @@
 
         let svg, tooltip;
         let currentBudgetData = null;
+        let budgetFiles = [];
 
-        function initialize() {
+        function embeddedData() {
+            return (typeof window !== 'undefined' && window.EMBEDDED_BUDGETS) || null;
+        }
+
+        // Load the list of available budgets: prefer the manifest over the
+        // network, fall back to embedded data (works on file://), then to
+        // the hardcoded default list.
+        async function loadManifest() {
+            try {
+                const response = await fetch(MANIFEST_PATH);
+                if (response.ok) {
+                    const manifest = await response.json();
+                    if (Array.isArray(manifest.budgets) && manifest.budgets.length > 0) {
+                        setDataStatus('Budget list loaded from manifest');
+                        return manifest.budgets;
+                    }
+                }
+            } catch (e) {
+                // fetch is unavailable or blocked (e.g. file://) - fall through
+            }
+
+            const embedded = embeddedData();
+            if (embedded && embedded.manifest && Array.isArray(embedded.manifest.budgets)) {
+                setDataStatus('Budget list loaded from embedded data (offline mode)');
+                return embedded.manifest.budgets;
+            }
+
+            setDataStatus('Budget list unavailable - using built-in defaults');
+            return DEFAULT_BUDGET_FILES;
+        }
+
+        function setDataStatus(message) {
+            document.getElementById('data-status').textContent = message;
+        }
+
+        async function initialize() {
             d3.select("#sankey-container").selectAll("*").remove();
 
             svg = d3.select("#sankey-container")
@@ -268,19 +328,23 @@
 
             tooltip = d3.select("#tooltip");
 
+            budgetFiles = await loadManifest();
+
             // Populate budget selector
             const select = d3.select("#budget-select");
             select.selectAll("option").remove();
 
-            BUDGET_FILES.forEach(file => {
+            budgetFiles.forEach(file => {
                 select.append("option")
                     .attr("value", file.value)
                     .text(file.label);
             });
 
             // Load first budget by default
-            if (BUDGET_FILES.length > 0) {
-                loadBudget(BUDGET_FILES[0].value);
+            if (budgetFiles.length > 0) {
+                loadBudget(budgetFiles[0].value);
+            } else {
+                showError('No budget data available.');
             }
         }
 
@@ -301,6 +365,16 @@
             document.getElementById('error').textContent = message;
             document.getElementById('error').style.display = 'block';
             document.getElementById('loading').style.display = 'none';
+        }
+
+        function showWarning(message) {
+            const el = document.getElementById('warning');
+            el.textContent = message;
+            el.style.display = 'block';
+        }
+
+        function clearWarning() {
+            document.getElementById('warning').style.display = 'none';
         }
 
         function formatCurrency(value, symbol, unit) {
@@ -337,17 +411,94 @@
             }
         }
 
+        // Sanity-check and normalize loaded data so the visualization is
+        // robust to hand-edited files: computes missing percentages and
+        // deficit, and surfaces inconsistencies as a warning banner.
+        function normalizeBudgetData(budgetData, filepath) {
+            if (!budgetData || typeof budgetData !== 'object') {
+                throw new Error('budget data is not an object');
+            }
+            const meta = budgetData.metadata;
+            if (!meta) throw new Error('missing "metadata" section');
+            if (!Array.isArray(budgetData.revenue) || budgetData.revenue.length === 0) {
+                throw new Error('missing or empty "revenue" section');
+            }
+            if (!Array.isArray(budgetData.expenditure) || budgetData.expenditure.length === 0) {
+                throw new Error('missing or empty "expenditure" section');
+            }
+
+            const warnings = [];
+
+            const normalizeSection = (items, declaredTotal, label) => {
+                const bad = items.filter(d => typeof d.amount !== 'number' || !isFinite(d.amount));
+                if (bad.length > 0) {
+                    throw new Error(`${label} contains entries without a numeric "amount"`);
+                }
+                const sum = d3.sum(items, d => d.amount);
+                const total = (typeof declaredTotal === 'number' && declaredTotal > 0) ? declaredTotal : sum;
+                if (typeof declaredTotal === 'number' && declaredTotal > 0 &&
+                    Math.abs(sum - declaredTotal) / declaredTotal > 0.015) {
+                    warnings.push(`${label} items sum to ${sum.toFixed(1)} but the declared total is ${declaredTotal.toFixed(1)}`);
+                }
+                items.forEach(d => {
+                    if (typeof d.percentage !== 'number' || !isFinite(d.percentage)) {
+                        d.percentage = (d.amount / total) * 100;
+                    }
+                });
+                return sum;
+            };
+
+            const revenueSum = normalizeSection(budgetData.revenue, meta.total_revenue, 'Revenue');
+            const expenditureSum = normalizeSection(budgetData.expenditure, meta.total_expenditure, 'Expenditure');
+
+            if (typeof meta.total_revenue !== 'number') meta.total_revenue = revenueSum;
+            if (typeof meta.total_expenditure !== 'number') meta.total_expenditure = expenditureSum;
+            if (typeof meta.deficit !== 'number') {
+                meta.deficit = meta.total_expenditure - meta.total_revenue;
+            }
+            if (!meta.currency_symbol) meta.currency_symbol = meta.currency ? meta.currency + ' ' : '';
+            if (!meta.unit) meta.unit = '';
+
+            if (warnings.length > 0) {
+                showWarning(`Data quality note for ${filepath}: ${warnings.join('; ')}. ` +
+                    'Run "npm run validate" to check the data files.');
+            }
+
+            return budgetData;
+        }
+
         async function loadBudget(filepath) {
             showLoading();
+            clearWarning();
 
             try {
-                const response = await fetch(filepath);
-                if (!response.ok) {
-                    throw new Error(`Failed to load budget: ${response.statusText}`);
+                let budgetData = null;
+                let fromEmbedded = false;
+
+                try {
+                    const response = await fetch(filepath);
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status} ${response.statusText}`);
+                    }
+                    budgetData = await response.json();
+                } catch (fetchError) {
+                    // fetch failed (e.g. page opened via file://) - fall back
+                    // to the embedded copy of the data if available.
+                    const embedded = embeddedData();
+                    if (embedded && embedded.budgets && embedded.budgets[filepath]) {
+                        budgetData = embedded.budgets[filepath];
+                        fromEmbedded = true;
+                    } else {
+                        throw fetchError;
+                    }
                 }
 
-                const budgetData = await response.json();
+                budgetData = normalizeBudgetData(budgetData, filepath);
                 currentBudgetData = budgetData;
+
+                setDataStatus(fromEmbedded
+                    ? 'Budget loaded from embedded data (offline mode)'
+                    : `Budget loaded from ${filepath}`);
 
                 updateBudgetInfo(budgetData.metadata);
                 drawSankey(budgetData);

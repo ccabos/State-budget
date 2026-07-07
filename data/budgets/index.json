@@ -1,0 +1,47 @@
+{
+  "generated": "2026-07-07",
+  "budgets": [
+    {
+      "value": "data/budgets/denmark-2024.json",
+      "label": "Denmark 2024",
+      "country": "Denmark",
+      "year": 2024,
+      "currency": "DKK"
+    },
+    {
+      "value": "data/budgets/france-2024.json",
+      "label": "France 2024",
+      "country": "France",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/germany-2024.json",
+      "label": "Germany 2024",
+      "country": "Germany",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/japan-2024.json",
+      "label": "Japan 2024",
+      "country": "Japan",
+      "year": 2024,
+      "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/uk-2024.json",
+      "label": "United Kingdom 2024",
+      "country": "United Kingdom",
+      "year": 2024,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/usa-2024.json",
+      "label": "United States 2024",
+      "country": "United States",
+      "year": 2024,
+      "currency": "USD"
+    }
+  ]
+}

@@ -42,7 +42,7 @@ Contains information about the budget:
 - `year`: Fiscal year for the budget
 - `currency`: Three-letter ISO currency code
 - `currency_symbol`: Symbol for display
-- `unit`: Scale of numbers (billions or millions)
+- `unit`: Scale of numbers (millions, billions, or trillions)
 - `total_revenue`: Total government revenue
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)
@@ -126,7 +126,7 @@ An array of spending categories:
 ### Germany
 - **Source:** German Federal Ministry of Finance (Bundesfinanzministerium)
 - **URL:** https://www.bundesfinanzministerium.de
-- **Format:** Federal budget data, January-November 2024
+- **Format:** Federal budget, provisional full-year 2024 results
 
 ### United States
 - **Source:** Congressional Budget Office (CBO), U.S. Treasury
@@ -137,6 +137,16 @@ An array of spending categories:
 - **Source:** Office for Budget Responsibility (OBR), HM Treasury
 - **URL:** https://obr.uk, https://www.gov.uk/government/organisations/hm-treasury
 - **Format:** Fiscal year 2024-25
+
+### France
+- **Source:** French Ministry of Economy and Finance
+- **URL:** https://www.budget.gouv.fr
+- **Format:** State budget (budget général), Loi de finances initiale 2024
+
+### Japan
+- **Source:** Japan Ministry of Finance (MOF)
+- **URL:** https://www.mof.go.jp/english/policy/budget/budget/fy2024/index.html
+- **Format:** General account initial budget, fiscal year 2024 (Apr 2024 - Mar 2025)
 
 ### Denmark
 - **Source:** Danish Ministry of Finance (Finansministeriet)
@@ -154,18 +164,39 @@ To add a new budget file:
 5. Verify that amounts sum to approximately the totals (minor discrepancies due to rounding are acceptable)
 6. Include proper source attribution
 7. Save to the `data/budgets/` directory
+8. Run `npm run build-data` from the project root
 
-The visualization will automatically detect and load new files when the page is refreshed.
+Step 8 validates all data files and regenerates:
+
+- `index.json` (this directory) — the manifest the visualization uses to
+  populate the budget selector
+- `../budgets-embedded.js` — an embedded copy of all data so the page also
+  works when opened directly from disk (`file://`), where browsers block
+  `fetch()` of local files
+
+After that, the new budget appears in the dropdown automatically — no
+changes to `index.html` are needed.
 
 ## Data Validation
 
-When creating budget files, ensure:
+Run the validator at any time with:
 
-- Revenue amounts sum to approximately `total_revenue`
-- Expenditure amounts sum to approximately `total_expenditure`
-- Percentages for each section sum to approximately 100%
-- All amounts are positive (except for rare cases like negative interest)
-- Currency and units are consistent throughout the file
+```bash
+npm run validate
+```
+
+It checks every budget file for:
+
+- Required metadata fields with correct types
+- Revenue amounts summing to approximately `total_revenue`
+- Expenditure amounts summing to approximately `total_expenditure`
+- Declared percentages matching the ones implied by the amounts
+- Deficit consistency: `deficit ≈ total_expenditure - total_revenue`
+- Negative amounts (reported as warnings)
+
+The visualization also performs these checks at load time: missing
+percentages and deficit are computed automatically, and inconsistent totals
+produce a visible warning banner instead of a silently wrong chart.
 
 ## Notes
 

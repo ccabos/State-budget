@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "country": "France",
+    "year": 2024,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "total_revenue": 299.9,
+    "total_expenditure": 446.4,
+    "deficit": 146.5,
+    "source": "French Ministry of Economy and Finance, Loi de finances initiale 2024",
+    "source_url": "https://www.budget.gouv.fr/documentation/documents-budgetaires",
+    "notes": "State budget (budget général) only, excluding social security and local government budgets. Approximate figures from the 2024 initial finance law."
+  },
+  "revenue": [
+    {
+      "name": "Value Added Tax (state share)",
+      "category": "Indirect Taxes",
+      "amount": 95.0,
+      "percentage": 31.7
+    },
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 89.0,
+      "percentage": 29.7
+    },
+    {
+      "name": "Corporate Tax",
+      "category": "Direct Taxes",
+      "amount": 57.0,
+      "percentage": 19.0
+    },
+    {
+      "name": "Energy Taxes (TICPE)",
+      "category": "Indirect Taxes",
+      "amount": 14.5,
+      "percentage": 4.8
+    },
+    {
+      "name": "Other Tax Revenue",
+      "category": "Other",
+      "amount": 21.0,
+      "percentage": 7.0
+    },
+    {
+      "name": "Non-Tax Revenue",
+      "category": "Other",
+      "amount": 23.4,
+      "percentage": 7.8
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 63.6,
+      "percentage": 14.2
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 50.9,
+      "percentage": 11.4
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 47.2,
+      "percentage": 10.6
+    },
+    {
+      "name": "Research & Higher Education",
+      "category": "Research",
+      "amount": 31.4,
+      "percentage": 7.0
+    },
+    {
+      "name": "Solidarity & Social Inclusion",
+      "category": "Social Protection",
+      "amount": 30.8,
+      "percentage": 6.9
+    },
+    {
+      "name": "Ecology & Sustainable Development",
+      "category": "Environment",
+      "amount": 25.0,
+      "percentage": 5.6
+    },
+    {
+      "name": "Labor & Employment",
+      "category": "Economic Affairs",
+      "amount": 22.2,
+      "percentage": 5.0
+    },
+    {
+      "name": "Territorial Cohesion & Housing",
+      "category": "Housing",
+      "amount": 19.4,
+      "percentage": 4.3
+    },
+    {
+      "name": "Internal Security",
+      "category": "Public Safety",
+      "amount": 16.4,
+      "percentage": 3.7
+    },
+    {
+      "name": "Justice",
+      "category": "Public Safety",
+      "amount": 12.1,
+      "percentage": 2.7
+    },
+    {
+      "name": "Foreign Affairs",
+      "category": "Foreign Affairs",
+      "amount": 6.7,
+      "percentage": 1.5
+    },
+    {
+      "name": "Agriculture",
+      "category": "Economic Affairs",
+      "amount": 6.3,
+      "percentage": 1.4
+    },
+    {
+      "name": "Culture",
+      "category": "Recreation",
+      "amount": 3.8,
+      "percentage": 0.9
+    },
+    {
+      "name": "Other Missions & Transfers",
+      "category": "Other",
+      "amount": 110.6,
+      "percentage": 24.8
+    }
+  ]
+}
