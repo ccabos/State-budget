@@ -235,6 +235,43 @@
             font-size: 11px;
             margin-top: 4px;
         }
+
+        .portfolio-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-controls select {
+            padding: 4px 8px;
+            font-size: 13px;
+        }
+
+        .portfolio-unit {
+            display: flex;
+            gap: 14px;
+            margin-left: 12px;
+        }
+
+        .portfolio-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            font-size: 12px;
+            color: #52514e;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-legend .swatch {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: -1px;
+        }
     </style>
 </head>
 <body>
@@ -300,6 +337,34 @@
         <div id="comparison" class="comparison" style="display: none;"></div>
 
         <div id="trend" class="comparison" style="display: none;"></div>
+
+        <div id="portfolio" class="comparison" style="display: none;">
+            <h3>Portfolio view: countries by expenditure category</h3>
+            <div class="portfolio-controls">
+                <label for="portfolio-x">X axis:</label>
+                <select id="portfolio-x"></select>
+                <label for="portfolio-y">Y axis:</label>
+                <select id="portfolio-y"></select>
+                <span class="portfolio-unit">
+                    <label class="toggle-label">
+                        <input type="radio" name="portfolio-unit" value="pct" checked>
+                        % of total expenditure
+                    </label>
+                    <label class="toggle-label">
+                        <input type="radio" name="portfolio-unit" value="eurpc">
+                        € per capita
+                    </label>
+                </span>
+            </div>
+            <div id="portfolio-legend" class="portfolio-legend"></div>
+            <div id="portfolio-chart"></div>
+            <p class="trend-caption">
+                Expenditure items are normalized into standard categories across countries.
+                Each dot is one budget year; lines connect consecutive years of the same country.
+                Per-capita values are converted to euros at the year's average exchange rate.
+                A category a country does not report separately counts as zero.
+            </p>
+        </div>
 
         <div class="legend">
             <div class="legend-title">Color Legend:</div>
@@ -409,6 +474,8 @@
             } else {
                 showError('No budget data available.');
             }
+
+            initPortfolio();
         }
 
         function showLoading() {
@@ -1208,6 +1275,320 @@
                 loadBudget(this.value);
             }
         });
+
+        // ---- Portfolio view --------------------------------------------------
+
+        // Budget files already tag every expenditure item with a category, but
+        // taxonomies can drift across countries/sources; this map folds known
+        // variants into the standard set before aggregating.
+        const CATEGORY_ALIASES = {
+            'social security': 'Social Protection',
+            'social affairs': 'Social Protection',
+            'welfare': 'Social Protection',
+            'defence': 'Defense',
+            'military': 'Defense',
+            'interest': 'Debt Service',
+            'debt interest': 'Debt Service',
+            'transport': 'Infrastructure',
+            'transportation': 'Infrastructure',
+            'science': 'Research',
+            'science & technology': 'Research',
+            'culture': 'Recreation'
+        };
+
+        function canonicalCategory(raw) {
+            if (!raw || !String(raw).trim()) return 'Other';
+            const t = String(raw).trim();
+            return CATEGORY_ALIASES[t.toLowerCase()] || t;
+        }
+
+        // Average EUR per USD by calendar year, for converting per-capita
+        // amounts of all countries into a common currency.
+        const EUR_PER_USD_BY_YEAR = { 2022: 0.951, 2023: 0.925, 2024: 0.924, 2025: 0.885 };
+
+        function eurPerUsd(year) {
+            if (EUR_PER_USD_BY_YEAR[year]) return EUR_PER_USD_BY_YEAR[year];
+            const years = Object.keys(EUR_PER_USD_BY_YEAR).map(Number);
+            const nearest = years.reduce((a, b) =>
+                Math.abs(b - year) < Math.abs(a - year) ? b : a);
+            return EUR_PER_USD_BY_YEAR[nearest];
+        }
+
+        // Fixed categorical palette; countries keep their slot regardless of
+        // which ones end up plotted, so colors never repaint on filtering.
+        const PORTFOLIO_COLORS = ['#2a78d6', '#1baf7a', '#eda100', '#008300',
+                                  '#4a3aa7', '#e34948', '#e87ba4', '#eb6834'];
+
+        let portfolioRows = null;            // [{country, year, metadata, sums}]
+        const portfolioColor = new Map();    // country -> color
+
+        async function loadPortfolioRows() {
+            if (portfolioRows) return portfolioRows;
+            const entries = budgetFiles.filter(f =>
+                f.country && typeof f.year === 'number' && !/\(detailed\)/i.test(f.country));
+
+            const rows = [];
+            for (const entry of entries) {
+                try {
+                    const { data } = await fetchBudgetFile(entry.value);
+                    const meta = data.metadata;
+                    const sums = {};
+                    (data.expenditure || []).forEach(item => {
+                        const cat = canonicalCategory(item.category);
+                        sums[cat] = (sums[cat] || 0) + item.amount;
+                    });
+                    rows.push({ country: meta.country, year: meta.year, metadata: meta, sums });
+                } catch (e) {
+                    console.warn('Portfolio: could not load', entry.value, e);
+                }
+            }
+            rows.sort((a, b) => a.country.localeCompare(b.country) || a.year - b.year);
+            [...new Set(rows.map(r => r.country))].sort().forEach((c, i) =>
+                portfolioColor.set(c, PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]));
+            portfolioRows = rows;
+            return rows;
+        }
+
+        // Value of one category for one country-year in the selected unit:
+        // share of that year's total expenditure, or euros per inhabitant.
+        function portfolioValue(row, cat, unit) {
+            const meta = row.metadata;
+            const amount = row.sums[cat] || 0;
+            if (unit === 'pct') {
+                return meta.total_expenditure > 0
+                    ? (amount / meta.total_expenditure) * 100 : null;
+            }
+            if (!(meta.population_millions > 0) || !(meta.exchange_rate_per_usd > 0)) return null;
+            const usd = amount * unitFactor(meta.unit) / meta.exchange_rate_per_usd;
+            return (usd * eurPerUsd(row.year)) / (meta.population_millions * 1e6);
+        }
+
+        function formatPortfolioValue(v, unit) {
+            if (v === null || v === undefined) return '–';
+            if (unit === 'pct') return `${v.toFixed(1)}%`;
+            return `€${v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(2)} per capita`;
+        }
+
+        function portfolioUnit() {
+            return document.querySelector('input[name="portfolio-unit"]:checked').value;
+        }
+
+        function initPortfolioControls(rows) {
+            const cats = [...new Set(rows.flatMap(r => Object.keys(r.sums)))].sort();
+            const selX = document.getElementById('portfolio-x');
+            const selY = document.getElementById('portfolio-y');
+            [selX, selY].forEach(sel => {
+                sel.innerHTML = '';
+                cats.forEach(c => {
+                    const opt = document.createElement('option');
+                    opt.value = c;
+                    opt.textContent = c;
+                    sel.appendChild(opt);
+                });
+            });
+            selX.value = cats.includes('Defense') ? 'Defense' : cats[0];
+            selY.value = cats.includes('Social Protection') ? 'Social Protection'
+                : cats[Math.min(1, cats.length - 1)];
+        }
+
+        function renderPortfolioLegend(countries) {
+            document.getElementById('portfolio-legend').innerHTML = countries.map(c =>
+                `<span><span class="swatch" style="background:${portfolioColor.get(c)}"></span>${c}</span>`
+            ).join('');
+        }
+
+        function renderPortfolio() {
+            if (!portfolioRows) return;
+            const catX = document.getElementById('portfolio-x').value;
+            const catY = document.getElementById('portfolio-y').value;
+            const unit = portfolioUnit();
+            const unitLabel = unit === 'pct' ? '% of total expenditure' : '€ per capita';
+
+            // Group country-years with valid values on both axes
+            const byCountry = new Map();
+            portfolioRows.forEach(row => {
+                const x = portfolioValue(row, catX, unit);
+                const y = portfolioValue(row, catY, unit);
+                if (x === null || y === null) return;
+                if (!byCountry.has(row.country)) byCountry.set(row.country, []);
+                byCountry.get(row.country).push({ ...row, x, y });
+            });
+            const series = [...byCountry.entries()]
+                .map(([country, pts]) => ({ country, pts: pts.sort((a, b) => a.year - b.year) }));
+
+            renderPortfolioLegend(series.map(s => s.country));
+
+            const m = { top: 16, right: 130, bottom: 52, left: 68 };
+            const w = 900 - m.left - m.right;
+            const h = 540 - m.top - m.bottom;
+
+            const container = d3.select('#portfolio-chart');
+            container.selectAll('*').remove();
+            const psvg = container.append('svg')
+                .attr('viewBox', `0 0 ${w + m.left + m.right} ${h + m.top + m.bottom}`)
+                .style('width', '100%').style('height', 'auto')
+                .append('g').attr('transform', `translate(${m.left},${m.top})`);
+
+            const allPts = series.flatMap(s => s.pts);
+            if (allPts.length === 0) {
+                psvg.append('text').attr('x', w / 2).attr('y', h / 2)
+                    .attr('text-anchor', 'middle').style('fill', '#898781')
+                    .text('No data available for this combination.');
+                return;
+            }
+
+            const xScale = d3.scaleLinear()
+                .domain([0, (d3.max(allPts, d => d.x) || 1) * 1.1]).nice().range([0, w]);
+            const yScale = d3.scaleLinear()
+                .domain([0, (d3.max(allPts, d => d.y) || 1) * 1.1]).nice().range([h, 0]);
+
+            const fmtTick = v => unit === 'pct' ? `${v}%` : `€${v.toLocaleString('en-US')}`;
+
+            // Recessive hairline grid + axes
+            psvg.append('g').selectAll('line').data(xScale.ticks(7)).join('line')
+                .attr('x1', d => xScale(d)).attr('x2', d => xScale(d))
+                .attr('y1', 0).attr('y2', h).attr('stroke', '#e1e0d9');
+            psvg.append('g').selectAll('line').data(yScale.ticks(7)).join('line')
+                .attr('y1', d => yScale(d)).attr('y2', d => yScale(d))
+                .attr('x1', 0).attr('x2', w).attr('stroke', '#e1e0d9');
+
+            const xAxis = psvg.append('g').attr('transform', `translate(0,${h})`)
+                .call(d3.axisBottom(xScale).ticks(7).tickFormat(fmtTick).tickSize(0).tickPadding(8));
+            const yAxis = psvg.append('g')
+                .call(d3.axisLeft(yScale).ticks(7).tickFormat(fmtTick).tickSize(0).tickPadding(8));
+            [xAxis, yAxis].forEach(ax => {
+                ax.select('.domain').attr('stroke', '#c3c2b7');
+                ax.selectAll('text').style('fill', '#898781').style('font-size', '11px');
+            });
+
+            psvg.append('text')
+                .attr('x', w / 2).attr('y', h + 42).attr('text-anchor', 'middle')
+                .style('fill', '#52514e').style('font-size', '12px')
+                .text(`${catX} (${unitLabel})`);
+            psvg.append('text')
+                .attr('transform', `translate(${-52},${h / 2}) rotate(-90)`)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#52514e').style('font-size', '12px')
+                .text(`${catY} (${unitLabel})`);
+
+            const halo = sel => sel
+                .style('paint-order', 'stroke').style('stroke', '#fff')
+                .style('stroke-width', '3px').style('stroke-linejoin', 'round');
+
+            const line = d3.line().x(d => xScale(d.x)).y(d => yScale(d.y));
+
+            series.forEach(s => {
+                const color = portfolioColor.get(s.country);
+                const g = psvg.append('g');
+
+                if (s.pts.length > 1) {
+                    g.append('path')
+                        .attr('d', line(s.pts))
+                        .attr('fill', 'none')
+                        .attr('stroke', color)
+                        .attr('stroke-width', 2)
+                        .attr('stroke-linecap', 'round')
+                        .attr('stroke-linejoin', 'round')
+                        .attr('opacity', 0.85);
+                }
+
+                g.selectAll('circle').data(s.pts).join('circle')
+                    .attr('cx', d => xScale(d.x)).attr('cy', d => yScale(d.y))
+                    .attr('r', 5)
+                    .attr('fill', color)
+                    .attr('stroke', '#fff').attr('stroke-width', 2)
+                    .on('mouseover', function(event, d) {
+                        d3.select(this).attr('r', 7);
+                        tooltip.style('opacity', 1)
+                            .html(`<strong>${d.country} ${d.year}</strong><br>
+                                   ${catX}: ${formatPortfolioValue(d.x, unit)}<br>
+                                   ${catY}: ${formatPortfolioValue(d.y, unit)}`)
+                            .style('left', (event.pageX + 10) + 'px')
+                            .style('top', (event.pageY - 10) + 'px');
+                    })
+                    .on('mouseout', function() {
+                        d3.select(this).attr('r', 5);
+                        tooltip.style('opacity', 0);
+                    });
+            });
+
+            // Label pass with collision dodging: dots are reserved space,
+            // country names are placed first (they anchor each group), and
+            // year labels then try above/below/right/left of their dot.
+            const placed = [];
+            const collides = r => placed.some(p =>
+                !(r.x2 < p.x1 || r.x1 > p.x2 || r.y2 < p.y1 || r.y1 > p.y2));
+            const rectFor = (x, yBaseline, wpx, hpx, anchor) => {
+                const x1 = anchor === 'middle' ? x - wpx / 2 : anchor === 'end' ? x - wpx : x;
+                return { x1, x2: x1 + wpx, y1: yBaseline - hpx, y2: yBaseline };
+            };
+            const placeLabel = (candidates, wpx, hpx) => {
+                for (const c of candidates) {
+                    const r = rectFor(c.x, c.y, wpx, hpx, c.anchor);
+                    if (!collides(r)) { placed.push(r); return c; }
+                }
+                const c = candidates[0];
+                placed.push(rectFor(c.x, c.y, wpx, hpx, c.anchor));
+                return c;
+            };
+
+            series.forEach(s => s.pts.forEach(d => {
+                const x = xScale(d.x), y = yScale(d.y);
+                placed.push({ x1: x - 7, x2: x + 7, y1: y - 7, y2: y + 7 });
+            }));
+
+            series.forEach(s => {
+                const last = s.pts[s.pts.length - 1];
+                const x = xScale(last.x), y = yScale(last.y);
+                const wpx = s.country.length * 7.2, hpx = 12;
+                const spot = placeLabel([
+                    { x: x + 9, y: y + 4, anchor: 'start' },
+                    { x: x - 9, y: y + 4, anchor: 'end' },
+                    { x: x, y: y - 12, anchor: 'middle' },
+                    { x: x, y: y + 20, anchor: 'middle' }
+                ], wpx, hpx);
+                psvg.append('text')
+                    .attr('x', spot.x).attr('y', spot.y)
+                    .attr('text-anchor', spot.anchor)
+                    .style('fill', '#333').style('font-size', '12px').style('font-weight', '600')
+                    .call(halo)
+                    .text(s.country);
+            });
+
+            series.forEach(s => s.pts.forEach(d => {
+                const x = xScale(d.x), y = yScale(d.y);
+                const wpx = String(d.year).length * 6.2, hpx = 10;
+                const spot = placeLabel([
+                    { x: x, y: y - 9, anchor: 'middle' },
+                    { x: x, y: y + 19, anchor: 'middle' },
+                    { x: x + 9, y: y + 4, anchor: 'start' },
+                    { x: x - 9, y: y + 4, anchor: 'end' }
+                ], wpx, hpx);
+                psvg.append('text')
+                    .attr('x', spot.x).attr('y', spot.y)
+                    .attr('text-anchor', spot.anchor)
+                    .style('fill', '#898781').style('font-size', '10px')
+                    .call(halo)
+                    .text(d.year);
+            }));
+        }
+
+        async function initPortfolio() {
+            try {
+                const rows = await loadPortfolioRows();
+                if (rows.length === 0) return;
+                initPortfolioControls(rows);
+                document.getElementById('portfolio').style.display = 'block';
+                renderPortfolio();
+            } catch (e) {
+                console.warn('Portfolio view unavailable:', e);
+            }
+        }
+
+        document.getElementById('portfolio-x').addEventListener('change', renderPortfolio);
+        document.getElementById('portfolio-y').addEventListener('change', renderPortfolio);
+        document.querySelectorAll('input[name="portfolio-unit"]').forEach(el =>
+            el.addEventListener('change', renderPortfolio));
 
         document.getElementById("reload-btn").addEventListener("click", function() {
             const select = document.getElementById("budget-select");
