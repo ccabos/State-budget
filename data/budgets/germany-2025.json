@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "country": "Germany",
+    "year": 2025,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 84.7,
+    "exchange_rate_per_usd": 0.885,
+    "total_revenue": 427.9,
+    "total_expenditure": 493.3,
+    "deficit": 65.4,
+    "source": "German Federal Ministry of Finance, provisional budget outturn 2025 (BMF Monthly Report, January 2026)",
+    "source_url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/01/Inhalte/Kapitel-2-Analysen/2-1-abschluss-bundeshaushalt-ktf-svik-2025.html",
+    "notes": "Federal core budget, provisional full-year 2025 results. Revenue excludes net borrowing of €66.9B. Federal tax revenue was €388.7B (+3.7%). Defense figure includes the Bundeswehr special fund. Ministry-level values are partly estimated from the enacted 2025 budget (adopted September 2025 after a nine-month provisional regime)."
+  },
+  "revenue": [
+    {
+      "name": "Income & Wage Taxes (federal share)",
+      "category": "Direct Taxes",
+      "amount": 124.0,
+      "percentage": 29.0
+    },
+    {
+      "name": "Value Added Tax (federal share)",
+      "category": "Indirect Taxes",
+      "amount": 132.0,
+      "percentage": 30.8
+    },
+    {
+      "name": "Energy & Electricity Taxes",
+      "category": "Indirect Taxes",
+      "amount": 39.0,
+      "percentage": 9.1
+    },
+    {
+      "name": "Corporate & Capital Income Taxes",
+      "category": "Direct Taxes",
+      "amount": 37.0,
+      "percentage": 8.6
+    },
+    {
+      "name": "Other Taxes",
+      "category": "Other",
+      "amount": 56.7,
+      "percentage": 13.3
+    },
+    {
+      "name": "Non-Tax Revenue",
+      "category": "Other",
+      "amount": 39.2,
+      "percentage": 9.2
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Labor & Social Affairs",
+      "category": "Social Protection",
+      "amount": 190.0,
+      "percentage": 38.5
+    },
+    {
+      "name": "Defense (incl. special fund)",
+      "category": "Defense",
+      "amount": 72.2,
+      "percentage": 14.6
+    },
+    {
+      "name": "Transport & Infrastructure",
+      "category": "Infrastructure",
+      "amount": 44.0,
+      "percentage": 8.9
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 30.1,
+      "percentage": 6.1
+    },
+    {
+      "name": "Education & Research",
+      "category": "Education",
+      "amount": 22.0,
+      "percentage": 4.5
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 16.5,
+      "percentage": 3.3
+    },
+    {
+      "name": "Development Aid",
+      "category": "Foreign Affairs",
+      "amount": 10.3,
+      "percentage": 2.1
+    },
+    {
+      "name": "Economy & Climate",
+      "category": "Economic Affairs",
+      "amount": 10.0,
+      "percentage": 2.0
+    },
+    {
+      "name": "Housing",
+      "category": "Housing",
+      "amount": 7.0,
+      "percentage": 1.4
+    },
+    {
+      "name": "Foreign Affairs",
+      "category": "Foreign Affairs",
+      "amount": 5.9,
+      "percentage": 1.2
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 2.5,
+      "percentage": 0.5
+    },
+    {
+      "name": "Other Ministries",
+      "category": "Other",
+      "amount": 82.8,
+      "percentage": 16.8
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "country": "United States",
+    "year": 2025,
+    "currency": "USD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "population_millions": 340.1,
+    "exchange_rate_per_usd": 1.0,
+    "total_revenue": 5235.0,
+    "total_expenditure": 7010.0,
+    "deficit": 1775.0,
+    "source": "U.S. Treasury Final Monthly Treasury Statement, Congressional Budget Office, FY2025",
+    "source_url": "https://www.cbo.gov/publication/61307",
+    "notes": "Federal budget for fiscal year 2025 (Oct 2024 - Sep 2025), actual results. Customs duties surged 153% due to 2025 tariffs. Education outlays plunged after student-loan program modifications in the 2025 reconciliation act. Minor categories are estimates derived from CBO/Treasury reporting."
+  },
+  "revenue": [
+    {
+      "name": "Individual Income Taxes",
+      "category": "Direct Taxes",
+      "amount": 2665.0,
+      "percentage": 50.9
+    },
+    {
+      "name": "Payroll Taxes (Social Security & Medicare)",
+      "category": "Social Insurance",
+      "amount": 1730.0,
+      "percentage": 33.0
+    },
+    {
+      "name": "Corporate Income Taxes",
+      "category": "Direct Taxes",
+      "amount": 452.0,
+      "percentage": 8.6
+    },
+    {
+      "name": "Customs Duties & Excise Taxes",
+      "category": "Indirect Taxes",
+      "amount": 301.0,
+      "percentage": 5.7
+    },
+    {
+      "name": "Other Revenue",
+      "category": "Other",
+      "amount": 87.0,
+      "percentage": 1.7
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Security",
+      "category": "Social Protection",
+      "amount": 1582.0,
+      "percentage": 22.6
+    },
+    {
+      "name": "Medicare",
+      "category": "Health",
+      "amount": 991.0,
+      "percentage": 14.1
+    },
+    {
+      "name": "Medicaid & CHIP",
+      "category": "Health",
+      "amount": 670.0,
+      "percentage": 9.6
+    },
+    {
+      "name": "Interest on National Debt",
+      "category": "Debt Service",
+      "amount": 962.0,
+      "percentage": 13.7
+    },
+    {
+      "name": "National Defense",
+      "category": "Defense",
+      "amount": 912.0,
+      "percentage": 13.0
+    },
+    {
+      "name": "Veterans Benefits",
+      "category": "Social Protection",
+      "amount": 366.0,
+      "percentage": 5.2
+    },
+    {
+      "name": "Income Security (SNAP, SSI, etc.)",
+      "category": "Social Protection",
+      "amount": 380.0,
+      "percentage": 5.4
+    },
+    {
+      "name": "Education & Training",
+      "category": "Education",
+      "amount": 40.0,
+      "percentage": 0.6
+    },
+    {
+      "name": "Transportation",
+      "category": "Infrastructure",
+      "amount": 142.0,
+      "percentage": 2.0
+    },
+    {
+      "name": "Health Research & Public Health",
+      "category": "Health",
+      "amount": 105.0,
+      "percentage": 1.5
+    },
+    {
+      "name": "International Affairs",
+      "category": "Foreign Affairs",
+      "amount": 60.0,
+      "percentage": 0.9
+    },
+    {
+      "name": "Science & Technology",
+      "category": "Research",
+      "amount": 42.0,
+      "percentage": 0.6
+    },
+    {
+      "name": "Energy & Environment",
+      "category": "Environment",
+      "amount": 65.0,
+      "percentage": 0.9
+    },
+    {
+      "name": "Agriculture",
+      "category": "Economic Affairs",
+      "amount": 69.0,
+      "percentage": 1.0
+    },
+    {
+      "name": "Justice & Law Enforcement",
+      "category": "Public Safety",
+      "amount": 80.0,
+      "percentage": 1.1
+    },
+    {
+      "name": "Other Federal Programs",
+      "category": "Other",
+      "amount": 544.0,
+      "percentage": 7.8
+    }
+  ]
+}

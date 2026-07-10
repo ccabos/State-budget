@@ -3,7 +3,7 @@
 // opened directly from disk (file://), where fetch() is unavailable.
 window.EMBEDDED_BUDGETS = {
   "manifest": {
-    "generated": "2026-07-07",
+    "generated": "2026-07-10",
     "budgets": [
       {
         "value": "data/budgets/california-2024.json",
@@ -24,6 +24,13 @@ window.EMBEDDED_BUDGETS = {
         "label": "France 2024",
         "country": "France",
         "year": 2024,
+        "currency": "EUR"
+      },
+      {
+        "value": "data/budgets/germany-2025.json",
+        "label": "Germany 2025",
+        "country": "Germany",
+        "year": 2025,
         "currency": "EUR"
       },
       {
@@ -67,6 +74,13 @@ window.EMBEDDED_BUDGETS = {
         "country": "United Kingdom",
         "year": 2024,
         "currency": "GBP"
+      },
+      {
+        "value": "data/budgets/usa-2025.json",
+        "label": "United States 2025",
+        "country": "United States",
+        "year": 2025,
+        "currency": "USD"
       },
       {
         "value": "data/budgets/usa-2024.json",
@@ -1151,6 +1165,135 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/germany-2025.json": {
+      "metadata": {
+        "country": "Germany",
+        "year": 2025,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 84.7,
+        "exchange_rate_per_usd": 0.885,
+        "total_revenue": 427.9,
+        "total_expenditure": 493.3,
+        "deficit": 65.4,
+        "source": "German Federal Ministry of Finance, provisional budget outturn 2025 (BMF Monthly Report, January 2026)",
+        "source_url": "https://www.bundesfinanzministerium.de/Monatsberichte/Ausgabe/2026/01/Inhalte/Kapitel-2-Analysen/2-1-abschluss-bundeshaushalt-ktf-svik-2025.html",
+        "notes": "Federal core budget, provisional full-year 2025 results. Revenue excludes net borrowing of €66.9B. Federal tax revenue was €388.7B (+3.7%). Defense figure includes the Bundeswehr special fund. Ministry-level values are partly estimated from the enacted 2025 budget (adopted September 2025 after a nine-month provisional regime)."
+      },
+      "revenue": [
+        {
+          "name": "Income & Wage Taxes (federal share)",
+          "category": "Direct Taxes",
+          "amount": 124,
+          "percentage": 29
+        },
+        {
+          "name": "Value Added Tax (federal share)",
+          "category": "Indirect Taxes",
+          "amount": 132,
+          "percentage": 30.8
+        },
+        {
+          "name": "Energy & Electricity Taxes",
+          "category": "Indirect Taxes",
+          "amount": 39,
+          "percentage": 9.1
+        },
+        {
+          "name": "Corporate & Capital Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 37,
+          "percentage": 8.6
+        },
+        {
+          "name": "Other Taxes",
+          "category": "Other",
+          "amount": 56.7,
+          "percentage": 13.3
+        },
+        {
+          "name": "Non-Tax Revenue",
+          "category": "Other",
+          "amount": 39.2,
+          "percentage": 9.2
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Labor & Social Affairs",
+          "category": "Social Protection",
+          "amount": 190,
+          "percentage": 38.5
+        },
+        {
+          "name": "Defense (incl. special fund)",
+          "category": "Defense",
+          "amount": 72.2,
+          "percentage": 14.6
+        },
+        {
+          "name": "Transport & Infrastructure",
+          "category": "Infrastructure",
+          "amount": 44,
+          "percentage": 8.9
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 30.1,
+          "percentage": 6.1
+        },
+        {
+          "name": "Education & Research",
+          "category": "Education",
+          "amount": 22,
+          "percentage": 4.5
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 16.5,
+          "percentage": 3.3
+        },
+        {
+          "name": "Development Aid",
+          "category": "Foreign Affairs",
+          "amount": 10.3,
+          "percentage": 2.1
+        },
+        {
+          "name": "Economy & Climate",
+          "category": "Economic Affairs",
+          "amount": 10,
+          "percentage": 2
+        },
+        {
+          "name": "Housing",
+          "category": "Housing",
+          "amount": 7,
+          "percentage": 1.4
+        },
+        {
+          "name": "Foreign Affairs",
+          "category": "Foreign Affairs",
+          "amount": 5.9,
+          "percentage": 1.2
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 2.5,
+          "percentage": 0.5
+        },
+        {
+          "name": "Other Ministries",
+          "category": "Other",
+          "amount": 82.8,
+          "percentage": 16.8
+        }
+      ]
+    },
     "data/budgets/japan-2024.json": {
       "metadata": {
         "country": "Japan",
@@ -1841,6 +1984,153 @@ window.EMBEDDED_BUDGETS = {
           "category": "Other",
           "amount": 537,
           "percentage": 8
+        }
+      ]
+    },
+    "data/budgets/usa-2025.json": {
+      "metadata": {
+        "country": "United States",
+        "year": 2025,
+        "currency": "USD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "population_millions": 340.1,
+        "exchange_rate_per_usd": 1,
+        "total_revenue": 5235,
+        "total_expenditure": 7010,
+        "deficit": 1775,
+        "source": "U.S. Treasury Final Monthly Treasury Statement, Congressional Budget Office, FY2025",
+        "source_url": "https://www.cbo.gov/publication/61307",
+        "notes": "Federal budget for fiscal year 2025 (Oct 2024 - Sep 2025), actual results. Customs duties surged 153% due to 2025 tariffs. Education outlays plunged after student-loan program modifications in the 2025 reconciliation act. Minor categories are estimates derived from CBO/Treasury reporting."
+      },
+      "revenue": [
+        {
+          "name": "Individual Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 2665,
+          "percentage": 50.9
+        },
+        {
+          "name": "Payroll Taxes (Social Security & Medicare)",
+          "category": "Social Insurance",
+          "amount": 1730,
+          "percentage": 33
+        },
+        {
+          "name": "Corporate Income Taxes",
+          "category": "Direct Taxes",
+          "amount": 452,
+          "percentage": 8.6
+        },
+        {
+          "name": "Customs Duties & Excise Taxes",
+          "category": "Indirect Taxes",
+          "amount": 301,
+          "percentage": 5.7
+        },
+        {
+          "name": "Other Revenue",
+          "category": "Other",
+          "amount": 87,
+          "percentage": 1.7
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Security",
+          "category": "Social Protection",
+          "amount": 1582,
+          "percentage": 22.6
+        },
+        {
+          "name": "Medicare",
+          "category": "Health",
+          "amount": 991,
+          "percentage": 14.1
+        },
+        {
+          "name": "Medicaid & CHIP",
+          "category": "Health",
+          "amount": 670,
+          "percentage": 9.6
+        },
+        {
+          "name": "Interest on National Debt",
+          "category": "Debt Service",
+          "amount": 962,
+          "percentage": 13.7
+        },
+        {
+          "name": "National Defense",
+          "category": "Defense",
+          "amount": 912,
+          "percentage": 13
+        },
+        {
+          "name": "Veterans Benefits",
+          "category": "Social Protection",
+          "amount": 366,
+          "percentage": 5.2
+        },
+        {
+          "name": "Income Security (SNAP, SSI, etc.)",
+          "category": "Social Protection",
+          "amount": 380,
+          "percentage": 5.4
+        },
+        {
+          "name": "Education & Training",
+          "category": "Education",
+          "amount": 40,
+          "percentage": 0.6
+        },
+        {
+          "name": "Transportation",
+          "category": "Infrastructure",
+          "amount": 142,
+          "percentage": 2
+        },
+        {
+          "name": "Health Research & Public Health",
+          "category": "Health",
+          "amount": 105,
+          "percentage": 1.5
+        },
+        {
+          "name": "International Affairs",
+          "category": "Foreign Affairs",
+          "amount": 60,
+          "percentage": 0.9
+        },
+        {
+          "name": "Science & Technology",
+          "category": "Research",
+          "amount": 42,
+          "percentage": 0.6
+        },
+        {
+          "name": "Energy & Environment",
+          "category": "Environment",
+          "amount": 65,
+          "percentage": 0.9
+        },
+        {
+          "name": "Agriculture",
+          "category": "Economic Affairs",
+          "amount": 69,
+          "percentage": 1
+        },
+        {
+          "name": "Justice & Law Enforcement",
+          "category": "Public Safety",
+          "amount": 80,
+          "percentage": 1.1
+        },
+        {
+          "name": "Other Federal Programs",
+          "category": "Other",
+          "amount": 544,
+          "percentage": 7.8
         }
       ]
     }
