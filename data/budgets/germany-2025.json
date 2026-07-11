@@ -7,6 +7,7 @@
     "unit": "billions",
     "population_millions": 84.7,
     "exchange_rate_per_usd": 0.885,
+    "gdp": 4447,
     "total_revenue": 427.9,
     "total_expenditure": 493.3,
     "deficit": 65.4,
@@ -18,25 +19,25 @@
     {
       "name": "Income & Wage Taxes (federal share)",
       "category": "Direct Taxes",
-      "amount": 124.0,
-      "percentage": 29.0
+      "amount": 124,
+      "percentage": 29
     },
     {
       "name": "Value Added Tax (federal share)",
       "category": "Indirect Taxes",
-      "amount": 132.0,
+      "amount": 132,
       "percentage": 30.8
     },
     {
       "name": "Energy & Electricity Taxes",
       "category": "Indirect Taxes",
-      "amount": 39.0,
+      "amount": 39,
       "percentage": 9.1
     },
     {
       "name": "Corporate & Capital Income Taxes",
       "category": "Direct Taxes",
-      "amount": 37.0,
+      "amount": 37,
       "percentage": 8.6
     },
     {
@@ -56,7 +57,7 @@
     {
       "name": "Labor & Social Affairs",
       "category": "Social Protection",
-      "amount": 190.0,
+      "amount": 190,
       "percentage": 38.5
     },
     {
@@ -68,7 +69,7 @@
     {
       "name": "Transport & Infrastructure",
       "category": "Infrastructure",
-      "amount": 44.0,
+      "amount": 44,
       "percentage": 8.9
     },
     {
@@ -80,7 +81,7 @@
     {
       "name": "Education & Research",
       "category": "Education",
-      "amount": 22.0,
+      "amount": 22,
       "percentage": 4.5
     },
     {
@@ -98,13 +99,13 @@
     {
       "name": "Economy & Climate",
       "category": "Economic Affairs",
-      "amount": 10.0,
-      "percentage": 2.0
+      "amount": 10,
+      "percentage": 2
     },
     {
       "name": "Housing",
       "category": "Housing",
-      "amount": 7.0,
+      "amount": 7,
       "percentage": 1.4
     },
     {

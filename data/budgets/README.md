@@ -29,6 +29,7 @@ Contains information about the budget:
     "unit": "billions|millions",
     "population_millions": 84.7,
     "exchange_rate_per_usd": 0.924,
+    "gdp": 4305,
     "total_revenue": 1000.0,
     "total_expenditure": 1100.0,
     "deficit": 100.0,
@@ -47,6 +48,7 @@ Contains information about the budget:
 - `unit`: Scale of numbers (millions, billions, or trillions)
 - `population_millions`: Country population in millions (optional; enables the per-capita view)
 - `exchange_rate_per_usd`: Units of local currency per 1 USD, annual average for the budget year (optional; enables USD conversion; use `1.0` for USD budgets)
+- `gdp`: Nominal GDP for the budget year, in the same currency and unit as the budget amounts (optional; enables the % of GDP view in the portfolio diagram)
 - `total_revenue`: Total government revenue
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)

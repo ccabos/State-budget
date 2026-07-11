@@ -7,6 +7,7 @@
     "unit": "billions",
     "population_millions": 68.4,
     "exchange_rate_per_usd": 0.924,
+    "gdp": 2920,
     "total_revenue": 299.9,
     "total_expenditure": 446.4,
     "deficit": 146.5,
@@ -18,20 +19,20 @@
     {
       "name": "Value Added Tax (state share)",
       "category": "Indirect Taxes",
-      "amount": 95.0,
+      "amount": 95,
       "percentage": 31.7
     },
     {
       "name": "Income Tax",
       "category": "Direct Taxes",
-      "amount": 89.0,
+      "amount": 89,
       "percentage": 29.7
     },
     {
       "name": "Corporate Tax",
       "category": "Direct Taxes",
-      "amount": 57.0,
-      "percentage": 19.0
+      "amount": 57,
+      "percentage": 19
     },
     {
       "name": "Energy Taxes (TICPE)",
@@ -42,8 +43,8 @@
     {
       "name": "Other Tax Revenue",
       "category": "Other",
-      "amount": 21.0,
-      "percentage": 7.0
+      "amount": 21,
+      "percentage": 7
     },
     {
       "name": "Non-Tax Revenue",
@@ -75,7 +76,7 @@
       "name": "Research & Higher Education",
       "category": "Research",
       "amount": 31.4,
-      "percentage": 7.0
+      "percentage": 7
     },
     {
       "name": "Solidarity & Social Inclusion",
@@ -86,14 +87,14 @@
     {
       "name": "Ecology & Sustainable Development",
       "category": "Environment",
-      "amount": 25.0,
+      "amount": 25,
       "percentage": 5.6
     },
     {
       "name": "Labor & Employment",
       "category": "Economic Affairs",
       "amount": 22.2,
-      "percentage": 5.0
+      "percentage": 5
     },
     {
       "name": "Territorial Cohesion & Housing",

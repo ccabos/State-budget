@@ -7,6 +7,7 @@
     "unit": "billions",
     "population_millions": 84.7,
     "exchange_rate_per_usd": 0.924,
+    "gdp": 4305,
     "total_revenue": 416.2,
     "total_expenditure": 466.7,
     "deficit": 50.5,
@@ -18,25 +19,25 @@
     {
       "name": "Income & Wage Taxes (federal share)",
       "category": "Direct Taxes",
-      "amount": 118.0,
+      "amount": 118,
       "percentage": 28.4
     },
     {
       "name": "Value Added Tax (federal share)",
       "category": "Indirect Taxes",
-      "amount": 130.0,
+      "amount": 130,
       "percentage": 31.2
     },
     {
       "name": "Energy & Electricity Taxes",
       "category": "Indirect Taxes",
-      "amount": 40.0,
+      "amount": 40,
       "percentage": 9.6
     },
     {
       "name": "Corporate & Capital Income Taxes",
       "category": "Direct Taxes",
-      "amount": 35.0,
+      "amount": 35,
       "percentage": 8.4
     },
     {
@@ -49,7 +50,7 @@
       "name": "Non-Tax Revenue",
       "category": "Other",
       "amount": 41.7,
-      "percentage": 10.0
+      "percentage": 10
     }
   ],
   "expenditure": [
@@ -68,14 +69,14 @@
     {
       "name": "Transport & Infrastructure",
       "category": "Infrastructure",
-      "amount": 44.0,
+      "amount": 44,
       "percentage": 9.4
     },
     {
       "name": "Interest on Debt",
       "category": "Debt Service",
       "amount": 37.5,
-      "percentage": 8.0
+      "percentage": 8
     },
     {
       "name": "Education & Research",
@@ -98,7 +99,7 @@
     {
       "name": "Economy & Climate",
       "category": "Economic Affairs",
-      "amount": 11.0,
+      "amount": 11,
       "percentage": 2.4
     },
     {
@@ -122,7 +123,7 @@
     {
       "name": "Other Ministries",
       "category": "Other",
-      "amount": 61.0,
+      "amount": 61,
       "percentage": 13.1
     }
   ]

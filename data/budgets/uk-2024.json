@@ -7,6 +7,7 @@
     "unit": "billions",
     "population_millions": 68.3,
     "exchange_rate_per_usd": 0.783,
+    "gdp": 2860,
     "total_revenue": 1141.2,
     "total_expenditure": 1278.6,
     "deficit": 137.3,
@@ -18,43 +19,43 @@
     {
       "name": "Income Tax",
       "category": "Direct Taxes",
-      "amount": 302.0,
+      "amount": 302,
       "percentage": 26.5
     },
     {
       "name": "National Insurance",
       "category": "Social Insurance",
-      "amount": 179.0,
+      "amount": 179,
       "percentage": 15.7
     },
     {
       "name": "Value Added Tax (VAT)",
       "category": "Indirect Taxes",
-      "amount": 181.0,
+      "amount": 181,
       "percentage": 15.9
     },
     {
       "name": "Corporation Tax",
       "category": "Direct Taxes",
-      "amount": 106.0,
+      "amount": 106,
       "percentage": 9.3
     },
     {
       "name": "Excise Duties",
       "category": "Indirect Taxes",
-      "amount": 85.0,
+      "amount": 85,
       "percentage": 7.5
     },
     {
       "name": "Council Tax",
       "category": "Local Taxes",
-      "amount": 45.0,
+      "amount": 45,
       "percentage": 3.9
     },
     {
       "name": "Business Rates",
       "category": "Business Taxes",
-      "amount": 37.0,
+      "amount": 37,
       "percentage": 3.2
     },
     {
@@ -74,20 +75,20 @@
     {
       "name": "Pensions",
       "category": "Social Protection",
-      "amount": 124.0,
+      "amount": 124,
       "percentage": 9.7
     },
     {
       "name": "Welfare Benefits",
       "category": "Social Protection",
-      "amount": 189.0,
+      "amount": 189,
       "percentage": 14.8
     },
     {
       "name": "Education",
       "category": "Education",
       "amount": 89.2,
-      "percentage": 7.0
+      "percentage": 7
     },
     {
       "name": "Interest on National Debt",
@@ -104,44 +105,44 @@
     {
       "name": "Transport",
       "category": "Infrastructure",
-      "amount": 50.0,
+      "amount": 50,
       "percentage": 3.9
     },
     {
       "name": "Public Order & Safety",
       "category": "Public Safety",
-      "amount": 45.0,
+      "amount": 45,
       "percentage": 3.5
     },
     {
       "name": "Housing & Community",
       "category": "Housing",
-      "amount": 38.0,
-      "percentage": 3.0
+      "amount": 38,
+      "percentage": 3
     },
     {
       "name": "Environment",
       "category": "Environment",
-      "amount": 28.0,
+      "amount": 28,
       "percentage": 2.2
     },
     {
       "name": "Culture, Media & Sport",
       "category": "Recreation",
-      "amount": 18.0,
+      "amount": 18,
       "percentage": 1.4
     },
     {
       "name": "International Development",
       "category": "Foreign Affairs",
-      "amount": 15.0,
+      "amount": 15,
       "percentage": 1.2
     },
     {
       "name": "Business & Industry",
       "category": "Economic Affairs",
-      "amount": 25.0,
-      "percentage": 2.0
+      "amount": 25,
+      "percentage": 2
     },
     {
       "name": "Capital Investment",

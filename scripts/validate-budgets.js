@@ -153,6 +153,14 @@ function validateFile(filepath) {
     errors.push(`metadata.exchange_rate_per_usd must be a positive number, got ${meta.exchange_rate_per_usd}`);
   }
 
+  if (meta.gdp === undefined) {
+    warnings.push('metadata.gdp missing (% of GDP view unavailable)');
+  } else if (typeof meta.gdp !== 'number' || meta.gdp <= 0) {
+    errors.push(`metadata.gdp must be a positive number, got ${meta.gdp}`);
+  } else if (typeof meta.total_expenditure === 'number' && meta.gdp < meta.total_expenditure) {
+    warnings.push(`metadata.gdp (${meta.gdp}) is smaller than total_expenditure - same currency and unit as the budget expected`);
+  }
+
   validateItems(data.revenue, 'revenue', meta.total_revenue, errors, warnings);
   validateItems(data.expenditure, 'expenditure', meta.total_expenditure, errors, warnings);
 

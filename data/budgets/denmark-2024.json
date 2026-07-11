@@ -7,6 +7,7 @@
     "unit": "billions",
     "population_millions": 5.96,
     "exchange_rate_per_usd": 6.89,
+    "gdp": 2940,
     "total_revenue": 902.25,
     "total_expenditure": 887.75,
     "deficit": -14.5,
@@ -18,37 +19,37 @@
     {
       "name": "Income Tax",
       "category": "Direct Taxes",
-      "amount": 350.0,
+      "amount": 350,
       "percentage": 38.8
     },
     {
       "name": "Value Added Tax (VAT)",
       "category": "Indirect Taxes",
-      "amount": 220.0,
+      "amount": 220,
       "percentage": 24.4
     },
     {
       "name": "Labor Market Contributions",
       "category": "Social Insurance",
-      "amount": 120.0,
+      "amount": 120,
       "percentage": 13.3
     },
     {
       "name": "Corporate Tax",
       "category": "Direct Taxes",
-      "amount": 80.0,
+      "amount": 80,
       "percentage": 8.9
     },
     {
       "name": "Excise Duties",
       "category": "Indirect Taxes",
-      "amount": 65.0,
+      "amount": 65,
       "percentage": 7.2
     },
     {
       "name": "Property & Wealth Taxes",
       "category": "Direct Taxes",
-      "amount": 35.0,
+      "amount": 35,
       "percentage": 3.9
     },
     {
@@ -68,19 +69,19 @@
     {
       "name": "Health",
       "category": "Health",
-      "amount": 180.0,
+      "amount": 180,
       "percentage": 20.3
     },
     {
       "name": "Education",
       "category": "Education",
-      "amount": 95.0,
+      "amount": 95,
       "percentage": 10.7
     },
     {
       "name": "Operating Expenses (General Government)",
       "category": "General Services",
-      "amount": 150.0,
+      "amount": 150,
       "percentage": 16.9
     },
     {
@@ -92,31 +93,31 @@
     {
       "name": "Transport & Infrastructure",
       "category": "Infrastructure",
-      "amount": 28.0,
+      "amount": 28,
       "percentage": 3.2
     },
     {
       "name": "Environment & Climate",
       "category": "Environment",
-      "amount": 18.0,
-      "percentage": 2.0
+      "amount": 18,
+      "percentage": 2
     },
     {
       "name": "Public Safety",
       "category": "Public Safety",
-      "amount": 15.0,
+      "amount": 15,
       "percentage": 1.7
     },
     {
       "name": "Culture & Recreation",
       "category": "Recreation",
-      "amount": 12.0,
+      "amount": 12,
       "percentage": 1.4
     },
     {
       "name": "Interest on Debt",
       "category": "Debt Service",
-      "amount": 12.0,
+      "amount": 12,
       "percentage": 1.4
     },
     {

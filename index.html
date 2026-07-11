@@ -351,6 +351,10 @@
                         % of total expenditure
                     </label>
                     <label class="toggle-label">
+                        <input type="radio" name="portfolio-unit" value="gdppct">
+                        % of GDP
+                    </label>
+                    <label class="toggle-label">
                         <input type="radio" name="portfolio-unit" value="eurpc">
                         € per capita
                     </label>
@@ -361,8 +365,11 @@
             <p class="trend-caption">
                 Expenditure items are normalized into standard categories across countries.
                 Each dot is one budget year; lines connect consecutive years of the same country.
-                Per-capita values are converted to euros at the year's average exchange rate.
-                A category a country does not report separately counts as zero.
+                Per-capita values are converted to euros at the year's average exchange rate;
+                GDP shares use each country's nominal GDP in its own currency.
+                A category a country does not report separately counts as zero. Values reflect
+                the central/federal budget only — state, local, and social-insurance spending
+                outside it (e.g. German pensions) is not included.
             </p>
         </div>
 
@@ -1358,6 +1365,11 @@
                 return meta.total_expenditure > 0
                     ? (amount / meta.total_expenditure) * 100 : null;
             }
+            if (unit === 'gdppct') {
+                // gdp is stored in the budget's own currency and unit,
+                // so the ratio needs no conversion.
+                return meta.gdp > 0 ? (amount / meta.gdp) * 100 : null;
+            }
             if (!(meta.population_millions > 0) || !(meta.exchange_rate_per_usd > 0)) return null;
             const usd = amount * unitFactor(meta.unit) / meta.exchange_rate_per_usd;
             return (usd * eurPerUsd(row.year)) / (meta.population_millions * 1e6);
@@ -1366,6 +1378,7 @@
         function formatPortfolioValue(v, unit) {
             if (v === null || v === undefined) return '–';
             if (unit === 'pct') return `${v.toFixed(1)}%`;
+            if (unit === 'gdppct') return `${v.toFixed(2)}% of GDP`;
             return `€${v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(2)} per capita`;
         }
 
@@ -1402,7 +1415,8 @@
             const catX = document.getElementById('portfolio-x').value;
             const catY = document.getElementById('portfolio-y').value;
             const unit = portfolioUnit();
-            const unitLabel = unit === 'pct' ? '% of total expenditure' : '€ per capita';
+            const unitLabel = unit === 'pct' ? '% of total expenditure'
+                : unit === 'gdppct' ? '% of GDP' : '€ per capita';
 
             // Group country-years with valid values on both axes
             const byCountry = new Map();
@@ -1442,7 +1456,8 @@
             const yScale = d3.scaleLinear()
                 .domain([0, (d3.max(allPts, d => d.y) || 1) * 1.1]).nice().range([h, 0]);
 
-            const fmtTick = v => unit === 'pct' ? `${v}%` : `€${v.toLocaleString('en-US')}`;
+            const fmtTick = v => unit === 'eurpc'
+                ? `€${v.toLocaleString('en-US')}` : `${v}%`;
 
             // Recessive hairline grid + axes
             psvg.append('g').selectAll('line').data(xScale.ticks(7)).join('line')
@@ -1562,7 +1577,11 @@
                     { x: x, y: y - 9, anchor: 'middle' },
                     { x: x, y: y + 19, anchor: 'middle' },
                     { x: x + 9, y: y + 4, anchor: 'start' },
-                    { x: x - 9, y: y + 4, anchor: 'end' }
+                    { x: x - 9, y: y + 4, anchor: 'end' },
+                    { x: x, y: y - 21, anchor: 'middle' },
+                    { x: x, y: y + 31, anchor: 'middle' },
+                    { x: x + 17, y: y + 4, anchor: 'start' },
+                    { x: x - 17, y: y + 4, anchor: 'end' }
                 ], wpx, hpx);
                 psvg.append('text')
                     .attr('x', spot.x).attr('y', spot.y)
