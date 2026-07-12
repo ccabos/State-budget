@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "country": "United Kingdom",
+    "year": 2015,
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "unit": "billions",
+    "population_millions": 65.1,
+    "exchange_rate_per_usd": 0.654,
+    "gdp": 1935,
+    "scope": "general",
+    "total_revenue": 691,
+    "total_expenditure": 772,
+    "deficit": 81,
+    "source": "UK Office for Budget Responsibility, Autumn Budget 2024",
+    "source_url": "https://obr.uk/forecasts-in-depth/brief-guides-and-explainers/public-finances/",
+    "notes": "Fiscal year 2015-16 (Total Managed Expenditure / total receipts, all levels of government). Item split scaled from the 2024-25 composition with actual debt interest and defence; approximate."
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 182.9,
+      "percentage": 26.5
+    },
+    {
+      "name": "National Insurance",
+      "category": "Social Insurance",
+      "amount": 108.4,
+      "percentage": 15.7
+    },
+    {
+      "name": "Value Added Tax (VAT)",
+      "category": "Indirect Taxes",
+      "amount": 109.6,
+      "percentage": 15.9
+    },
+    {
+      "name": "Corporation Tax",
+      "category": "Direct Taxes",
+      "amount": 64.2,
+      "percentage": 9.3
+    },
+    {
+      "name": "Excise Duties",
+      "category": "Indirect Taxes",
+      "amount": 51.5,
+      "percentage": 7.5
+    },
+    {
+      "name": "Council Tax",
+      "category": "Local Taxes",
+      "amount": 27.2,
+      "percentage": 3.9
+    },
+    {
+      "name": "Business Rates",
+      "category": "Business Taxes",
+      "amount": 22.4,
+      "percentage": 3.2
+    },
+    {
+      "name": "Other Taxes & Revenue",
+      "category": "Other",
+      "amount": 124.9,
+      "percentage": 18.1
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Health (NHS)",
+      "category": "Health",
+      "amount": 119.3,
+      "percentage": 15.5
+    },
+    {
+      "name": "Pensions",
+      "category": "Social Protection",
+      "amount": 76.5,
+      "percentage": 9.9
+    },
+    {
+      "name": "Welfare Benefits",
+      "category": "Social Protection",
+      "amount": 116.6,
+      "percentage": 15.1
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 55,
+      "percentage": 7.1
+    },
+    {
+      "name": "Interest on National Debt",
+      "category": "Debt Service",
+      "amount": 45,
+      "percentage": 5.8
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 37,
+      "percentage": 4.8
+    },
+    {
+      "name": "Transport",
+      "category": "Infrastructure",
+      "amount": 30.8,
+      "percentage": 4
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 27.8,
+      "percentage": 3.6
+    },
+    {
+      "name": "Housing & Community",
+      "category": "Housing",
+      "amount": 23.4,
+      "percentage": 3
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 17.3,
+      "percentage": 2.2
+    },
+    {
+      "name": "Culture, Media & Sport",
+      "category": "Recreation",
+      "amount": 11.1,
+      "percentage": 1.4
+    },
+    {
+      "name": "International Development",
+      "category": "Foreign Affairs",
+      "amount": 9.3,
+      "percentage": 1.2
+    },
+    {
+      "name": "Business & Industry",
+      "category": "Economic Affairs",
+      "amount": 15.4,
+      "percentage": 2
+    },
+    {
+      "name": "Capital Investment",
+      "category": "Infrastructure",
+      "amount": 59.3,
+      "percentage": 7.7
+    },
+    {
+      "name": "Other Public Services",
+      "category": "Other",
+      "amount": 128.2,
+      "percentage": 16.6
+    }
+  ]
+}

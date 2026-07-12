@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "Germany (General Government)",
+    "year": 2015,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 82.2,
+    "exchange_rate_per_usd": 0.901,
+    "gdp": 3026,
+    "scope": "general",
+    "total_revenue": 1364,
+    "total_expenditure": 1334,
+    "deficit": -30,
+    "source": "Destatis (national accounts, ESA 2010) and Eurostat COFOG",
+    "source_url": "https://www.destatis.de/EN/Press/2025/02/PE25_070_813.html",
+    "notes": "General government, national-accounts basis. Germany ran a surplus of ~1.0% of GDP in 2015. Function split scaled from COFOG shares, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 379.8,
+      "percentage": 27.8
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 324.8,
+      "percentage": 23.8
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 525.1,
+      "percentage": 38.5
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 134.3,
+      "percentage": 9.8
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 552.8,
+      "percentage": 41.4
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 201,
+      "percentage": 15.1
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 134,
+      "percentage": 10
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 126.2,
+      "percentage": 9.5
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 106.1,
+      "percentage": 8
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 33,
+      "percentage": 2.5
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 45.8,
+      "percentage": 3.4
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 31.3,
+      "percentage": 2.3
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 23.5,
+      "percentage": 1.8
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 20.1,
+      "percentage": 1.5
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 16.8,
+      "percentage": 1.3
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 43.6,
+      "percentage": 3.3
+    }
+  ]
+}

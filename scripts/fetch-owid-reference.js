@@ -25,6 +25,10 @@ const COUNTRIES = {
   GBR: 'United Kingdom',
   USA: 'United States',
   CHN: 'China',
+  ITA: 'Italy',
+  ESP: 'Spain',
+  SWE: 'Sweden',
+  JPN: 'Japan',
 };
 
 // OWID grapher slug -> which of our measures it checks.

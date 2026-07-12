@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "country": "China (General Government)",
+    "year": 2023,
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "unit": "trillions",
+    "population_millions": 1409.7,
+    "exchange_rate_per_usd": 7.08,
+    "gdp": 129.4,
+    "scope": "general",
+    "total_revenue": 21.68,
+    "total_expenditure": 27.46,
+    "deficit": 5.78,
+    "source": "Ministry of Finance of the PRC, national general public budget final accounts",
+    "source_url": "https://chinapower.csis.org/making-sense-of-chinas-government-budget/",
+    "notes": "National general public budget: central and local governments consolidated. Excludes government-managed funds, social insurance fund and SOE capital budgets. Deficit shown is expenditure minus revenue. Function split scaled from 2024 final accounts, approximate. Values in trillions of yuan."
+  },
+  "revenue": [
+    {
+      "name": "Value Added Tax",
+      "category": "Indirect Taxes",
+      "amount": 6.58,
+      "percentage": 30.4
+    },
+    {
+      "name": "Consumption Tax",
+      "category": "Indirect Taxes",
+      "amount": 1.63,
+      "percentage": 7.5
+    },
+    {
+      "name": "Corporate Income Tax",
+      "category": "Direct Taxes",
+      "amount": 4.06,
+      "percentage": 18.7
+    },
+    {
+      "name": "Personal Income Tax",
+      "category": "Direct Taxes",
+      "amount": 1.43,
+      "percentage": 6.6
+    },
+    {
+      "name": "Other Taxes (incl. tariffs, land & property)",
+      "category": "Other",
+      "amount": 3.57,
+      "percentage": 16.5
+    },
+    {
+      "name": "Non-Tax Revenue",
+      "category": "Other",
+      "amount": 4.41,
+      "percentage": 20.3
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 4.11,
+      "percentage": 15
+    },
+    {
+      "name": "Social Security & Employment",
+      "category": "Social Protection",
+      "amount": 4.11,
+      "percentage": 15
+    },
+    {
+      "name": "Agriculture, Forestry & Water",
+      "category": "Economic Affairs",
+      "amount": 2.64,
+      "percentage": 9.6
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 2.15,
+      "percentage": 7.8
+    },
+    {
+      "name": "General Public Services",
+      "category": "General Services",
+      "amount": 2.17,
+      "percentage": 7.9
+    },
+    {
+      "name": "Urban & Rural Community, Housing",
+      "category": "Housing",
+      "amount": 2.95,
+      "percentage": 10.7
+    },
+    {
+      "name": "National Defense",
+      "category": "Defense",
+      "amount": 1.61,
+      "percentage": 5.9
+    },
+    {
+      "name": "Public Security",
+      "category": "Public Safety",
+      "amount": 1.42,
+      "percentage": 5.2
+    },
+    {
+      "name": "Transport",
+      "category": "Infrastructure",
+      "amount": 1.21,
+      "percentage": 4.4
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 1.21,
+      "percentage": 4.4
+    },
+    {
+      "name": "Science & Technology",
+      "category": "Research",
+      "amount": 1.12,
+      "percentage": 4.1
+    },
+    {
+      "name": "Environment Protection",
+      "category": "Environment",
+      "amount": 0.55,
+      "percentage": 2
+    },
+    {
+      "name": "Culture, Sports & Media",
+      "category": "Recreation",
+      "amount": 0.42,
+      "percentage": 1.5
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 1.8,
+      "percentage": 6.6
+    }
+  ]
+}

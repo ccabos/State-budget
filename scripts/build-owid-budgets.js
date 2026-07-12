@@ -33,6 +33,7 @@ const SLUG = 'government-spending-by-function-as-share-of-gdp-across-countries';
 const COUNTRY_CODES = {
   'Germany': 'DEU', 'France': 'FRA', 'Denmark': 'DNK',
   'United Kingdom': 'GBR', 'United States': 'USA', 'China': 'CHN',
+  'Italy': 'ITA', 'Spain': 'ESP', 'Sweden': 'SWE', 'Japan': 'JPN',
 };
 
 // Fuzzy match from OWID/COFOG series names to our categories.

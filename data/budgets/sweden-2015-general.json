@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "Sweden (General Government)",
+    "year": 2015,
+    "currency": "SEK",
+    "currency_symbol": "kr",
+    "unit": "billions",
+    "population_millions": 9.8,
+    "exchange_rate_per_usd": 8.43,
+    "gdp": 4260,
+    "scope": "general",
+    "total_revenue": 2092,
+    "total_expenditure": 2092,
+    "deficit": 0,
+    "source": "Statistics Sweden (national accounts) and Eurostat COFOG",
+    "source_url": "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/national-accounts/national-accounts/excessive-deficit-procedure/",
+    "notes": "General government, national-accounts basis. Balanced budget in 2015. Function split scaled from COFOG shares, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 795,
+      "percentage": 38
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 941.2,
+      "percentage": 45
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 146.2,
+      "percentage": 7
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 209.7,
+      "percentage": 10
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 820.1,
+      "percentage": 39.2
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 314.3,
+      "percentage": 15
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 275.2,
+      "percentage": 13.2
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 240.3,
+      "percentage": 11.5
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 205.4,
+      "percentage": 9.8
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 47,
+      "percentage": 2.2
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 65.7,
+      "percentage": 3.1
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 56.6,
+      "percentage": 2.7
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 30.7,
+      "percentage": 1.5
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 15,
+      "percentage": 0.7
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 21.7,
+      "percentage": 1
+    }
+  ]
+}

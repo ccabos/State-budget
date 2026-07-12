@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "Spain (General Government)",
+    "year": 2024,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 48.6,
+    "exchange_rate_per_usd": 0.924,
+    "gdp": 1591,
+    "scope": "general",
+    "total_revenue": 671,
+    "total_expenditure": 722,
+    "deficit": 51,
+    "source": "INE (national accounts) and Eurostat COFOG",
+    "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+    "notes": "General government, national-accounts basis. Totals reflect official Eurostat/INE 2024 (deficit 3.2% of GDP) aggregates; function split from Eurostat COFOG shares, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 197,
+      "percentage": 29.4
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 194,
+      "percentage": 28.9
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 215,
+      "percentage": 32
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 65,
+      "percentage": 9.7
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 294,
+      "percentage": 40.7
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 100,
+      "percentage": 13.9
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 73,
+      "percentage": 10.1
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 64,
+      "percentage": 8.9
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 56,
+      "percentage": 7.8
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 38,
+      "percentage": 5.3
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 30,
+      "percentage": 4.2
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 18,
+      "percentage": 2.5
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 16,
+      "percentage": 2.2
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 14,
+      "percentage": 1.9
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 8,
+      "percentage": 1.1
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 11,
+      "percentage": 1.5
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "France (General Government)",
+    "year": 2015,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 66.5,
+    "exchange_rate_per_usd": 0.901,
+    "gdp": 2198,
+    "scope": "general",
+    "total_revenue": 1169,
+    "total_expenditure": 1248,
+    "deficit": 79,
+    "source": "INSEE (national accounts) and Eurostat COFOG",
+    "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+    "notes": "General government, national-accounts basis. 2015 deficit of 3.6% of GDP. Function split scaled from COFOG shares, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 307.8,
+      "percentage": 26.3
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 387.3,
+      "percentage": 33.1
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 375.6,
+      "percentage": 32.1
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 98.3,
+      "percentage": 8.4
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 528.3,
+      "percentage": 42.3
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 177.2,
+      "percentage": 14.2
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 119.6,
+      "percentage": 9.6
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 110.8,
+      "percentage": 8.9
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 88.6,
+      "percentage": 7.1
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 44,
+      "percentage": 3.5
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 44.3,
+      "percentage": 3.5
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 37.7,
+      "percentage": 3
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 33.2,
+      "percentage": 2.7
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 24.4,
+      "percentage": 2
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 22.2,
+      "percentage": 1.8
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 17.7,
+      "percentage": 1.4
+    }
+  ]
+}

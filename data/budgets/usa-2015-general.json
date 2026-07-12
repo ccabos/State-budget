@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "United States (General Government)",
+    "year": 2015,
+    "currency": "USD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "population_millions": 320.7,
+    "exchange_rate_per_usd": 1,
+    "gdp": 18210,
+    "scope": "general",
+    "total_revenue": 5772,
+    "total_expenditure": 6410,
+    "deficit": 638,
+    "source": "BEA national accounts, OECD/IMF general government statistics (COFOG)",
+    "source_url": "https://www.oecd.org/en/publications/2025/06/government-at-a-glance-2025_70e14c6c/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "notes": "General government: federal, state and local combined, calendar year 2015, national-accounts basis (deficit ~3.5% of GDP). Derived from IMF/OECD statistics, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 2678.1,
+      "percentage": 46.4
+    },
+    {
+      "name": "Taxes on Production & Imports (sales, property, excise)",
+      "category": "Indirect Taxes",
+      "amount": 1328.7,
+      "percentage": 23
+    },
+    {
+      "name": "Social Insurance Contributions",
+      "category": "Social Insurance",
+      "amount": 1250,
+      "percentage": 21.7
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 515.2,
+      "percentage": 8.9
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Health (Medicare, Medicaid, public health)",
+      "category": "Health",
+      "amount": 1262,
+      "percentage": 19.7
+    },
+    {
+      "name": "Social Protection (incl. Social Security)",
+      "category": "Social Protection",
+      "amount": 1184.4,
+      "percentage": 18.5
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 977.9,
+      "percentage": 15.3
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 601,
+      "percentage": 9.4
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 615.3,
+      "percentage": 9.6
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 500,
+      "percentage": 7.8
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 331.2,
+      "percentage": 5.2
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 315.5,
+      "percentage": 4.9
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 94.3,
+      "percentage": 1.5
+    },
+    {
+      "name": "Recreation & Culture",
+      "category": "Recreation",
+      "amount": 47.2,
+      "percentage": 0.7
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 15.7,
+      "percentage": 0.2
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 465.4,
+      "percentage": 7.3
+    }
+  ]
+}

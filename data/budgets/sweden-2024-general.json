@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "Sweden (General Government)",
+    "year": 2024,
+    "currency": "SEK",
+    "currency_symbol": "kr",
+    "unit": "billions",
+    "population_millions": 10.55,
+    "exchange_rate_per_usd": 10.57,
+    "gdp": 6250,
+    "scope": "general",
+    "total_revenue": 2963,
+    "total_expenditure": 3063,
+    "deficit": 100,
+    "source": "Statistics Sweden (national accounts) and Eurostat COFOG",
+    "source_url": "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/national-accounts/national-accounts/excessive-deficit-procedure/",
+    "notes": "General government, national-accounts basis. Totals reflect official Eurostat/SCB 2024 (deficit 1.6% of GDP) aggregates; function split from Eurostat COFOG shares, approximate. Swedish welfare is largely tax-financed, hence the small social-contribution share."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 1126,
+      "percentage": 38
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 1333,
+      "percentage": 45
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 207,
+      "percentage": 7
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 297,
+      "percentage": 10
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 1174,
+      "percentage": 38.3
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 450,
+      "percentage": 14.7
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 394,
+      "percentage": 12.9
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 344,
+      "percentage": 11.2
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 294,
+      "percentage": 9.6
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 119,
+      "percentage": 3.9
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 94,
+      "percentage": 3.1
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 81,
+      "percentage": 2.6
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 44,
+      "percentage": 1.4
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 38,
+      "percentage": 1.2
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 31,
+      "percentage": 1
+    }
+  ]
+}

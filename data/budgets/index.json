@@ -16,6 +16,20 @@
       "currency": "CNY"
     },
     {
+      "value": "data/budgets/china-2023.json",
+      "label": "China (General Government) 2023",
+      "country": "China (General Government)",
+      "year": 2023,
+      "currency": "CNY"
+    },
+    {
+      "value": "data/budgets/china-2022.json",
+      "label": "China (General Government) 2022",
+      "country": "China (General Government)",
+      "year": 2022,
+      "currency": "CNY"
+    },
+    {
       "value": "data/budgets/china-2020.json",
       "label": "China (General Government) 2020",
       "country": "China (General Government)",
@@ -72,6 +86,20 @@
       "currency": "DKK"
     },
     {
+      "value": "data/budgets/denmark-2020-general.json",
+      "label": "Denmark (General Government) 2020",
+      "country": "Denmark (General Government)",
+      "year": 2020,
+      "currency": "DKK"
+    },
+    {
+      "value": "data/budgets/denmark-2015-general.json",
+      "label": "Denmark (General Government) 2015",
+      "country": "Denmark (General Government)",
+      "year": 2015,
+      "currency": "DKK"
+    },
+    {
       "value": "data/budgets/denmark-2010-general.json",
       "label": "Denmark (General Government) 2010",
       "country": "Denmark (General Government)",
@@ -111,6 +139,20 @@
       "label": "France (General Government) 2022",
       "country": "France (General Government)",
       "year": 2022,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2020-general.json",
+      "label": "France (General Government) 2020",
+      "country": "France (General Government)",
+      "year": 2020,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2015-general.json",
+      "label": "France (General Government) 2015",
+      "country": "France (General Government)",
+      "year": 2015,
       "currency": "EUR"
     },
     {
@@ -184,9 +226,51 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2020-general.json",
+      "label": "Germany (General Government) 2020",
+      "country": "Germany (General Government)",
+      "year": 2020,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/germany-2015-general.json",
+      "label": "Germany (General Government) 2015",
+      "country": "Germany (General Government)",
+      "year": 2015,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/germany-2010-general.json",
       "label": "Germany (General Government) 2010",
       "country": "Germany (General Government)",
+      "year": 2010,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/italy-2024-general.json",
+      "label": "Italy (General Government) 2024",
+      "country": "Italy (General Government)",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/italy-2020-general.json",
+      "label": "Italy (General Government) 2020",
+      "country": "Italy (General Government)",
+      "year": 2020,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/italy-2015-general.json",
+      "label": "Italy (General Government) 2015",
+      "country": "Italy (General Government)",
+      "year": 2015,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/italy-2010-general.json",
+      "label": "Italy (General Government) 2010",
+      "country": "Italy (General Government)",
       "year": 2010,
       "currency": "EUR"
     },
@@ -196,6 +280,90 @@
       "country": "Japan",
       "year": 2024,
       "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/japan-2024-general.json",
+      "label": "Japan (General Government) 2024",
+      "country": "Japan (General Government)",
+      "year": 2024,
+      "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/japan-2020-general.json",
+      "label": "Japan (General Government) 2020",
+      "country": "Japan (General Government)",
+      "year": 2020,
+      "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/japan-2015-general.json",
+      "label": "Japan (General Government) 2015",
+      "country": "Japan (General Government)",
+      "year": 2015,
+      "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/japan-2010-general.json",
+      "label": "Japan (General Government) 2010",
+      "country": "Japan (General Government)",
+      "year": 2010,
+      "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/spain-2024-general.json",
+      "label": "Spain (General Government) 2024",
+      "country": "Spain (General Government)",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/spain-2020-general.json",
+      "label": "Spain (General Government) 2020",
+      "country": "Spain (General Government)",
+      "year": 2020,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/spain-2015-general.json",
+      "label": "Spain (General Government) 2015",
+      "country": "Spain (General Government)",
+      "year": 2015,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/spain-2010-general.json",
+      "label": "Spain (General Government) 2010",
+      "country": "Spain (General Government)",
+      "year": 2010,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/sweden-2024-general.json",
+      "label": "Sweden (General Government) 2024",
+      "country": "Sweden (General Government)",
+      "year": 2024,
+      "currency": "SEK"
+    },
+    {
+      "value": "data/budgets/sweden-2020-general.json",
+      "label": "Sweden (General Government) 2020",
+      "country": "Sweden (General Government)",
+      "year": 2020,
+      "currency": "SEK"
+    },
+    {
+      "value": "data/budgets/sweden-2015-general.json",
+      "label": "Sweden (General Government) 2015",
+      "country": "Sweden (General Government)",
+      "year": 2015,
+      "currency": "SEK"
+    },
+    {
+      "value": "data/budgets/sweden-2010-general.json",
+      "label": "Sweden (General Government) 2010",
+      "country": "Sweden (General Government)",
+      "year": 2010,
+      "currency": "SEK"
     },
     {
       "value": "data/budgets/uk-2025.json",
@@ -223,6 +391,20 @@
       "label": "United Kingdom 2022",
       "country": "United Kingdom",
       "year": 2022,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/uk-2020.json",
+      "label": "United Kingdom 2020",
+      "country": "United Kingdom",
+      "year": 2020,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/uk-2015.json",
+      "label": "United Kingdom 2015",
+      "country": "United Kingdom",
+      "year": 2015,
       "currency": "GBP"
     },
     {
@@ -286,6 +468,20 @@
       "label": "United States (General Government) 2022",
       "country": "United States (General Government)",
       "year": 2022,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2020-general.json",
+      "label": "United States (General Government) 2020",
+      "country": "United States (General Government)",
+      "year": 2020,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2015-general.json",
+      "label": "United States (General Government) 2015",
+      "country": "United States (General Government)",
+      "year": 2015,
       "currency": "USD"
     },
     {

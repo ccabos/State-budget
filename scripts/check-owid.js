@@ -32,6 +32,10 @@ const COUNTRY_CODES = {
   'United Kingdom': 'GBR',
   'United States': 'USA',
   'China': 'CHN',
+  'Italy': 'ITA',
+  'Spain': 'ESP',
+  'Sweden': 'SWE',
+  'Japan': 'JPN',
 };
 
 function baseCountry(name) {
