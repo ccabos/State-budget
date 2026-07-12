@@ -72,10 +72,31 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2025-general.json",
+      "label": "Germany (General Government) 2025",
+      "country": "Germany (General Government)",
+      "year": 2025,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/germany-2024-general.json",
       "label": "Germany (General Government) 2024",
       "country": "Germany (General Government)",
       "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/germany-2023-general.json",
+      "label": "Germany (General Government) 2023",
+      "country": "Germany (General Government)",
+      "year": 2023,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/germany-2022-general.json",
+      "label": "Germany (General Government) 2022",
+      "country": "Germany (General Government)",
+      "year": 2022,
       "currency": "EUR"
     },
     {
@@ -121,10 +142,31 @@
       "currency": "USD"
     },
     {
+      "value": "data/budgets/usa-2025-general.json",
+      "label": "United States (General Government) 2025",
+      "country": "United States (General Government)",
+      "year": 2025,
+      "currency": "USD"
+    },
+    {
       "value": "data/budgets/usa-2024-general.json",
       "label": "United States (General Government) 2024",
       "country": "United States (General Government)",
       "year": 2024,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2023-general.json",
+      "label": "United States (General Government) 2023",
+      "country": "United States (General Government)",
+      "year": 2023,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2022-general.json",
+      "label": "United States (General Government) 2022",
+      "country": "United States (General Government)",
+      "year": 2022,
       "currency": "USD"
     }
   ]

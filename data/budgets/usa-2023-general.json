@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "United States (General Government)",
+    "year": 2023,
+    "currency": "USD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "population_millions": 334.9,
+    "exchange_rate_per_usd": 1,
+    "gdp": 27720,
+    "scope": "general",
+    "total_revenue": 8205,
+    "total_expenditure": 10230,
+    "deficit": 2025,
+    "source": "BEA national accounts, OECD/IMF general government statistics (COFOG)",
+    "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+    "notes": "General government: federal, state and local governments combined (incl. Social Security and Medicare), calendar year 2023, national-accounts basis. Totals and function split derived from IMF/OECD general government statistics (deficit ~7.3% of GDP) and approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 3806,
+      "percentage": 46.4
+    },
+    {
+      "name": "Taxes on Production & Imports (sales, property, excise)",
+      "category": "Indirect Taxes",
+      "amount": 1889,
+      "percentage": 23
+    },
+    {
+      "name": "Social Insurance Contributions",
+      "category": "Social Insurance",
+      "amount": 1777,
+      "percentage": 21.7
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 733,
+      "percentage": 8.9
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Health (Medicare, Medicaid, public health)",
+      "category": "Health",
+      "amount": 2552,
+      "percentage": 24.9
+    },
+    {
+      "name": "Social Protection (incl. Social Security)",
+      "category": "Social Protection",
+      "amount": 2086,
+      "percentage": 20.4
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 1614,
+      "percentage": 15.8
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 770,
+      "percentage": 7.5
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 919,
+      "percentage": 9
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 894,
+      "percentage": 8.7
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 586,
+      "percentage": 5.7
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 556,
+      "percentage": 5.4
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 139,
+      "percentage": 1.4
+    },
+    {
+      "name": "Recreation & Culture",
+      "category": "Recreation",
+      "amount": 84,
+      "percentage": 0.8
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 30,
+      "percentage": 0.3
+    }
+  ]
+}

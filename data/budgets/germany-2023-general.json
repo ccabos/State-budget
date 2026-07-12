@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "Germany (General Government)",
+    "year": 2023,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 84.7,
+    "exchange_rate_per_usd": 0.925,
+    "gdp": 4121,
+    "scope": "general",
+    "total_revenue": 1901.8,
+    "total_expenditure": 1989.2,
+    "deficit": 87.4,
+    "source": "Destatis (national accounts, ESA 2010) and Eurostat COFOG",
+    "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/02/PD24_067_813.html",
+    "notes": "General government: federal, state (Länder), local budgets and social insurance funds combined. Totals are official Destatis 2023 results (deficit 2.1% of GDP); the function split is scaled from COFOG shares and approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 529,
+      "percentage": 27.8
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 453,
+      "percentage": 23.8
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 732,
+      "percentage": 38.5
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 187,
+      "percentage": 9.8
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 811,
+      "percentage": 40.8
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 358,
+      "percentage": 18
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 225,
+      "percentage": 11.3
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 186,
+      "percentage": 9.4
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 164,
+      "percentage": 8.2
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 66,
+      "percentage": 3.3
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 48,
+      "percentage": 2.4
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 47,
+      "percentage": 2.4
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 45,
+      "percentage": 2.3
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 24,
+      "percentage": 1.2
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 16,
+      "percentage": 0.8
+    }
+  ]
+}
