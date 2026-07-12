@@ -100,8 +100,8 @@
     {
       "name": "Defense",
       "category": "Defense",
-      "amount": 41,
-      "percentage": 2.9
+      "amount": 62,
+      "percentage": 4.5
     },
     {
       "name": "Transport",
@@ -154,8 +154,8 @@
     {
       "name": "Other Public Services",
       "category": "Other",
-      "amount": 243,
-      "percentage": 17.5
+      "amount": 222,
+      "percentage": 16
     }
   ]
 }

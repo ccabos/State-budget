@@ -1373,8 +1373,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "General Public Services (excl. interest)",
           "category": "General Services",
-          "amount": 128,
-          "percentage": 9.6
+          "amount": 113,
+          "percentage": 8.5
         },
         {
           "name": "Economic Affairs",
@@ -1385,8 +1385,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 41,
-          "percentage": 3.1
+          "amount": 56,
+          "percentage": 4.2
         },
         {
           "name": "Recreation, Culture & Religion",
@@ -1616,8 +1616,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "General Public Services (excl. interest)",
           "category": "General Services",
-          "amount": 136,
-          "percentage": 9.6
+          "amount": 108,
+          "percentage": 7.6
         },
         {
           "name": "Economic Affairs",
@@ -1628,8 +1628,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 44,
-          "percentage": 3.1
+          "amount": 72,
+          "percentage": 5.1
         },
         {
           "name": "Recreation, Culture & Religion",
@@ -3979,8 +3979,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 21,
-          "percentage": 3
+          "amount": 39,
+          "percentage": 5.6
         },
         {
           "name": "Transport",
@@ -4033,8 +4033,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Other Public Services",
           "category": "Other",
-          "amount": 125,
-          "percentage": 18
+          "amount": 107,
+          "percentage": 15.4
         }
       ]
     },
@@ -4140,8 +4140,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 34,
-          "percentage": 2.9
+          "amount": 52,
+          "percentage": 4.5
         },
         {
           "name": "Transport",
@@ -4194,8 +4194,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Other Public Services",
           "category": "Other",
-          "amount": 201,
-          "percentage": 17.4
+          "amount": 183,
+          "percentage": 15.8
         }
       ]
     },
@@ -4301,8 +4301,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 35,
-          "percentage": 2.9
+          "amount": 54,
+          "percentage": 4.4
         },
         {
           "name": "Transport",
@@ -4355,8 +4355,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Other Public Services",
           "category": "Other",
-          "amount": 212,
-          "percentage": 17.4
+          "amount": 193,
+          "percentage": 15.9
         }
       ]
     },
@@ -4462,8 +4462,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 37.6,
-          "percentage": 2.9
+          "amount": 55,
+          "percentage": 4.3
         },
         {
           "name": "Transport",
@@ -4516,8 +4516,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Other Public Services",
           "category": "Other",
-          "amount": 225.2,
-          "percentage": 17.6
+          "amount": 207.8,
+          "percentage": 16.3
         }
       ]
     },
@@ -4623,8 +4623,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Defense",
           "category": "Defense",
-          "amount": 41,
-          "percentage": 2.9
+          "amount": 62,
+          "percentage": 4.5
         },
         {
           "name": "Transport",
@@ -4677,8 +4677,8 @@ window.EMBEDDED_BUDGETS = {
         {
           "name": "Other Public Services",
           "category": "Other",
-          "amount": 243,
-          "percentage": 17.5
+          "amount": 222,
+          "percentage": 16
         }
       ]
     },

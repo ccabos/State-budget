@@ -1,0 +1,63 @@
+{
+  "source": "Our World in Data / SIPRI (military expenditure as share of GDP), CC BY 4.0",
+  "accessed": "2026-07-12",
+  "provisional_seed": true,
+  "note": "Provisional seed with approximate SIPRI values entered by hand; run scripts/fetch-owid-reference.js to replace with authoritative OWID data.",
+  "series": {
+    "military-expenditure-share-gdp": {
+      "measure": "category",
+      "category": "Defense",
+      "note": "SIPRI definition; broader than COFOG defence (incl. military pensions, paramilitary), so our values may sit slightly lower.",
+      "values": {
+        "USA": {
+          "2010": 4.9,
+          "2015": 3.5,
+          "2020": 3.7,
+          "2022": 3.5,
+          "2023": 3.4,
+          "2024": 3.4
+        },
+        "DEU": {
+          "2010": 1.4,
+          "2015": 1.2,
+          "2020": 1.4,
+          "2022": 1.4,
+          "2023": 1.5,
+          "2024": 1.9
+        },
+        "FRA": {
+          "2010": 2,
+          "2015": 1.9,
+          "2020": 2.1,
+          "2022": 1.9,
+          "2023": 2.1,
+          "2024": 2.1
+        },
+        "GBR": {
+          "2010": 2.5,
+          "2015": 1.9,
+          "2020": 2.2,
+          "2022": 2.3,
+          "2023": 2.3,
+          "2024": 2.3
+        },
+        "DNK": {
+          "2010": 1.4,
+          "2015": 1.1,
+          "2020": 1.4,
+          "2022": 1.4,
+          "2023": 2,
+          "2024": 2.4
+        },
+        "CHN": {
+          "2010": 1.7,
+          "2015": 1.7,
+          "2020": 1.7,
+          "2022": 1.6,
+          "2023": 1.7,
+          "2024": 1.7
+        }
+      }
+    }
+  }
+}
