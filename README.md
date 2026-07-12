@@ -2,6 +2,8 @@
 
 An interactive Sankey diagram visualization for exploring national government budgets, showing revenue sources and expenditure flows using D3.js. Compare budgets across different countries with real data from official government sources.
 
+**▶ Live demo: [ccabos.github.io/State-budget](https://ccabos.github.io/State-budget/)** (via GitHub Pages)
+
 ## Features
 
 - **Real Budget Data**: Actual government budget data for Germany, USA, UK, France, Japan, and Denmark
