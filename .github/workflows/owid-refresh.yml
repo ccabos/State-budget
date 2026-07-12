@@ -1,0 +1,54 @@
+name: Refresh OWID data
+
+# Monthly alignment of the general-government budget files with
+# Our World in Data's curated series (OECD COFOG, SIPRI, ...).
+# Opens a pull request only when values actually changed.
+on:
+  schedule:
+    - cron: '17 4 3 * *' # 04:17 UTC on the 3rd of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch OWID reference series
+        run: node scripts/fetch-owid-reference.js
+
+      - name: Align general-government budgets with OWID COFOG data
+        run: node scripts/build-owid-budgets.js --write
+
+      - name: Validate and rebuild derived data
+        run: |
+          node scripts/validate-budgets.js
+          node scripts/build-data.js
+
+      - name: Cross-check against OWID reference
+        run: node scripts/check-owid.js
+
+      - name: Open pull request if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: owid-data-refresh
+          commit-message: 'Refresh general-government data from Our World in Data'
+          title: 'Data refresh from Our World in Data'
+          body: |
+            Automated monthly refresh of the general-government budget data
+            from [Our World in Data](https://ourworldindata.org) (OECD COFOG,
+            SIPRI and related series, CC BY 4.0).
+
+            Review the diff: function splits are re-derived from OWID; totals,
+            GDP and revenue stay curated from national statistics. The raw
+            OWID CSV snapshot is included under `data/reference/` for
+            traceability.
+          delete-branch: true

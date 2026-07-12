@@ -7,6 +7,8 @@
     "build-data": "node scripts/validate-budgets.js && node scripts/build-data.js",
     "fetch-owid": "node scripts/fetch-owid-reference.js",
     "check-owid": "node scripts/check-owid.js",
+    "owid-align": "node scripts/build-owid-budgets.js",
+    "owid-align-write": "node scripts/build-owid-budgets.js --write",
     "serve": "npx http-server -p 8000"
   },
   "dependencies": {

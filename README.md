@@ -17,7 +17,7 @@ An interactive Sankey diagram visualization for exploring national government bu
 - **Export**: Download the current diagram as SVG or PNG
 - **Works Offline and from Disk**: All D3.js libraries and data are local; an embedded data fallback makes the page work even when opened directly via `file://`
 - **Data Validation**: `npm run validate` checks every budget file for consistency (sums, percentages, deficit)
-- **Cross-Check Against Our World in Data**: `npm run fetch-owid` downloads curated reference series (SIPRI military spending, health/education spending, total expenditure as % of GDP) from [Our World in Data](https://ourworldindata.org) (CC BY 4.0), and `npm run check-owid` compares the general-government budget files against them, flagging deviations
+- **Aligned with Our World in Data**: the general-government function splits are sourced from [Our World in Data](https://ourworldindata.org/government-spending)'s curated COFOG dataset (OECD *Government at a Glance*, CC BY 4.0). `npm run owid-align-write` re-derives them from the latest OWID data (totals, GDP and revenue stay curated from national statistics); `npm run fetch-owid` + `npm run check-owid` cross-check further series (SIPRI military, health, education spending as % of GDP). A monthly GitHub Action (`.github/workflows/owid-refresh.yml`) runs the whole pipeline and opens a pull request when values changed, so the data stays current without manual extracts
 - **Interactive Visualization**: Hover over nodes and links to see detailed budget information
 - **Multiple Countries**: Compare budget structures across different nations
 - **Color-Coded**: Revenue sources in green, expenditure categories in blue
