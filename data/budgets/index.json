@@ -9,10 +9,45 @@
       "currency": "USD"
     },
     {
+      "value": "data/budgets/china-2024.json",
+      "label": "China (General Government) 2024",
+      "country": "China (General Government)",
+      "year": 2024,
+      "currency": "CNY"
+    },
+    {
+      "value": "data/budgets/china-2020.json",
+      "label": "China (General Government) 2020",
+      "country": "China (General Government)",
+      "year": 2020,
+      "currency": "CNY"
+    },
+    {
+      "value": "data/budgets/china-2015.json",
+      "label": "China (General Government) 2015",
+      "country": "China (General Government)",
+      "year": 2015,
+      "currency": "CNY"
+    },
+    {
+      "value": "data/budgets/china-2010.json",
+      "label": "China (General Government) 2010",
+      "country": "China (General Government)",
+      "year": 2010,
+      "currency": "CNY"
+    },
+    {
       "value": "data/budgets/denmark-2024.json",
       "label": "Denmark 2024",
       "country": "Denmark",
       "year": 2024,
+      "currency": "DKK"
+    },
+    {
+      "value": "data/budgets/denmark-2025-general.json",
+      "label": "Denmark (General Government) 2025",
+      "country": "Denmark (General Government)",
+      "year": 2025,
       "currency": "DKK"
     },
     {
@@ -23,6 +58,27 @@
       "currency": "DKK"
     },
     {
+      "value": "data/budgets/denmark-2023-general.json",
+      "label": "Denmark (General Government) 2023",
+      "country": "Denmark (General Government)",
+      "year": 2023,
+      "currency": "DKK"
+    },
+    {
+      "value": "data/budgets/denmark-2022-general.json",
+      "label": "Denmark (General Government) 2022",
+      "country": "Denmark (General Government)",
+      "year": 2022,
+      "currency": "DKK"
+    },
+    {
+      "value": "data/budgets/denmark-2010-general.json",
+      "label": "Denmark (General Government) 2010",
+      "country": "Denmark (General Government)",
+      "year": 2010,
+      "currency": "DKK"
+    },
+    {
       "value": "data/budgets/france-2024.json",
       "label": "France 2024",
       "country": "France",
@@ -30,10 +86,38 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/france-2025-general.json",
+      "label": "France (General Government) 2025",
+      "country": "France (General Government)",
+      "year": 2025,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/france-2024-general.json",
       "label": "France (General Government) 2024",
       "country": "France (General Government)",
       "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2023-general.json",
+      "label": "France (General Government) 2023",
+      "country": "France (General Government)",
+      "year": 2023,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2022-general.json",
+      "label": "France (General Government) 2022",
+      "country": "France (General Government)",
+      "year": 2022,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2010-general.json",
+      "label": "France (General Government) 2010",
+      "country": "France (General Government)",
+      "year": 2010,
       "currency": "EUR"
     },
     {
@@ -100,6 +184,13 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/germany-2010-general.json",
+      "label": "Germany (General Government) 2010",
+      "country": "Germany (General Government)",
+      "year": 2010,
+      "currency": "EUR"
+    },
+    {
       "value": "data/budgets/japan-2024.json",
       "label": "Japan 2024",
       "country": "Japan",
@@ -107,10 +198,38 @@
       "currency": "JPY"
     },
     {
+      "value": "data/budgets/uk-2025.json",
+      "label": "United Kingdom 2025",
+      "country": "United Kingdom",
+      "year": 2025,
+      "currency": "GBP"
+    },
+    {
       "value": "data/budgets/uk-2024.json",
       "label": "United Kingdom 2024",
       "country": "United Kingdom",
       "year": 2024,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/uk-2023.json",
+      "label": "United Kingdom 2023",
+      "country": "United Kingdom",
+      "year": 2023,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/uk-2022.json",
+      "label": "United Kingdom 2022",
+      "country": "United Kingdom",
+      "year": 2022,
+      "currency": "GBP"
+    },
+    {
+      "value": "data/budgets/uk-2010.json",
+      "label": "United Kingdom 2010",
+      "country": "United Kingdom",
+      "year": 2010,
       "currency": "GBP"
     },
     {
@@ -167,6 +286,13 @@
       "label": "United States (General Government) 2022",
       "country": "United States (General Government)",
       "year": 2022,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2010-general.json",
+      "label": "United States (General Government) 2010",
+      "country": "United States (General Government)",
+      "year": 2010,
       "currency": "USD"
     }
   ]

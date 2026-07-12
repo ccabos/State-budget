@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "Denmark (General Government)",
+    "year": 2023,
+    "currency": "DKK",
+    "currency_symbol": "kr",
+    "unit": "billions",
+    "population_millions": 5.93,
+    "exchange_rate_per_usd": 6.89,
+    "gdp": 2801,
+    "scope": "general",
+    "total_revenue": 1344,
+    "total_expenditure": 1252,
+    "deficit": -92,
+    "source": "Statistics Denmark (national accounts) and Eurostat COFOG",
+    "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+    "notes": "General government, national-accounts basis. Denmark ran a surplus of 3.3% of GDP in 2023 (Eurostat); function split scaled from COFOG shares, approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 783,
+      "percentage": 58.3
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 378,
+      "percentage": 28.1
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 17,
+      "percentage": 1.3
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 166,
+      "percentage": 12.4
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 527,
+      "percentage": 42.1
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 223,
+      "percentage": 17.8
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 150,
+      "percentage": 12
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 120,
+      "percentage": 9.6
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 95,
+      "percentage": 7.6
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 38,
+      "percentage": 3
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 38,
+      "percentage": 3
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 24,
+      "percentage": 1.9
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 20,
+      "percentage": 1.6
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 11,
+      "percentage": 0.9
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 6,
+      "percentage": 0.5
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "country": "United Kingdom",
+    "year": 2010,
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "unit": "billions",
+    "population_millions": 62.8,
+    "exchange_rate_per_usd": 0.647,
+    "gdp": 1560,
+    "scope": "general",
+    "total_revenue": 551,
+    "total_expenditure": 694,
+    "deficit": 143,
+    "source": "HM Treasury (PESA), UK Office for Budget Responsibility",
+    "source_url": "https://obr.uk/forecasts-in-depth/brief-guides-and-explainers/public-finances/",
+    "notes": "Fiscal year 2010-11 (Total Managed Expenditure / total receipts, all levels of government). Post-financial-crisis deficit of ~9% of GDP. Item split scaled from the 2024-25 composition with actual debt interest; approximate."
+  },
+  "revenue": [
+    {
+      "name": "Income Tax",
+      "category": "Direct Taxes",
+      "amount": 146,
+      "percentage": 26.5
+    },
+    {
+      "name": "National Insurance",
+      "category": "Social Insurance",
+      "amount": 86,
+      "percentage": 15.6
+    },
+    {
+      "name": "Value Added Tax (VAT)",
+      "category": "Indirect Taxes",
+      "amount": 87,
+      "percentage": 15.8
+    },
+    {
+      "name": "Corporation Tax",
+      "category": "Direct Taxes",
+      "amount": 51,
+      "percentage": 9.3
+    },
+    {
+      "name": "Excise Duties",
+      "category": "Indirect Taxes",
+      "amount": 41,
+      "percentage": 7.4
+    },
+    {
+      "name": "Council Tax",
+      "category": "Local Taxes",
+      "amount": 22,
+      "percentage": 4
+    },
+    {
+      "name": "Business Rates",
+      "category": "Business Taxes",
+      "amount": 18,
+      "percentage": 3.3
+    },
+    {
+      "name": "Other Taxes & Revenue",
+      "category": "Other",
+      "amount": 100,
+      "percentage": 18.1
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Health (NHS)",
+      "category": "Health",
+      "amount": 107,
+      "percentage": 15.4
+    },
+    {
+      "name": "Pensions",
+      "category": "Social Protection",
+      "amount": 69,
+      "percentage": 9.9
+    },
+    {
+      "name": "Welfare Benefits",
+      "category": "Social Protection",
+      "amount": 105,
+      "percentage": 15.1
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 49,
+      "percentage": 7.1
+    },
+    {
+      "name": "Interest on National Debt",
+      "category": "Debt Service",
+      "amount": 44,
+      "percentage": 6.3
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 21,
+      "percentage": 3
+    },
+    {
+      "name": "Transport",
+      "category": "Infrastructure",
+      "amount": 28,
+      "percentage": 4
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 25,
+      "percentage": 3.6
+    },
+    {
+      "name": "Housing & Community",
+      "category": "Housing",
+      "amount": 21,
+      "percentage": 3
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 16,
+      "percentage": 2.3
+    },
+    {
+      "name": "Culture, Media & Sport",
+      "category": "Recreation",
+      "amount": 10,
+      "percentage": 1.4
+    },
+    {
+      "name": "International Development",
+      "category": "Foreign Affairs",
+      "amount": 8,
+      "percentage": 1.2
+    },
+    {
+      "name": "Business & Industry",
+      "category": "Economic Affairs",
+      "amount": 14,
+      "percentage": 2
+    },
+    {
+      "name": "Capital Investment",
+      "category": "Infrastructure",
+      "amount": 53,
+      "percentage": 7.6
+    },
+    {
+      "name": "Other Public Services",
+      "category": "Other",
+      "amount": 125,
+      "percentage": 18
+    }
+  ]
+}
