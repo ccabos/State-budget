@@ -341,6 +341,11 @@
         <div id="portfolio" class="comparison" style="display: none;">
             <h3>Portfolio view: countries by expenditure category</h3>
             <div class="portfolio-controls">
+                <label for="portfolio-scope">Coverage:</label>
+                <select id="portfolio-scope">
+                    <option value="central" selected>Federal / central budgets</option>
+                    <option value="general">General government (all levels)</option>
+                </select>
                 <label for="portfolio-x">X axis:</label>
                 <select id="portfolio-x"></select>
                 <label for="portfolio-y">Y axis:</label>
@@ -367,9 +372,13 @@
                 Each dot is one budget year; lines connect consecutive years of the same country.
                 Per-capita values are converted to euros at the year's average exchange rate;
                 GDP shares use each country's nominal GDP in its own currency.
-                A category a country does not report separately counts as zero. Values reflect
-                the central/federal budget only — state, local, and social-insurance spending
-                outside it (e.g. German pensions) is not included.
+                A category a country does not report separately counts as zero.
+                "Federal / central budgets" shows each government's own budget (California is a
+                US state budget); "General government" combines federal/central, state, local,
+                and social-insurance spending (COFOG basis) — the fairer cross-country comparison,
+                since e.g. German pensions or US Social Security sit in different layers.
+                The United Kingdom appears only there, as its published figures already cover
+                all levels of government.
             </p>
         </div>
 
@@ -1327,7 +1336,17 @@
                                   '#4a3aa7', '#e34948', '#e87ba4', '#eb6834'];
 
         let portfolioRows = null;            // [{country, year, metadata, sums}]
-        const portfolioColor = new Map();    // country -> color
+        const portfolioColor = new Map();    // base country name -> color
+
+        // "Germany (General Government)" and "Germany" are the same entity at
+        // different coverage levels: they share a display name and a color.
+        function baseCountry(name) {
+            return String(name).replace(/\s*\(general government\)$/i, '');
+        }
+
+        function rowScope(row) {
+            return row.metadata.scope === 'general' ? 'general' : 'central';
+        }
 
         async function loadPortfolioRows() {
             if (portfolioRows) return portfolioRows;
@@ -1344,7 +1363,7 @@
                         const cat = canonicalCategory(item.category);
                         sums[cat] = (sums[cat] || 0) + item.amount;
                     });
-                    rows.push({ country: meta.country, year: meta.year, metadata: meta, sums });
+                    rows.push({ country: baseCountry(meta.country), year: meta.year, metadata: meta, sums });
                 } catch (e) {
                     console.warn('Portfolio: could not load', entry.value, e);
                 }
@@ -1414,6 +1433,7 @@
             if (!portfolioRows) return;
             const catX = document.getElementById('portfolio-x').value;
             const catY = document.getElementById('portfolio-y').value;
+            const scope = document.getElementById('portfolio-scope').value;
             const unit = portfolioUnit();
             const unitLabel = unit === 'pct' ? '% of total expenditure'
                 : unit === 'gdppct' ? '% of GDP' : '€ per capita';
@@ -1421,6 +1441,7 @@
             // Group country-years with valid values on both axes
             const byCountry = new Map();
             portfolioRows.forEach(row => {
+                if (rowScope(row) !== scope) return;
                 const x = portfolioValue(row, catX, unit);
                 const y = portfolioValue(row, catY, unit);
                 if (x === null || y === null) return;
@@ -1604,6 +1625,7 @@
             }
         }
 
+        document.getElementById('portfolio-scope').addEventListener('change', renderPortfolio);
         document.getElementById('portfolio-x').addEventListener('change', renderPortfolio);
         document.getElementById('portfolio-y').addEventListener('change', renderPortfolio);
         document.querySelectorAll('input[name="portfolio-unit"]').forEach(el =>

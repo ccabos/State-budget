@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "France (General Government)",
+    "year": 2024,
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "unit": "billions",
+    "population_millions": 68.4,
+    "exchange_rate_per_usd": 0.924,
+    "gdp": 2920,
+    "scope": "general",
+    "total_revenue": 1497,
+    "total_expenditure": 1667,
+    "deficit": 170,
+    "source": "INSEE (national accounts) and Eurostat COFOG",
+    "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+    "notes": "General government: central state, local governments and social security funds combined, national-accounts basis. Totals reflect the official 2024 deficit of 5.8% of GDP; the function split is scaled from the latest Eurostat COFOG shares (2023) and approximate."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 394,
+      "percentage": 26.3
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 496,
+      "percentage": 33.1
+    },
+    {
+      "name": "Net Social Contributions",
+      "category": "Social Insurance",
+      "amount": 482,
+      "percentage": 32.2
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 126,
+      "percentage": 8.4
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 701,
+      "percentage": 42.1
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 262,
+      "percentage": 15.7
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 191,
+      "percentage": 11.5
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 147,
+      "percentage": 8.8
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 106,
+      "percentage": 6.4
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 56,
+      "percentage": 3.4
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 53,
+      "percentage": 3.2
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 50,
+      "percentage": 3
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 41,
+      "percentage": 2.5
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 29,
+      "percentage": 1.7
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 29,
+      "percentage": 1.7
+    }
+  ]
+}

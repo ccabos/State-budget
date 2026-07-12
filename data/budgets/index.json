@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11",
+  "generated": "2026-07-12",
   "budgets": [
     {
       "value": "data/budgets/california-2024.json",
@@ -16,9 +16,23 @@
       "currency": "DKK"
     },
     {
+      "value": "data/budgets/denmark-2024-general.json",
+      "label": "Denmark (General Government) 2024",
+      "country": "Denmark (General Government)",
+      "year": 2024,
+      "currency": "DKK"
+    },
+    {
       "value": "data/budgets/france-2024.json",
       "label": "France 2024",
       "country": "France",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/france-2024-general.json",
+      "label": "France (General Government) 2024",
+      "country": "France (General Government)",
       "year": 2024,
       "currency": "EUR"
     },
@@ -54,6 +68,13 @@
       "value": "data/budgets/germany-2024-detailed.json",
       "label": "Germany (Detailed) 2024",
       "country": "Germany (Detailed)",
+      "year": 2024,
+      "currency": "EUR"
+    },
+    {
+      "value": "data/budgets/germany-2024-general.json",
+      "label": "Germany (General Government) 2024",
+      "country": "Germany (General Government)",
       "year": 2024,
       "currency": "EUR"
     },
@@ -97,6 +118,13 @@
       "label": "United States 2022",
       "country": "United States",
       "year": 2022,
+      "currency": "USD"
+    },
+    {
+      "value": "data/budgets/usa-2024-general.json",
+      "label": "United States (General Government) 2024",
+      "country": "United States (General Government)",
+      "year": 2024,
       "currency": "USD"
     }
   ]

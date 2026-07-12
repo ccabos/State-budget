@@ -49,6 +49,7 @@ Contains information about the budget:
 - `population_millions`: Country population in millions (optional; enables the per-capita view)
 - `exchange_rate_per_usd`: Units of local currency per 1 USD, annual average for the budget year (optional; enables USD conversion; use `1.0` for USD budgets)
 - `gdp`: Nominal GDP for the budget year, in the same currency and unit as the budget amounts (optional; enables the % of GDP view in the portfolio diagram)
+- `scope`: Coverage level of the budget: omit for a single government's own budget (federal/central/state); use `"general"` for general-government data combining central, state, local and social-insurance spending (COFOG basis). The portfolio diagram groups budgets by this field.
 - `total_revenue`: Total government revenue
 - `total_expenditure`: Total government spending
 - `deficit`: Budget deficit (positive) or surplus (negative)

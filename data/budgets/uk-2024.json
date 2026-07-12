@@ -8,12 +8,13 @@
     "population_millions": 68.3,
     "exchange_rate_per_usd": 0.783,
     "gdp": 2860,
+    "scope": "general",
     "total_revenue": 1141.2,
     "total_expenditure": 1278.6,
     "deficit": 137.3,
     "source": "UK Office for Budget Responsibility, Autumn Budget 2024",
     "source_url": "https://obr.uk/forecasts-in-depth/brief-guides-and-explainers/public-finances/",
-    "notes": "Fiscal year 2024-25"
+    "notes": "Fiscal year 2024-25. UK figures are Total Managed Expenditure and total receipts, which cover central AND local government - general government scope, unlike the central-only budgets of other countries."
   },
   "revenue": [
     {

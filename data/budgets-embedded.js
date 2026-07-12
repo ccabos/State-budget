@@ -3,7 +3,7 @@
 // opened directly from disk (file://), where fetch() is unavailable.
 window.EMBEDDED_BUDGETS = {
   "manifest": {
-    "generated": "2026-07-11",
+    "generated": "2026-07-12",
     "budgets": [
       {
         "value": "data/budgets/california-2024.json",
@@ -20,9 +20,23 @@ window.EMBEDDED_BUDGETS = {
         "currency": "DKK"
       },
       {
+        "value": "data/budgets/denmark-2024-general.json",
+        "label": "Denmark (General Government) 2024",
+        "country": "Denmark (General Government)",
+        "year": 2024,
+        "currency": "DKK"
+      },
+      {
         "value": "data/budgets/france-2024.json",
         "label": "France 2024",
         "country": "France",
+        "year": 2024,
+        "currency": "EUR"
+      },
+      {
+        "value": "data/budgets/france-2024-general.json",
+        "label": "France (General Government) 2024",
+        "country": "France (General Government)",
         "year": 2024,
         "currency": "EUR"
       },
@@ -58,6 +72,13 @@ window.EMBEDDED_BUDGETS = {
         "value": "data/budgets/germany-2024-detailed.json",
         "label": "Germany (Detailed) 2024",
         "country": "Germany (Detailed)",
+        "year": 2024,
+        "currency": "EUR"
+      },
+      {
+        "value": "data/budgets/germany-2024-general.json",
+        "label": "Germany (General Government) 2024",
+        "country": "Germany (General Government)",
         "year": 2024,
         "currency": "EUR"
       },
@@ -101,6 +122,13 @@ window.EMBEDDED_BUDGETS = {
         "label": "United States 2022",
         "country": "United States",
         "year": 2022,
+        "currency": "USD"
+      },
+      {
+        "value": "data/budgets/usa-2024-general.json",
+        "label": "United States (General Government) 2024",
+        "country": "United States (General Government)",
+        "year": 2024,
         "currency": "USD"
       }
     ]
@@ -191,6 +219,119 @@ window.EMBEDDED_BUDGETS = {
           "category": "General Services",
           "amount": 19.5,
           "percentage": 9.2
+        }
+      ]
+    },
+    "data/budgets/denmark-2024-general.json": {
+      "metadata": {
+        "country": "Denmark (General Government)",
+        "year": 2024,
+        "currency": "DKK",
+        "currency_symbol": "kr",
+        "unit": "billions",
+        "population_millions": 5.96,
+        "exchange_rate_per_usd": 6.89,
+        "gdp": 2940,
+        "scope": "general",
+        "total_revenue": 1464,
+        "total_expenditure": 1332,
+        "deficit": -132,
+        "source": "Statistics Denmark (national accounts) and Eurostat COFOG",
+        "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+        "notes": "General government: central, regional and municipal budgets and social funds combined, national-accounts basis. Denmark ran a surplus of 4.5% of GDP in 2024. The function split is scaled from the latest Eurostat COFOG shares (2023) and approximate. Danish welfare is largely tax-financed, hence the small social-contribution share."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 853,
+          "percentage": 58.3
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 412,
+          "percentage": 28.1
+        },
+        {
+          "name": "Net Social Contributions",
+          "category": "Social Insurance",
+          "amount": 18,
+          "percentage": 1.2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 181,
+          "percentage": 12.4
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 563,
+          "percentage": 42.3
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 238,
+          "percentage": 17.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 160,
+          "percentage": 12
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 128,
+          "percentage": 9.6
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 102,
+          "percentage": 7.7
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 41,
+          "percentage": 3.1
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 41,
+          "percentage": 3.1
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 26,
+          "percentage": 2
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 17,
+          "percentage": 1.3
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 12,
+          "percentage": 0.9
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 6,
+          "percentage": 0.5
         }
       ]
     },
@@ -321,6 +462,119 @@ window.EMBEDDED_BUDGETS = {
           "category": "Other",
           "amount": 30.05,
           "percentage": 3.4
+        }
+      ]
+    },
+    "data/budgets/france-2024-general.json": {
+      "metadata": {
+        "country": "France (General Government)",
+        "year": 2024,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 68.4,
+        "exchange_rate_per_usd": 0.924,
+        "gdp": 2920,
+        "scope": "general",
+        "total_revenue": 1497,
+        "total_expenditure": 1667,
+        "deficit": 170,
+        "source": "INSEE (national accounts) and Eurostat COFOG",
+        "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_by_function_%E2%80%93_COFOG",
+        "notes": "General government: central state, local governments and social security funds combined, national-accounts basis. Totals reflect the official 2024 deficit of 5.8% of GDP; the function split is scaled from the latest Eurostat COFOG shares (2023) and approximate."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 394,
+          "percentage": 26.3
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 496,
+          "percentage": 33.1
+        },
+        {
+          "name": "Net Social Contributions",
+          "category": "Social Insurance",
+          "amount": 482,
+          "percentage": 32.2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 126,
+          "percentage": 8.4
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 701,
+          "percentage": 42.1
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 262,
+          "percentage": 15.7
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 191,
+          "percentage": 11.5
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 147,
+          "percentage": 8.8
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 106,
+          "percentage": 6.4
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 56,
+          "percentage": 3.4
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 53,
+          "percentage": 3.2
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 50,
+          "percentage": 3
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 41,
+          "percentage": 2.5
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 29,
+          "percentage": 1.7
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 29,
+          "percentage": 1.7
         }
       ]
     },
@@ -1042,6 +1296,119 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/germany-2024-general.json": {
+      "metadata": {
+        "country": "Germany (General Government)",
+        "year": 2024,
+        "currency": "EUR",
+        "currency_symbol": "€",
+        "unit": "billions",
+        "population_millions": 84.7,
+        "exchange_rate_per_usd": 0.924,
+        "gdp": 4305,
+        "scope": "general",
+        "total_revenue": 2012.8,
+        "total_expenditure": 2131.6,
+        "deficit": 118.8,
+        "source": "Destatis (national accounts, ESA 2010) and Eurostat COFOG",
+        "source_url": "https://www.destatis.de/EN/Press/2025/02/PE25_070_813.html",
+        "notes": "General government: federal, state (Länder), local budgets and social insurance funds combined, national-accounts basis. Totals are official 2024 results (deficit 2.8% of GDP); the function split is scaled from the latest Eurostat COFOG shares (2023) and approximate."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 560,
+          "percentage": 27.8
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 480,
+          "percentage": 23.8
+        },
+        {
+          "name": "Net Social Contributions",
+          "category": "Social Insurance",
+          "amount": 775,
+          "percentage": 38.5
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 198,
+          "percentage": 9.8
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 865,
+          "percentage": 40.6
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 382,
+          "percentage": 17.9
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 240,
+          "percentage": 11.3
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 198,
+          "percentage": 9.3
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 175,
+          "percentage": 8.2
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 70,
+          "percentage": 3.3
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 60,
+          "percentage": 2.8
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 50,
+          "percentage": 2.3
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 48,
+          "percentage": 2.3
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 26,
+          "percentage": 1.2
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 17,
+          "percentage": 0.8
+        }
+      ]
+    },
     "data/budgets/germany-2024.json": {
       "metadata": {
         "country": "Germany",
@@ -1406,12 +1773,13 @@ window.EMBEDDED_BUDGETS = {
         "population_millions": 68.3,
         "exchange_rate_per_usd": 0.783,
         "gdp": 2860,
+        "scope": "general",
         "total_revenue": 1141.2,
         "total_expenditure": 1278.6,
         "deficit": 137.3,
         "source": "UK Office for Budget Responsibility, Autumn Budget 2024",
         "source_url": "https://obr.uk/forecasts-in-depth/brief-guides-and-explainers/public-finances/",
-        "notes": "Fiscal year 2024-25"
+        "notes": "Fiscal year 2024-25. UK figures are Total Managed Expenditure and total receipts, which cover central AND local government - general government scope, unlike the central-only budgets of other countries."
       },
       "revenue": [
         {
@@ -1849,6 +2217,119 @@ window.EMBEDDED_BUDGETS = {
           "category": "Other",
           "amount": 320,
           "percentage": 5.2
+        }
+      ]
+    },
+    "data/budgets/usa-2024-general.json": {
+      "metadata": {
+        "country": "United States (General Government)",
+        "year": 2024,
+        "currency": "USD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "population_millions": 335.9,
+        "exchange_rate_per_usd": 1,
+        "gdp": 29020,
+        "scope": "general",
+        "total_revenue": 8450,
+        "total_expenditure": 10550,
+        "deficit": 2100,
+        "source": "BEA national accounts, OECD/IMF general government statistics (COFOG)",
+        "source_url": "https://www.oecd.org/en/publications/2025/06/government-at-a-glance-2025_70e14c6c/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+        "notes": "General government: federal, state and local governments combined (incl. Social Security and Medicare), national-accounts basis, calendar year 2024. Totals and function split derived from OECD/IMF general government statistics and approximate. Public health spending includes Medicare, Medicaid and other programs across all levels."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 3920,
+          "percentage": 46.4
+        },
+        {
+          "name": "Taxes on Production & Imports (sales, property, excise)",
+          "category": "Indirect Taxes",
+          "amount": 1945,
+          "percentage": 23
+        },
+        {
+          "name": "Social Insurance Contributions",
+          "category": "Social Insurance",
+          "amount": 1830,
+          "percentage": 21.7
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 755,
+          "percentage": 8.9
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Health (Medicare, Medicaid, public health)",
+          "category": "Health",
+          "amount": 2570,
+          "percentage": 24.4
+        },
+        {
+          "name": "Social Protection (incl. Social Security)",
+          "category": "Social Protection",
+          "amount": 2100,
+          "percentage": 19.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 1625,
+          "percentage": 15.4
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 1020,
+          "percentage": 9.7
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 925,
+          "percentage": 8.8
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 900,
+          "percentage": 8.5
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 590,
+          "percentage": 5.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 560,
+          "percentage": 5.3
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 140,
+          "percentage": 1.3
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 85,
+          "percentage": 0.8
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 30,
+          "percentage": 0.3
         }
       ]
     },
