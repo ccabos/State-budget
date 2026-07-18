@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "Australia (General Government)",
+    "currency": "AUD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "scope": "general",
+    "source": "ABS (national accounts), OECD/IMF general government statistics",
+    "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+    "year": 2020,
+    "population_millions": 25.7,
+    "exchange_rate_per_usd": 1.453,
+    "gdp": 1975,
+    "total_revenue": 701,
+    "total_expenditure": 869,
+    "deficit": 168,
+    "notes": "General government: Commonwealth, state and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Retirement saving is largely private (superannuation), hence the low social-protection share. Pandemic-year deficit of ~8.5% of GDP."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 385.9,
+      "percentage": 55
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 196.4,
+      "percentage": 28
+    },
+    {
+      "name": "Payroll & Social Contributions",
+      "category": "Social Insurance",
+      "amount": 13.9,
+      "percentage": 2
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 104.8,
+      "percentage": 15
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 201.5,
+      "percentage": 23.2
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 163.8,
+      "percentage": 18.8
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 121.8,
+      "percentage": 14
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 109.2,
+      "percentage": 12.6
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 84,
+      "percentage": 9.7
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 46.2,
+      "percentage": 5.3
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 40,
+      "percentage": 4.6
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 22,
+      "percentage": 2.5
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 22.7,
+      "percentage": 2.6
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 21,
+      "percentage": 2.4
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 13.4,
+      "percentage": 1.5
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 23.5,
+      "percentage": 2.7
+    }
+  ]
+}

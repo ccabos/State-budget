@@ -34,6 +34,7 @@ const COUNTRY_CODES = {
   'Germany': 'DEU', 'France': 'FRA', 'Denmark': 'DNK',
   'United Kingdom': 'GBR', 'United States': 'USA', 'China': 'CHN',
   'Italy': 'ITA', 'Spain': 'ESP', 'Sweden': 'SWE', 'Japan': 'JPN',
+  'Canada': 'CAN', 'Australia': 'AUS', 'India': 'IND', 'Brazil': 'BRA', 'Russia': 'RUS',
 };
 
 // Fuzzy match from OWID/COFOG series names to our categories.

@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "Canada (General Government)",
+    "currency": "CAD",
+    "currency_symbol": "$",
+    "unit": "billions",
+    "scope": "general",
+    "source": "Statistics Canada (national accounts), OECD/IMF general government statistics",
+    "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+    "year": 2020,
+    "population_millions": 38,
+    "exchange_rate_per_usd": 1.341,
+    "gdp": 2210,
+    "total_revenue": 913,
+    "total_expenditure": 1154,
+    "deficit": 241,
+    "notes": "General government: federal, provincial and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Pandemic-year deficit of ~10.9% of GDP."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 438.4,
+      "percentage": 48
+    },
+    {
+      "name": "Taxes on Production & Imports",
+      "category": "Indirect Taxes",
+      "amount": 246.3,
+      "percentage": 27
+    },
+    {
+      "name": "Social Insurance Contributions",
+      "category": "Social Insurance",
+      "amount": 119,
+      "percentage": 13
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 109.2,
+      "percentage": 12
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 320.2,
+      "percentage": 27.7
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 235.5,
+      "percentage": 20.4
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 150.7,
+      "percentage": 13.1
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 113,
+      "percentage": 9.8
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 113,
+      "percentage": 9.8
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 55,
+      "percentage": 4.8
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 57.5,
+      "percentage": 5
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 30,
+      "percentage": 2.6
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 25.4,
+      "percentage": 2.2
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 22.6,
+      "percentage": 2
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 17,
+      "percentage": 1.5
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 14.1,
+      "percentage": 1.2
+    }
+  ]
+}

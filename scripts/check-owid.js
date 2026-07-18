@@ -36,6 +36,11 @@ const COUNTRY_CODES = {
   'Spain': 'ESP',
   'Sweden': 'SWE',
   'Japan': 'JPN',
+  'Canada': 'CAN',
+  'Australia': 'AUS',
+  'India': 'IND',
+  'Brazil': 'BRA',
+  'Russia': 'RUS',
 };
 
 function baseCountry(name) {

@@ -272,6 +272,23 @@
             margin-right: 5px;
             vertical-align: -1px;
         }
+
+        .portfolio-legend .legend-toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .portfolio-legend .legend-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .portfolio-legend .legend-off {
+            opacity: 0.35;
+        }
+
+        .portfolio-legend .legend-off > span:last-child {
+            text-decoration: line-through;
+        }
     </style>
 </head>
 <body>
@@ -370,6 +387,7 @@
             <p class="trend-caption">
                 Expenditure items are normalized into standard categories across countries.
                 Each dot is one budget year; lines connect consecutive years of the same country.
+                Click a legend entry to hide or show that country.
                 Per-capita values are converted to euros at the year's average exchange rate;
                 GDP shares use each country's nominal GDP in its own currency.
                 A category a country does not report separately counts as zero.
@@ -1340,7 +1358,8 @@
         // which ones end up plotted, so colors never repaint on filtering.
         const PORTFOLIO_COLORS = ['#2a78d6', '#1baf7a', '#eda100', '#008300',
                                   '#4a3aa7', '#e34948', '#e87ba4', '#eb6834',
-                                  '#6d4c41', '#9e9d24', '#00838f', '#546e7a'];
+                                  '#6d4c41', '#9e9d24', '#00838f', '#546e7a',
+                                  '#1a237e', '#ad1457', '#7cb342', '#616161'];
 
         let portfolioRows = null;            // [{country, year, metadata, sums}]
         const portfolioColor = new Map();    // base country name -> color
@@ -1430,10 +1449,24 @@
                 : cats[Math.min(1, cats.length - 1)];
         }
 
+        // Countries hidden via legend clicks; keyed by base country name.
+        const hiddenCountries = new Set();
+
         function renderPortfolioLegend(countries) {
-            document.getElementById('portfolio-legend').innerHTML = countries.map(c =>
-                `<span><span class="swatch" style="background:${portfolioColor.get(c)}"></span>${c}</span>`
+            const el = document.getElementById('portfolio-legend');
+            el.innerHTML = countries.map(c =>
+                `<span class="legend-toggle${hiddenCountries.has(c) ? ' legend-off' : ''}" data-country="${c}"
+                       title="Click to ${hiddenCountries.has(c) ? 'show' : 'hide'} ${c}">
+                    <span class="swatch" style="background:${portfolioColor.get(c)}"></span><span>${c}</span>
+                </span>`
             ).join('');
+            el.querySelectorAll('.legend-toggle').forEach(node =>
+                node.addEventListener('click', () => {
+                    const c = node.dataset.country;
+                    if (hiddenCountries.has(c)) hiddenCountries.delete(c);
+                    else hiddenCountries.add(c);
+                    renderPortfolio();
+                }));
         }
 
         function renderPortfolio() {
@@ -1445,10 +1478,14 @@
             const unitLabel = unit === 'pct' ? '% of total expenditure'
                 : unit === 'gdppct' ? '% of GDP' : '€ per capita';
 
-            // Group country-years with valid values on both axes
+            // Group country-years with valid values on both axes; the legend
+            // lists every country in scope so hidden ones can be re-enabled.
+            const scopedCountries = new Set();
             const byCountry = new Map();
             portfolioRows.forEach(row => {
                 if (rowScope(row) !== scope) return;
+                scopedCountries.add(row.country);
+                if (hiddenCountries.has(row.country)) return;
                 const x = portfolioValue(row, catX, unit);
                 const y = portfolioValue(row, catY, unit);
                 if (x === null || y === null) return;
@@ -1458,7 +1495,7 @@
             const series = [...byCountry.entries()]
                 .map(([country, pts]) => ({ country, pts: pts.sort((a, b) => a.year - b.year) }));
 
-            renderPortfolioLegend(series.map(s => s.country));
+            renderPortfolioLegend([...scopedCountries].sort());
 
             const m = { top: 16, right: 130, bottom: 52, left: 68 };
             const w = 900 - m.left - m.right;

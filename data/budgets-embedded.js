@@ -3,14 +3,98 @@
 // opened directly from disk (file://), where fetch() is unavailable.
 window.EMBEDDED_BUDGETS = {
   "manifest": {
-    "generated": "2026-07-12",
+    "generated": "2026-07-18",
     "budgets": [
+      {
+        "value": "data/budgets/australia-2024-general.json",
+        "label": "Australia (General Government) 2024",
+        "country": "Australia (General Government)",
+        "year": 2024,
+        "currency": "AUD"
+      },
+      {
+        "value": "data/budgets/australia-2020-general.json",
+        "label": "Australia (General Government) 2020",
+        "country": "Australia (General Government)",
+        "year": 2020,
+        "currency": "AUD"
+      },
+      {
+        "value": "data/budgets/australia-2015-general.json",
+        "label": "Australia (General Government) 2015",
+        "country": "Australia (General Government)",
+        "year": 2015,
+        "currency": "AUD"
+      },
+      {
+        "value": "data/budgets/australia-2010-general.json",
+        "label": "Australia (General Government) 2010",
+        "country": "Australia (General Government)",
+        "year": 2010,
+        "currency": "AUD"
+      },
+      {
+        "value": "data/budgets/brazil-2024-general.json",
+        "label": "Brazil (General Government) 2024",
+        "country": "Brazil (General Government)",
+        "year": 2024,
+        "currency": "BRL"
+      },
+      {
+        "value": "data/budgets/brazil-2020-general.json",
+        "label": "Brazil (General Government) 2020",
+        "country": "Brazil (General Government)",
+        "year": 2020,
+        "currency": "BRL"
+      },
+      {
+        "value": "data/budgets/brazil-2015-general.json",
+        "label": "Brazil (General Government) 2015",
+        "country": "Brazil (General Government)",
+        "year": 2015,
+        "currency": "BRL"
+      },
+      {
+        "value": "data/budgets/brazil-2010-general.json",
+        "label": "Brazil (General Government) 2010",
+        "country": "Brazil (General Government)",
+        "year": 2010,
+        "currency": "BRL"
+      },
       {
         "value": "data/budgets/california-2024.json",
         "label": "California (US State) 2024",
         "country": "California (US State)",
         "year": 2024,
         "currency": "USD"
+      },
+      {
+        "value": "data/budgets/canada-2024-general.json",
+        "label": "Canada (General Government) 2024",
+        "country": "Canada (General Government)",
+        "year": 2024,
+        "currency": "CAD"
+      },
+      {
+        "value": "data/budgets/canada-2020-general.json",
+        "label": "Canada (General Government) 2020",
+        "country": "Canada (General Government)",
+        "year": 2020,
+        "currency": "CAD"
+      },
+      {
+        "value": "data/budgets/canada-2015-general.json",
+        "label": "Canada (General Government) 2015",
+        "country": "Canada (General Government)",
+        "year": 2015,
+        "currency": "CAD"
+      },
+      {
+        "value": "data/budgets/canada-2010-general.json",
+        "label": "Canada (General Government) 2010",
+        "country": "Canada (General Government)",
+        "year": 2010,
+        "currency": "CAD"
       },
       {
         "value": "data/budgets/china-2024.json",
@@ -251,6 +335,34 @@ window.EMBEDDED_BUDGETS = {
         "currency": "EUR"
       },
       {
+        "value": "data/budgets/india-2024-general.json",
+        "label": "India (General Government) 2024",
+        "country": "India (General Government)",
+        "year": 2024,
+        "currency": "INR"
+      },
+      {
+        "value": "data/budgets/india-2020-general.json",
+        "label": "India (General Government) 2020",
+        "country": "India (General Government)",
+        "year": 2020,
+        "currency": "INR"
+      },
+      {
+        "value": "data/budgets/india-2015-general.json",
+        "label": "India (General Government) 2015",
+        "country": "India (General Government)",
+        "year": 2015,
+        "currency": "INR"
+      },
+      {
+        "value": "data/budgets/india-2010-general.json",
+        "label": "India (General Government) 2010",
+        "country": "India (General Government)",
+        "year": 2010,
+        "currency": "INR"
+      },
+      {
         "value": "data/budgets/italy-2024-general.json",
         "label": "Italy (General Government) 2024",
         "country": "Italy (General Government)",
@@ -312,6 +424,34 @@ window.EMBEDDED_BUDGETS = {
         "country": "Japan (General Government)",
         "year": 2010,
         "currency": "JPY"
+      },
+      {
+        "value": "data/budgets/russia-2024-general.json",
+        "label": "Russia (General Government) 2024",
+        "country": "Russia (General Government)",
+        "year": 2024,
+        "currency": "RUB"
+      },
+      {
+        "value": "data/budgets/russia-2020-general.json",
+        "label": "Russia (General Government) 2020",
+        "country": "Russia (General Government)",
+        "year": 2020,
+        "currency": "RUB"
+      },
+      {
+        "value": "data/budgets/russia-2015-general.json",
+        "label": "Russia (General Government) 2015",
+        "country": "Russia (General Government)",
+        "year": 2015,
+        "currency": "RUB"
+      },
+      {
+        "value": "data/budgets/russia-2010-general.json",
+        "label": "Russia (General Government) 2010",
+        "country": "Russia (General Government)",
+        "year": 2010,
+        "currency": "RUB"
       },
       {
         "value": "data/budgets/spain-2024-general.json",
@@ -498,6 +638,958 @@ window.EMBEDDED_BUDGETS = {
     ]
   },
   "budgets": {
+    "data/budgets/australia-2010-general.json": {
+      "metadata": {
+        "country": "Australia (General Government)",
+        "currency": "AUD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "ABS (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2010,
+        "population_millions": 22,
+        "exchange_rate_per_usd": 1.09,
+        "gdp": 1362,
+        "total_revenue": 436,
+        "total_expenditure": 494,
+        "deficit": 58,
+        "notes": "General government: Commonwealth, state and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Retirement saving is largely private (superannuation), hence the low social-protection share. Post-crisis deficit of ~4.3% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 240,
+          "percentage": 55
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 122.2,
+          "percentage": 28
+        },
+        {
+          "name": "Payroll & Social Contributions",
+          "category": "Social Insurance",
+          "amount": 8.6,
+          "percentage": 2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 65.2,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 114.4,
+          "percentage": 23.2
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 92.9,
+          "percentage": 18.8
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 69.1,
+          "percentage": 14
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 62,
+          "percentage": 12.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 47.7,
+          "percentage": 9.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 26.2,
+          "percentage": 5.3
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 24,
+          "percentage": 4.9
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 12,
+          "percentage": 2.4
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 12.9,
+          "percentage": 2.6
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 11.9,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 7.6,
+          "percentage": 1.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 13.3,
+          "percentage": 2.7
+        }
+      ]
+    },
+    "data/budgets/australia-2015-general.json": {
+      "metadata": {
+        "country": "Australia (General Government)",
+        "currency": "AUD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "ABS (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2015,
+        "population_millions": 23.8,
+        "exchange_rate_per_usd": 1.331,
+        "gdp": 1635,
+        "total_revenue": 559,
+        "total_expenditure": 605,
+        "deficit": 46,
+        "notes": "General government: Commonwealth, state and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Retirement saving is largely private (superannuation), hence the low social-protection share. Deficit of ~2.8% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 307.7,
+          "percentage": 55
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 156.6,
+          "percentage": 28
+        },
+        {
+          "name": "Payroll & Social Contributions",
+          "category": "Social Insurance",
+          "amount": 11.1,
+          "percentage": 2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 83.6,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 139.4,
+          "percentage": 23
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 113.2,
+          "percentage": 18.7
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 84.2,
+          "percentage": 13.9
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 75.5,
+          "percentage": 12.5
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 58.1,
+          "percentage": 9.6
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 31.9,
+          "percentage": 5.3
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 29,
+          "percentage": 4.8
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 18,
+          "percentage": 3
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 15.7,
+          "percentage": 2.6
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 14.5,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 9.3,
+          "percentage": 1.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 16.3,
+          "percentage": 2.7
+        }
+      ]
+    },
+    "data/budgets/australia-2020-general.json": {
+      "metadata": {
+        "country": "Australia (General Government)",
+        "currency": "AUD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "ABS (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2020,
+        "population_millions": 25.7,
+        "exchange_rate_per_usd": 1.453,
+        "gdp": 1975,
+        "total_revenue": 701,
+        "total_expenditure": 869,
+        "deficit": 168,
+        "notes": "General government: Commonwealth, state and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Retirement saving is largely private (superannuation), hence the low social-protection share. Pandemic-year deficit of ~8.5% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 385.9,
+          "percentage": 55
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 196.4,
+          "percentage": 28
+        },
+        {
+          "name": "Payroll & Social Contributions",
+          "category": "Social Insurance",
+          "amount": 13.9,
+          "percentage": 2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 104.8,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 201.5,
+          "percentage": 23.2
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 163.8,
+          "percentage": 18.8
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 121.8,
+          "percentage": 14
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 109.2,
+          "percentage": 12.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 84,
+          "percentage": 9.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 46.2,
+          "percentage": 5.3
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 40,
+          "percentage": 4.6
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 22,
+          "percentage": 2.5
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 22.7,
+          "percentage": 2.6
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 21,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 13.4,
+          "percentage": 1.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 23.5,
+          "percentage": 2.7
+        }
+      ]
+    },
+    "data/budgets/australia-2024-general.json": {
+      "metadata": {
+        "country": "Australia (General Government)",
+        "currency": "AUD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "ABS (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2024,
+        "population_millions": 27.1,
+        "exchange_rate_per_usd": 1.516,
+        "gdp": 2730,
+        "total_revenue": 1010,
+        "total_expenditure": 1051,
+        "deficit": 41,
+        "notes": "General government: Commonwealth, state and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Retirement saving is largely private (superannuation), hence the low social-protection share. Deficit ~1.5% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 556,
+          "percentage": 55
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 283,
+          "percentage": 28
+        },
+        {
+          "name": "Payroll & Social Contributions",
+          "category": "Social Insurance",
+          "amount": 20,
+          "percentage": 2
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 151,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 240,
+          "percentage": 22.8
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 195,
+          "percentage": 18.6
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 145,
+          "percentage": 13.8
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 130,
+          "percentage": 12.4
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 100,
+          "percentage": 9.5
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 55,
+          "percentage": 5.2
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 52,
+          "percentage": 4.9
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 38,
+          "percentage": 3.6
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 27,
+          "percentage": 2.6
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 25,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 16,
+          "percentage": 1.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 28,
+          "percentage": 2.7
+        }
+      ]
+    },
+    "data/budgets/brazil-2010-general.json": {
+      "metadata": {
+        "country": "Brazil (General Government)",
+        "currency": "BRL",
+        "currency_symbol": "R$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Tesouro Nacional (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2010,
+        "population_millions": 195,
+        "exchange_rate_per_usd": 1.76,
+        "gdp": 3886,
+        "total_revenue": 1411,
+        "total_expenditure": 1516,
+        "deficit": 105,
+        "notes": "General government: federal, state and municipal governments combined, IMF basis. Function split is a rough estimate (no standardized COFOG publication); interest costs are structurally high. Deficit ~2.7% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 423.3,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods & Services",
+          "category": "Indirect Taxes",
+          "amount": 564.5,
+          "percentage": 40
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 282.1,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 141.2,
+          "percentage": 10
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 502.5,
+          "percentage": 33.1
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 195,
+          "percentage": 12.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 204.8,
+          "percentage": 13.5
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 148.8,
+          "percentage": 9.8
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 148.8,
+          "percentage": 9.8
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 111.6,
+          "percentage": 7.4
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 56,
+          "percentage": 3.7
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 41,
+          "percentage": 2.7
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 14.9,
+          "percentage": 1
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 11.1,
+          "percentage": 0.7
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 11.1,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 70.3,
+          "percentage": 4.6
+        }
+      ]
+    },
+    "data/budgets/brazil-2015-general.json": {
+      "metadata": {
+        "country": "Brazil (General Government)",
+        "currency": "BRL",
+        "currency_symbol": "R$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Tesouro Nacional (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2015,
+        "population_millions": 204,
+        "exchange_rate_per_usd": 3.33,
+        "gdp": 5996,
+        "total_revenue": 1931,
+        "total_expenditure": 2548,
+        "deficit": 617,
+        "notes": "General government: federal, state and municipal governments combined, IMF basis. Function split is a rough estimate (no standardized COFOG publication); interest costs are structurally high. Recession-year deficit of ~10.3% of GDP; interest alone ~8.4% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 579.3,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods & Services",
+          "category": "Indirect Taxes",
+          "amount": 772.5,
+          "percentage": 40
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 386,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 193.2,
+          "percentage": 10
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 777.1,
+          "percentage": 30.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 505,
+          "percentage": 19.8
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 316.7,
+          "percentage": 12.4
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 230.2,
+          "percentage": 9
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 230.2,
+          "percentage": 9
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 172.6,
+          "percentage": 6.8
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 86.6,
+          "percentage": 3.4
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 63.4,
+          "percentage": 2.5
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 23.1,
+          "percentage": 0.9
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 17.2,
+          "percentage": 0.7
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 17.2,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 108.7,
+          "percentage": 4.3
+        }
+      ]
+    },
+    "data/budgets/brazil-2020-general.json": {
+      "metadata": {
+        "country": "Brazil (General Government)",
+        "currency": "BRL",
+        "currency_symbol": "R$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Tesouro Nacional (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2020,
+        "population_millions": 212,
+        "exchange_rate_per_usd": 5.16,
+        "gdp": 7610,
+        "total_revenue": 2565,
+        "total_expenditure": 3577,
+        "deficit": 1012,
+        "notes": "General government: federal, state and municipal governments combined, IMF basis. Function split is a rough estimate (no standardized COFOG publication); interest costs are structurally high. Pandemic-year deficit of ~13.3% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 769.4,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods & Services",
+          "category": "Indirect Taxes",
+          "amount": 1026.1,
+          "percentage": 40
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 512.7,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 256.7,
+          "percentage": 10
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 1238.8,
+          "percentage": 34.6
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 320,
+          "percentage": 8.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 504.9,
+          "percentage": 14.1
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 366.9,
+          "percentage": 10.3
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 366.9,
+          "percentage": 10.3
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 275.2,
+          "percentage": 7.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 138,
+          "percentage": 3.9
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 101.1,
+          "percentage": 2.8
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 36.9,
+          "percentage": 1
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 27.4,
+          "percentage": 0.8
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 27.4,
+          "percentage": 0.8
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 173.3,
+          "percentage": 4.8
+        }
+      ]
+    },
+    "data/budgets/brazil-2024-general.json": {
+      "metadata": {
+        "country": "Brazil (General Government)",
+        "currency": "BRL",
+        "currency_symbol": "R$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Tesouro Nacional (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2024,
+        "population_millions": 212,
+        "exchange_rate_per_usd": 5.39,
+        "gdp": 11700,
+        "total_revenue": 4037,
+        "total_expenditure": 4973,
+        "deficit": 936,
+        "notes": "General government: federal, state and municipal governments combined, IMF basis. Function split is a rough estimate (no standardized COFOG publication); interest costs are structurally high. Overall deficit ~8% of GDP, mostly interest."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 1211,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods & Services",
+          "category": "Indirect Taxes",
+          "amount": 1615,
+          "percentage": 40
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 807,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 404,
+          "percentage": 10
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 1580,
+          "percentage": 31.8
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 819,
+          "percentage": 16.5
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 644,
+          "percentage": 12.9
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 468,
+          "percentage": 9.4
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 468,
+          "percentage": 9.4
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 351,
+          "percentage": 7.1
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 176,
+          "percentage": 3.5
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 129,
+          "percentage": 2.6
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 47,
+          "percentage": 0.9
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 35,
+          "percentage": 0.7
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 35,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 221,
+          "percentage": 4.4
+        }
+      ]
+    },
     "data/budgets/california-2024.json": {
       "metadata": {
         "country": "California (US State)",
@@ -583,6 +1675,482 @@ window.EMBEDDED_BUDGETS = {
           "category": "General Services",
           "amount": 19.5,
           "percentage": 9.2
+        }
+      ]
+    },
+    "data/budgets/canada-2010-general.json": {
+      "metadata": {
+        "country": "Canada (General Government)",
+        "currency": "CAD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "Statistics Canada (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2010,
+        "population_millions": 34,
+        "exchange_rate_per_usd": 1.03,
+        "gdp": 1666,
+        "total_revenue": 643,
+        "total_expenditure": 723,
+        "deficit": 80,
+        "notes": "General government: federal, provincial and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Post-crisis deficit of ~4.8% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 308.8,
+          "percentage": 48
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 173.5,
+          "percentage": 27
+        },
+        {
+          "name": "Social Insurance Contributions",
+          "category": "Social Insurance",
+          "amount": 83.8,
+          "percentage": 13
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 76.9,
+          "percentage": 12
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 194.1,
+          "percentage": 26.8
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 142.7,
+          "percentage": 19.7
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 91.3,
+          "percentage": 12.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 68.5,
+          "percentage": 9.5
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 68.5,
+          "percentage": 9.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 55,
+          "percentage": 7.6
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 34.8,
+          "percentage": 4.8
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 20,
+          "percentage": 2.8
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 15.4,
+          "percentage": 2.1
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 13.7,
+          "percentage": 1.9
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 10.3,
+          "percentage": 1.4
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 8.6,
+          "percentage": 1.2
+        }
+      ]
+    },
+    "data/budgets/canada-2015-general.json": {
+      "metadata": {
+        "country": "Canada (General Government)",
+        "currency": "CAD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "Statistics Canada (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2015,
+        "population_millions": 35.7,
+        "exchange_rate_per_usd": 1.279,
+        "gdp": 1990,
+        "total_revenue": 802,
+        "total_expenditure": 804,
+        "deficit": 2,
+        "notes": "General government: federal, provincial and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Near-balanced budget in 2015."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 385.1,
+          "percentage": 48
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 216.4,
+          "percentage": 27
+        },
+        {
+          "name": "Social Insurance Contributions",
+          "category": "Social Insurance",
+          "amount": 104.6,
+          "percentage": 13
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 95.9,
+          "percentage": 12
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 217.2,
+          "percentage": 27
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 159.7,
+          "percentage": 19.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 102.2,
+          "percentage": 12.7
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 76.7,
+          "percentage": 9.5
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 76.7,
+          "percentage": 9.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 55,
+          "percentage": 6.8
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 39,
+          "percentage": 4.9
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 24,
+          "percentage": 3
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 17.2,
+          "percentage": 2.1
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 15.3,
+          "percentage": 1.9
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 11.5,
+          "percentage": 1.4
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 9.6,
+          "percentage": 1.2
+        }
+      ]
+    },
+    "data/budgets/canada-2020-general.json": {
+      "metadata": {
+        "country": "Canada (General Government)",
+        "currency": "CAD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "Statistics Canada (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2020,
+        "population_millions": 38,
+        "exchange_rate_per_usd": 1.341,
+        "gdp": 2210,
+        "total_revenue": 913,
+        "total_expenditure": 1154,
+        "deficit": 241,
+        "notes": "General government: federal, provincial and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Pandemic-year deficit of ~10.9% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 438.4,
+          "percentage": 48
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 246.3,
+          "percentage": 27
+        },
+        {
+          "name": "Social Insurance Contributions",
+          "category": "Social Insurance",
+          "amount": 119,
+          "percentage": 13
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 109.2,
+          "percentage": 12
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 320.2,
+          "percentage": 27.7
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 235.5,
+          "percentage": 20.4
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 150.7,
+          "percentage": 13.1
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 113,
+          "percentage": 9.8
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 113,
+          "percentage": 9.8
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 55,
+          "percentage": 4.8
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 57.5,
+          "percentage": 5
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 30,
+          "percentage": 2.6
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 25.4,
+          "percentage": 2.2
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 22.6,
+          "percentage": 2
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 17,
+          "percentage": 1.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 14.1,
+          "percentage": 1.2
+        }
+      ]
+    },
+    "data/budgets/canada-2024-general.json": {
+      "metadata": {
+        "country": "Canada (General Government)",
+        "currency": "CAD",
+        "currency_symbol": "$",
+        "unit": "billions",
+        "scope": "general",
+        "source": "Statistics Canada (national accounts), OECD/IMF general government statistics",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2024,
+        "population_millions": 41.3,
+        "exchange_rate_per_usd": 1.37,
+        "gdp": 3030,
+        "total_revenue": 1212,
+        "total_expenditure": 1273,
+        "deficit": 61,
+        "notes": "General government: federal, provincial and local governments combined, national-accounts basis. Totals from IMF/OECD aggregates; function split from OECD COFOG shares, approximate. Deficit ~2.0% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 582,
+          "percentage": 48
+        },
+        {
+          "name": "Taxes on Production & Imports",
+          "category": "Indirect Taxes",
+          "amount": 327,
+          "percentage": 27
+        },
+        {
+          "name": "Social Insurance Contributions",
+          "category": "Social Insurance",
+          "amount": 158,
+          "percentage": 13
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 145,
+          "percentage": 12
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 340,
+          "percentage": 26.7
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 250,
+          "percentage": 19.6
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 160,
+          "percentage": 12.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 120,
+          "percentage": 9.4
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 120,
+          "percentage": 9.4
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 79,
+          "percentage": 6.2
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 61,
+          "percentage": 4.8
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 39,
+          "percentage": 3.1
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 27,
+          "percentage": 2.1
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 24,
+          "percentage": 1.9
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 18,
+          "percentage": 1.4
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 35,
+          "percentage": 2.7
         }
       ]
     },
@@ -4961,6 +6529,458 @@ window.EMBEDDED_BUDGETS = {
         }
       ]
     },
+    "data/budgets/india-2010-general.json": {
+      "metadata": {
+        "country": "India (General Government)",
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, RBI (combined central and state governments)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2010,
+        "population_millions": 1234,
+        "exchange_rate_per_usd": 45.7,
+        "gdp": 77.8,
+        "total_revenue": 15.6,
+        "total_expenditure": 22.2,
+        "deficit": 6.6,
+        "notes": "General government: central and state governments combined (fiscal years), IMF basis. India publishes no standardized COFOG data, so the function split is a rough estimate from RBI/budget documents. Values in trillions of rupees. Combined deficit ~8.5% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 5.45,
+          "percentage": 34.9
+        },
+        {
+          "name": "Taxes on Goods & Services (GST, excise)",
+          "category": "Indirect Taxes",
+          "amount": 7.02,
+          "percentage": 45
+        },
+        {
+          "name": "Non-Tax & Other Revenue",
+          "category": "Other",
+          "amount": 3.13,
+          "percentage": 20.1
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Economic Affairs (incl. subsidies)",
+          "category": "Economic Affairs",
+          "amount": 4.85,
+          "percentage": 21.8
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 3.5,
+          "percentage": 15.8
+        },
+        {
+          "name": "Social Protection & Rural Employment",
+          "category": "Social Protection",
+          "amount": 2.62,
+          "percentage": 11.8
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 2.17,
+          "percentage": 9.8
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 2.24,
+          "percentage": 10.1
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 1.9,
+          "percentage": 8.6
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 1.04,
+          "percentage": 4.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 0.9,
+          "percentage": 4.1
+        },
+        {
+          "name": "Housing & Urban Development",
+          "category": "Housing",
+          "amount": 0.52,
+          "percentage": 2.3
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.16,
+          "percentage": 0.7
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 0.16,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 2.15,
+          "percentage": 9.7
+        }
+      ]
+    },
+    "data/budgets/india-2015-general.json": {
+      "metadata": {
+        "country": "India (General Government)",
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, RBI (combined central and state governments)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2015,
+        "population_millions": 1310,
+        "exchange_rate_per_usd": 64.2,
+        "gdp": 137.7,
+        "total_revenue": 28.2,
+        "total_expenditure": 37.9,
+        "deficit": 9.7,
+        "notes": "General government: central and state governments combined (fiscal years), IMF basis. India publishes no standardized COFOG data, so the function split is a rough estimate from RBI/budget documents. Values in trillions of rupees. Combined deficit ~7.0% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 9.86,
+          "percentage": 35
+        },
+        {
+          "name": "Taxes on Goods & Services (GST, excise)",
+          "category": "Indirect Taxes",
+          "amount": 12.69,
+          "percentage": 45
+        },
+        {
+          "name": "Non-Tax & Other Revenue",
+          "category": "Other",
+          "amount": 5.66,
+          "percentage": 20.1
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Economic Affairs (incl. subsidies)",
+          "category": "Economic Affairs",
+          "amount": 8.18,
+          "percentage": 21.6
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 6.6,
+          "percentage": 17.4
+        },
+        {
+          "name": "Social Protection & Rural Employment",
+          "category": "Social Protection",
+          "amount": 4.41,
+          "percentage": 11.6
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 3.65,
+          "percentage": 9.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 3.77,
+          "percentage": 9.9
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 3,
+          "percentage": 7.9
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 1.75,
+          "percentage": 4.6
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 1.52,
+          "percentage": 4
+        },
+        {
+          "name": "Housing & Urban Development",
+          "category": "Housing",
+          "amount": 0.87,
+          "percentage": 2.3
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.27,
+          "percentage": 0.7
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 0.27,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 3.61,
+          "percentage": 9.5
+        }
+      ]
+    },
+    "data/budgets/india-2020-general.json": {
+      "metadata": {
+        "country": "India (General Government)",
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, RBI (combined central and state governments)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2020,
+        "population_millions": 1396,
+        "exchange_rate_per_usd": 74.1,
+        "gdp": 198.5,
+        "total_revenue": 36.9,
+        "total_expenditure": 62.5,
+        "deficit": 25.6,
+        "notes": "General government: central and state governments combined (fiscal years), IMF basis. India publishes no standardized COFOG data, so the function split is a rough estimate from RBI/budget documents. Values in trillions of rupees. Pandemic-year combined deficit of ~12.9% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 12.9,
+          "percentage": 35
+        },
+        {
+          "name": "Taxes on Goods & Services (GST, excise)",
+          "category": "Indirect Taxes",
+          "amount": 16.6,
+          "percentage": 45
+        },
+        {
+          "name": "Non-Tax & Other Revenue",
+          "category": "Other",
+          "amount": 7.4,
+          "percentage": 20.1
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Economic Affairs (incl. subsidies)",
+          "category": "Economic Affairs",
+          "amount": 13.81,
+          "percentage": 22.1
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 9.9,
+          "percentage": 15.8
+        },
+        {
+          "name": "Social Protection & Rural Employment",
+          "category": "Social Protection",
+          "amount": 7.45,
+          "percentage": 11.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 6.17,
+          "percentage": 9.9
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 6.36,
+          "percentage": 10.2
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 4.8,
+          "percentage": 7.7
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 2.96,
+          "percentage": 4.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 2.57,
+          "percentage": 4.1
+        },
+        {
+          "name": "Housing & Urban Development",
+          "category": "Housing",
+          "amount": 1.48,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.45,
+          "percentage": 0.7
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 0.45,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 6.1,
+          "percentage": 9.8
+        }
+      ]
+    },
+    "data/budgets/india-2024-general.json": {
+      "metadata": {
+        "country": "India (General Government)",
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, RBI (combined central and state governments)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2024,
+        "population_millions": 1441,
+        "exchange_rate_per_usd": 83.7,
+        "gdp": 331,
+        "total_revenue": 71.8,
+        "total_expenditure": 97.6,
+        "deficit": 25.8,
+        "notes": "General government: central and state governments combined (fiscal years), IMF basis. India publishes no standardized COFOG data, so the function split is a rough estimate from RBI/budget documents. Values in trillions of rupees. Combined deficit ~7.8% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 25.1,
+          "percentage": 35
+        },
+        {
+          "name": "Taxes on Goods & Services (GST, excise)",
+          "category": "Indirect Taxes",
+          "amount": 32.3,
+          "percentage": 45
+        },
+        {
+          "name": "Non-Tax & Other Revenue",
+          "category": "Other",
+          "amount": 14.4,
+          "percentage": 20.1
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Economic Affairs (incl. subsidies)",
+          "category": "Economic Affairs",
+          "amount": 21.5,
+          "percentage": 22
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 16.6,
+          "percentage": 17
+        },
+        {
+          "name": "Social Protection & Rural Employment",
+          "category": "Social Protection",
+          "amount": 11.6,
+          "percentage": 11.9
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 9.6,
+          "percentage": 9.8
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 9.9,
+          "percentage": 10.1
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 6.6,
+          "percentage": 6.8
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 4.6,
+          "percentage": 4.7
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 4,
+          "percentage": 4.1
+        },
+        {
+          "name": "Housing & Urban Development",
+          "category": "Housing",
+          "amount": 2.3,
+          "percentage": 2.4
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.7,
+          "percentage": 0.7
+        },
+        {
+          "name": "Recreation & Culture",
+          "category": "Recreation",
+          "amount": 0.7,
+          "percentage": 0.7
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 9.5,
+          "percentage": 9.7
+        }
+      ]
+    },
     "data/budgets/italy-2010-general.json": {
       "metadata": {
         "country": "Italy (General Government)",
@@ -6004,6 +8024,482 @@ window.EMBEDDED_BUDGETS = {
           "category": "Other",
           "amount": 10.6,
           "percentage": 9.4
+        }
+      ]
+    },
+    "data/budgets/russia-2010-general.json": {
+      "metadata": {
+        "country": "Russia (General Government)",
+        "currency": "RUB",
+        "currency_symbol": "₽",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Russian Ministry of Finance (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2010,
+        "population_millions": 142.8,
+        "exchange_rate_per_usd": 30.4,
+        "gdp": 46.3,
+        "total_revenue": 15.19,
+        "total_expenditure": 16.76,
+        "deficit": 1.57,
+        "notes": "General government: federal, regional and extra-budgetary funds combined, IMF basis. Function split is a rough estimate; since 2022 large parts of the budget are classified and official figures are of limited reliability. Values in trillions of rubles. Post-crisis deficit of ~3.4% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 4.56,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods, Services & Trade (incl. oil & gas)",
+          "category": "Indirect Taxes",
+          "amount": 5.32,
+          "percentage": 35
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 3.04,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 2.28,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 5.48,
+          "percentage": 32.7
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 1.67,
+          "percentage": 10
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 2.24,
+          "percentage": 13.4
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 1.75,
+          "percentage": 10.4
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 1.75,
+          "percentage": 10.4
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 1.35,
+          "percentage": 8.1
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 1.25,
+          "percentage": 7.5
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 0.23,
+          "percentage": 1.4
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 0.5,
+          "percentage": 3
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 0.35,
+          "percentage": 2.1
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.1,
+          "percentage": 0.6
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 0.1,
+          "percentage": 0.6
+        }
+      ]
+    },
+    "data/budgets/russia-2015-general.json": {
+      "metadata": {
+        "country": "Russia (General Government)",
+        "currency": "RUB",
+        "currency_symbol": "₽",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Russian Ministry of Finance (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2015,
+        "population_millions": 146.5,
+        "exchange_rate_per_usd": 61,
+        "gdp": 83.1,
+        "total_revenue": 26.92,
+        "total_expenditure": 29.75,
+        "deficit": 2.83,
+        "notes": "General government: federal, regional and extra-budgetary funds combined, IMF basis. Function split is a rough estimate; since 2022 large parts of the budget are classified and official figures are of limited reliability. Values in trillions of rubles. Sanctions/oil-slump deficit of ~3.4% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 8.08,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods, Services & Trade (incl. oil & gas)",
+          "category": "Indirect Taxes",
+          "amount": 9.42,
+          "percentage": 35
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 5.38,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 4.04,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 9.23,
+          "percentage": 31
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 4.07,
+          "percentage": 13.7
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 3.78,
+          "percentage": 12.7
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 2.94,
+          "percentage": 9.9
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 2.94,
+          "percentage": 9.9
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 2.27,
+          "percentage": 7.6
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 2.1,
+          "percentage": 7.1
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 0.67,
+          "percentage": 2.3
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 0.84,
+          "percentage": 2.8
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 0.59,
+          "percentage": 2
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.17,
+          "percentage": 0.6
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 0.17,
+          "percentage": 0.6
+        }
+      ]
+    },
+    "data/budgets/russia-2020-general.json": {
+      "metadata": {
+        "country": "Russia (General Government)",
+        "currency": "RUB",
+        "currency_symbol": "₽",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Russian Ministry of Finance (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2020,
+        "population_millions": 146.2,
+        "exchange_rate_per_usd": 72.1,
+        "gdp": 107.7,
+        "total_revenue": 38.22,
+        "total_expenditure": 42.53,
+        "deficit": 4.31,
+        "notes": "General government: federal, regional and extra-budgetary funds combined, IMF basis. Function split is a rough estimate; since 2022 large parts of the budget are classified and official figures are of limited reliability. Values in trillions of rubles. Pandemic-year deficit of ~4% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 11.47,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods, Services & Trade (incl. oil & gas)",
+          "category": "Indirect Taxes",
+          "amount": 13.37,
+          "percentage": 35
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 7.64,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 5.74,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 13.63,
+          "percentage": 32
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 4.63,
+          "percentage": 10.9
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 5.58,
+          "percentage": 13.1
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 4.34,
+          "percentage": 10.2
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 4.34,
+          "percentage": 10.2
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 3.35,
+          "percentage": 7.9
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 3.1,
+          "percentage": 7.3
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 0.97,
+          "percentage": 2.3
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 1.24,
+          "percentage": 2.9
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 0.87,
+          "percentage": 2
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.25,
+          "percentage": 0.6
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 0.25,
+          "percentage": 0.6
+        }
+      ]
+    },
+    "data/budgets/russia-2024-general.json": {
+      "metadata": {
+        "country": "Russia (General Government)",
+        "currency": "RUB",
+        "currency_symbol": "₽",
+        "unit": "trillions",
+        "scope": "general",
+        "source": "IMF Fiscal Monitor, Russian Ministry of Finance (general government)",
+        "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+        "year": 2024,
+        "population_millions": 146,
+        "exchange_rate_per_usd": 92.8,
+        "gdp": 201,
+        "total_revenue": 71.4,
+        "total_expenditure": 75.4,
+        "deficit": 4,
+        "notes": "General government: federal, regional and extra-budgetary funds combined, IMF basis. Function split is a rough estimate; since 2022 large parts of the budget are classified and official figures are of limited reliability. Values in trillions of rubles. War-economy year: defense ~6.7% of GDP."
+      },
+      "revenue": [
+        {
+          "name": "Taxes on Income & Wealth",
+          "category": "Direct Taxes",
+          "amount": 21.41,
+          "percentage": 30
+        },
+        {
+          "name": "Taxes on Goods, Services & Trade (incl. oil & gas)",
+          "category": "Indirect Taxes",
+          "amount": 24.97,
+          "percentage": 35
+        },
+        {
+          "name": "Social Contributions",
+          "category": "Social Insurance",
+          "amount": 14.27,
+          "percentage": 20
+        },
+        {
+          "name": "Sales, Fees & Other Revenue",
+          "category": "Other",
+          "amount": 10.71,
+          "percentage": 15
+        }
+      ],
+      "expenditure": [
+        {
+          "name": "Social Protection (incl. pensions)",
+          "category": "Social Protection",
+          "amount": 22.11,
+          "percentage": 29.3
+        },
+        {
+          "name": "Defense",
+          "category": "Defense",
+          "amount": 13.47,
+          "percentage": 17.9
+        },
+        {
+          "name": "Economic Affairs",
+          "category": "Economic Affairs",
+          "amount": 9.05,
+          "percentage": 12
+        },
+        {
+          "name": "Education",
+          "category": "Education",
+          "amount": 7.04,
+          "percentage": 9.3
+        },
+        {
+          "name": "Health",
+          "category": "Health",
+          "amount": 7.04,
+          "percentage": 9.3
+        },
+        {
+          "name": "Public Order & Safety",
+          "category": "Public Safety",
+          "amount": 5.43,
+          "percentage": 7.2
+        },
+        {
+          "name": "General Public Services (excl. interest)",
+          "category": "General Services",
+          "amount": 5.03,
+          "percentage": 6.7
+        },
+        {
+          "name": "Interest on Debt",
+          "category": "Debt Service",
+          "amount": 2.01,
+          "percentage": 2.7
+        },
+        {
+          "name": "Housing & Community Amenities",
+          "category": "Housing",
+          "amount": 2.01,
+          "percentage": 2.7
+        },
+        {
+          "name": "Recreation, Culture & Religion",
+          "category": "Recreation",
+          "amount": 1.41,
+          "percentage": 1.9
+        },
+        {
+          "name": "Environment",
+          "category": "Environment",
+          "amount": 0.4,
+          "percentage": 0.5
+        },
+        {
+          "name": "Other",
+          "category": "Other",
+          "amount": 0.4,
+          "percentage": 0.5
         }
       ]
     },

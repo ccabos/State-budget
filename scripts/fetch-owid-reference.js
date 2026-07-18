@@ -29,6 +29,11 @@ const COUNTRIES = {
   ESP: 'Spain',
   SWE: 'Sweden',
   JPN: 'Japan',
+  CAN: 'Canada',
+  AUS: 'Australia',
+  IND: 'India',
+  BRA: 'Brazil',
+  RUS: 'Russia',
 };
 
 // OWID grapher slug -> which of our measures it checks.

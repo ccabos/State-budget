@@ -1,12 +1,96 @@
 {
-  "generated": "2026-07-12",
+  "generated": "2026-07-18",
   "budgets": [
+    {
+      "value": "data/budgets/australia-2024-general.json",
+      "label": "Australia (General Government) 2024",
+      "country": "Australia (General Government)",
+      "year": 2024,
+      "currency": "AUD"
+    },
+    {
+      "value": "data/budgets/australia-2020-general.json",
+      "label": "Australia (General Government) 2020",
+      "country": "Australia (General Government)",
+      "year": 2020,
+      "currency": "AUD"
+    },
+    {
+      "value": "data/budgets/australia-2015-general.json",
+      "label": "Australia (General Government) 2015",
+      "country": "Australia (General Government)",
+      "year": 2015,
+      "currency": "AUD"
+    },
+    {
+      "value": "data/budgets/australia-2010-general.json",
+      "label": "Australia (General Government) 2010",
+      "country": "Australia (General Government)",
+      "year": 2010,
+      "currency": "AUD"
+    },
+    {
+      "value": "data/budgets/brazil-2024-general.json",
+      "label": "Brazil (General Government) 2024",
+      "country": "Brazil (General Government)",
+      "year": 2024,
+      "currency": "BRL"
+    },
+    {
+      "value": "data/budgets/brazil-2020-general.json",
+      "label": "Brazil (General Government) 2020",
+      "country": "Brazil (General Government)",
+      "year": 2020,
+      "currency": "BRL"
+    },
+    {
+      "value": "data/budgets/brazil-2015-general.json",
+      "label": "Brazil (General Government) 2015",
+      "country": "Brazil (General Government)",
+      "year": 2015,
+      "currency": "BRL"
+    },
+    {
+      "value": "data/budgets/brazil-2010-general.json",
+      "label": "Brazil (General Government) 2010",
+      "country": "Brazil (General Government)",
+      "year": 2010,
+      "currency": "BRL"
+    },
     {
       "value": "data/budgets/california-2024.json",
       "label": "California (US State) 2024",
       "country": "California (US State)",
       "year": 2024,
       "currency": "USD"
+    },
+    {
+      "value": "data/budgets/canada-2024-general.json",
+      "label": "Canada (General Government) 2024",
+      "country": "Canada (General Government)",
+      "year": 2024,
+      "currency": "CAD"
+    },
+    {
+      "value": "data/budgets/canada-2020-general.json",
+      "label": "Canada (General Government) 2020",
+      "country": "Canada (General Government)",
+      "year": 2020,
+      "currency": "CAD"
+    },
+    {
+      "value": "data/budgets/canada-2015-general.json",
+      "label": "Canada (General Government) 2015",
+      "country": "Canada (General Government)",
+      "year": 2015,
+      "currency": "CAD"
+    },
+    {
+      "value": "data/budgets/canada-2010-general.json",
+      "label": "Canada (General Government) 2010",
+      "country": "Canada (General Government)",
+      "year": 2010,
+      "currency": "CAD"
     },
     {
       "value": "data/budgets/china-2024.json",
@@ -247,6 +331,34 @@
       "currency": "EUR"
     },
     {
+      "value": "data/budgets/india-2024-general.json",
+      "label": "India (General Government) 2024",
+      "country": "India (General Government)",
+      "year": 2024,
+      "currency": "INR"
+    },
+    {
+      "value": "data/budgets/india-2020-general.json",
+      "label": "India (General Government) 2020",
+      "country": "India (General Government)",
+      "year": 2020,
+      "currency": "INR"
+    },
+    {
+      "value": "data/budgets/india-2015-general.json",
+      "label": "India (General Government) 2015",
+      "country": "India (General Government)",
+      "year": 2015,
+      "currency": "INR"
+    },
+    {
+      "value": "data/budgets/india-2010-general.json",
+      "label": "India (General Government) 2010",
+      "country": "India (General Government)",
+      "year": 2010,
+      "currency": "INR"
+    },
+    {
       "value": "data/budgets/italy-2024-general.json",
       "label": "Italy (General Government) 2024",
       "country": "Italy (General Government)",
@@ -308,6 +420,34 @@
       "country": "Japan (General Government)",
       "year": 2010,
       "currency": "JPY"
+    },
+    {
+      "value": "data/budgets/russia-2024-general.json",
+      "label": "Russia (General Government) 2024",
+      "country": "Russia (General Government)",
+      "year": 2024,
+      "currency": "RUB"
+    },
+    {
+      "value": "data/budgets/russia-2020-general.json",
+      "label": "Russia (General Government) 2020",
+      "country": "Russia (General Government)",
+      "year": 2020,
+      "currency": "RUB"
+    },
+    {
+      "value": "data/budgets/russia-2015-general.json",
+      "label": "Russia (General Government) 2015",
+      "country": "Russia (General Government)",
+      "year": 2015,
+      "currency": "RUB"
+    },
+    {
+      "value": "data/budgets/russia-2010-general.json",
+      "label": "Russia (General Government) 2010",
+      "country": "Russia (General Government)",
+      "year": 2010,
+      "currency": "RUB"
     },
     {
       "value": "data/budgets/spain-2024-general.json",

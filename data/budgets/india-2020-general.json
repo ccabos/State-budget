@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "country": "India (General Government)",
+    "currency": "INR",
+    "currency_symbol": "₹",
+    "unit": "trillions",
+    "scope": "general",
+    "source": "IMF Fiscal Monitor, RBI (combined central and state governments)",
+    "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+    "year": 2020,
+    "population_millions": 1396,
+    "exchange_rate_per_usd": 74.1,
+    "gdp": 198.5,
+    "total_revenue": 36.9,
+    "total_expenditure": 62.5,
+    "deficit": 25.6,
+    "notes": "General government: central and state governments combined (fiscal years), IMF basis. India publishes no standardized COFOG data, so the function split is a rough estimate from RBI/budget documents. Values in trillions of rupees. Pandemic-year combined deficit of ~12.9% of GDP."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 12.9,
+      "percentage": 35
+    },
+    {
+      "name": "Taxes on Goods & Services (GST, excise)",
+      "category": "Indirect Taxes",
+      "amount": 16.6,
+      "percentage": 45
+    },
+    {
+      "name": "Non-Tax & Other Revenue",
+      "category": "Other",
+      "amount": 7.4,
+      "percentage": 20.1
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Economic Affairs (incl. subsidies)",
+      "category": "Economic Affairs",
+      "amount": 13.81,
+      "percentage": 22.1
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 9.9,
+      "percentage": 15.8
+    },
+    {
+      "name": "Social Protection & Rural Employment",
+      "category": "Social Protection",
+      "amount": 7.45,
+      "percentage": 11.9
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 6.17,
+      "percentage": 9.9
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 6.36,
+      "percentage": 10.2
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 4.8,
+      "percentage": 7.7
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 2.96,
+      "percentage": 4.7
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 2.57,
+      "percentage": 4.1
+    },
+    {
+      "name": "Housing & Urban Development",
+      "category": "Housing",
+      "amount": 1.48,
+      "percentage": 2.4
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 0.45,
+      "percentage": 0.7
+    },
+    {
+      "name": "Recreation & Culture",
+      "category": "Recreation",
+      "amount": 0.45,
+      "percentage": 0.7
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 6.1,
+      "percentage": 9.8
+    }
+  ]
+}

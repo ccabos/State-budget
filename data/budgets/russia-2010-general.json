@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "country": "Russia (General Government)",
+    "currency": "RUB",
+    "currency_symbol": "₽",
+    "unit": "trillions",
+    "scope": "general",
+    "source": "IMF Fiscal Monitor, Russian Ministry of Finance (general government)",
+    "source_url": "https://www.imf.org/external/datamapper/exp@FPP",
+    "year": 2010,
+    "population_millions": 142.8,
+    "exchange_rate_per_usd": 30.4,
+    "gdp": 46.3,
+    "total_revenue": 15.19,
+    "total_expenditure": 16.76,
+    "deficit": 1.57,
+    "notes": "General government: federal, regional and extra-budgetary funds combined, IMF basis. Function split is a rough estimate; since 2022 large parts of the budget are classified and official figures are of limited reliability. Values in trillions of rubles. Post-crisis deficit of ~3.4% of GDP."
+  },
+  "revenue": [
+    {
+      "name": "Taxes on Income & Wealth",
+      "category": "Direct Taxes",
+      "amount": 4.56,
+      "percentage": 30
+    },
+    {
+      "name": "Taxes on Goods, Services & Trade (incl. oil & gas)",
+      "category": "Indirect Taxes",
+      "amount": 5.32,
+      "percentage": 35
+    },
+    {
+      "name": "Social Contributions",
+      "category": "Social Insurance",
+      "amount": 3.04,
+      "percentage": 20
+    },
+    {
+      "name": "Sales, Fees & Other Revenue",
+      "category": "Other",
+      "amount": 2.28,
+      "percentage": 15
+    }
+  ],
+  "expenditure": [
+    {
+      "name": "Social Protection (incl. pensions)",
+      "category": "Social Protection",
+      "amount": 5.48,
+      "percentage": 32.7
+    },
+    {
+      "name": "Defense",
+      "category": "Defense",
+      "amount": 1.67,
+      "percentage": 10
+    },
+    {
+      "name": "Economic Affairs",
+      "category": "Economic Affairs",
+      "amount": 2.24,
+      "percentage": 13.4
+    },
+    {
+      "name": "Education",
+      "category": "Education",
+      "amount": 1.75,
+      "percentage": 10.4
+    },
+    {
+      "name": "Health",
+      "category": "Health",
+      "amount": 1.75,
+      "percentage": 10.4
+    },
+    {
+      "name": "Public Order & Safety",
+      "category": "Public Safety",
+      "amount": 1.35,
+      "percentage": 8.1
+    },
+    {
+      "name": "General Public Services (excl. interest)",
+      "category": "General Services",
+      "amount": 1.25,
+      "percentage": 7.5
+    },
+    {
+      "name": "Interest on Debt",
+      "category": "Debt Service",
+      "amount": 0.23,
+      "percentage": 1.4
+    },
+    {
+      "name": "Housing & Community Amenities",
+      "category": "Housing",
+      "amount": 0.5,
+      "percentage": 3
+    },
+    {
+      "name": "Recreation, Culture & Religion",
+      "category": "Recreation",
+      "amount": 0.35,
+      "percentage": 2.1
+    },
+    {
+      "name": "Environment",
+      "category": "Environment",
+      "amount": 0.1,
+      "percentage": 0.6
+    },
+    {
+      "name": "Other",
+      "category": "Other",
+      "amount": 0.1,
+      "percentage": 0.6
+    }
+  ]
+}
